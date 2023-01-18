@@ -65,7 +65,7 @@ INSERT INTO t1 (SELECT * FROM t2 WHERE id <= 100);
 
 这个过程是先遍历表 `t1`，然后根据从表 `t1` 中取出的每行数据中的 `a` 值，去表 `t2` 中查找满足条件的记录。
 
-这个过程和程序里的嵌套查询类似，并且可以用上被驱动表的索引，所以称之为 `Index Nested-Loop Join`。
+这个过程和程序里的嵌套查询类似，并且可以用上被驱动表的索引，所以称之为 `Index Nested-Loop Join`，简称 `NLJ`。
 
 在这个流程里：
 - 对驱动表 `t1` 做了全表扫描，这个过程需要扫描 `100` 行。
@@ -105,7 +105,7 @@ INSERT INTO t1 (SELECT * FROM t2 WHERE id <= 100);
 
 这个 `SQL` 请求要全表扫描 `t2` 多达 `100` 次，总共扫描 `100*1000=10` 万行。
 
-当然 `MySQL` 也没有使用这个 `Simple Nested-Loop Join` 算法，而是使用了另一个叫作 `Block Nested-Loop Join` 的算法。
+当然 `MySQL` 也没有使用这个 `Simple Nested-Loop Join` 算法，而是使用了另一个叫作 `Block Nested-Loop Join` 的算法，简称 `BNL`。
 
 ## Block Nested-Loop Join
 
