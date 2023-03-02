@@ -9,3 +9,5 @@
 - [05-Docker-迁移与备份](./05-Docker-迁移与备份.md)
 - [06-Docker-Dockerfile](./06-Docker-Dockerfile.md)
 - [07-Docker-私有仓库](./07-Docker-私有仓库.md)
+- [08-Docker-多容器应用](./08-Docker-多容器应用.md)
+- [09-Docker-Compose](./09-Docker-Compose.md)
