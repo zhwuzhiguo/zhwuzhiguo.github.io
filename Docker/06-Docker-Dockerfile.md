@@ -62,27 +62,102 @@
 
 ## Dockerfile 创建镜像
 
-基于 `centos` 构造 `jdk8` 环境的镜像：
+### 创建 centos 中文镜像
+
+基于 `centos` 创建支持中文和中国时区的的镜像：
 
 - 编写 `Dockerfile`
 
-      [root@centos docker]# cd jdk8/
-      [root@centos jdk8]# ll
+      # Dockerfile
+      FROM centos:centos7.9.2009
+      
+      LABEL title="centos7.9.2009.zh"
+      LABEL author="wuzhiguo"
+      LABEL email="wuzhiguo@163.com"
+      
+      # 设置编码
+      ENV LANG=en_US.utf8
+      
+      # 设置时区
+      ENV TZ=Asia/Shanghai
+      RUN ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime
+      RUN echo ${TZ} > /etc/timezone
+
+- 构建镜像
+
+      [root@centos centos7.9.2009.zh]# docker build -t centos:centos7.9.2009.zh .
+      [+] Building 0.8s (7/7) FINISHED
+       => [internal] load build definition from Dockerfile                                                                                                                                                                                     0.0s
+       => => transferring dockerfile: 324B                                                                                                                                                                                                     0.0s
+       => [internal] load .dockerignore                                                                                                                                                                                                        0.0s
+       => => transferring context: 2B                                                                                                                                                                                                          0.0s
+       => [internal] load metadata for docker.io/library/centos:centos7.9.2009                                                                                                                                                                 0.0s
+       => [1/3] FROM docker.io/library/centos:centos7.9.2009                                                                                                                                                                                   0.0s
+       => [2/3] RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime                                                                                                                                                                    0.3s
+       => [3/3] RUN echo Asia/Shanghai > /etc/timezone                                                                                                                                                                                         0.3s
+       => exporting to image                                                                                                                                                                                                                   0.1s
+       => => exporting layers                                                                                                                                                                                                                  0.1s
+       => => writing image sha256:2da052a37ba1dcfaec1f6108d0560a3a469ffd1ff5ea6d0d0bb4fcaa7f84d02d                                                                                                                                             0.0s
+       => => naming to docker.io/library/centos:centos7.9.2009.zh                                                                                                                                                                              0.0s
+      
+      [root@centos centos7.9.2009.zh]# docker images
+      REPOSITORY   TAG                 IMAGE ID       CREATED          SIZE
+      centos       centos7.9.2009.zh   2da052a37ba1   17 seconds ago   204MB
+      centos       centos7.9.2009      eeb6ee3f44bd   17 months ago    204MB
+
+- 运行镜像
+
+      [root@centos centos7.9.2009.zh]# docker run -di --name=centos-zh centos:centos7.9.2009.zh
+      14e9d2cc3400a1b465970640c40d2c25f98b535ffd4ad0a7550b5ea9d02af35f
+      
+      [root@centos centos7.9.2009.zh]# docker ps
+      CONTAINER ID   IMAGE                      COMMAND       CREATED         STATUS         PORTS     NAMES
+      14e9d2cc3400   centos:centos7.9.2009.zh   "/bin/bash"   5 seconds ago   Up 4 seconds             centos-zh
+      9feed4d0b8aa   centos:centos7.9.2009      "/bin/bash"   2 hours ago     Up 2 hours               centos-init
+      
+      [root@centos centos7.9.2009.zh]# docker exec -it centos-zh /bin/bash
+      [root@14e9d2cc3400 /]# date
+      Sat Mar  4 22:06:23 CST 2023
+      
+      [root@14e9d2cc3400 /]# locale
+      LANG=en_US.utf8
+      LC_CTYPE="en_US.utf8"
+      LC_NUMERIC="en_US.utf8"
+      LC_TIME="en_US.utf8"
+      LC_COLLATE="en_US.utf8"
+      LC_MONETARY="en_US.utf8"
+      LC_MESSAGES="en_US.utf8"
+      LC_PAPER="en_US.utf8"
+      LC_NAME="en_US.utf8"
+      LC_ADDRESS="en_US.utf8"
+      LC_TELEPHONE="en_US.utf8"
+      LC_MEASUREMENT="en_US.utf8"
+      LC_IDENTIFICATION="en_US.utf8"
+      LC_ALL=
+
+### 创建 jdk8 环境镜像
+
+基于 `centos` 中文镜像创建 `jdk8` 环境镜像：
+
+- 编写 `Dockerfile`
+
+      [root@centos centos7.9.2009.zh.jdk8]# ll
       总用量 187328
       -rw-r--r-- 1 root root       331 2月  23 15:55 Dockerfile
       -rw-r--r-- 1 root root 191817140 2月  23 15:53 jdk-8u201-linux-x64.tar.gz
 
-
       # Dockerfile
-      FROM centos:centos8
+      FROM centos:centos7.9.2009.zh
       
-      LABEL title="jdk8"
+      LABEL title="centos7.9.2009.zh.jdk8"
       LABEL author="wuzhiguo"
       LABEL email="wuzhiguo@163.com"
-      
+
+      # JDK包
       RUN mkdir /usr/local/java
       ADD jdk-8u201-linux-x64.tar.gz /usr/local/java
       
+      # JAVA环境变量
       ENV JAVA_HOME=/usr/local/java/jdk1.8.0_201
       ENV JRE_HOME=$JAVA_HOME/jre
       ENV CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
@@ -90,44 +165,60 @@
 
 - 构建镜像
 
-      [root@centos jdk8]# docker build -t centos-jdk:8 .
-      [+] Building 0.0s (8/8) FINISHED
-       => [internal] load build definition from Dockerfile                                                                                                                                                                                     0.0s
-       => => transferring dockerfile: 370B                                                                                                                                                                                                     0.0s
+      [root@centos centos7.9.2009.zh.jdk8]# docker build -t centos:centos7.9.2009.zh.jdk8 .
+      [+] Building 12.5s (8/8) FINISHED
        => [internal] load .dockerignore                                                                                                                                                                                                        0.0s
        => => transferring context: 2B                                                                                                                                                                                                          0.0s
-       => [internal] load metadata for docker.io/library/centos:centos8                                                                                                                                                                        0.0s
-       => [1/3] FROM docker.io/library/centos:centos8                                                                                                                                                                                          0.0s
-       => [internal] load build context                                                                                                                                                                                                        0.0s
-       => => transferring context: 50B                                                                                                                                                                                                         0.0s
-       => CACHED [2/3] RUN mkdir /usr/local/java                                                                                                                                                                                               0.0s
-       => CACHED [3/3] ADD jdk-8u201-linux-x64.tar.gz /usr/local/java                                                                                                                                                                          0.0s
-       => exporting to image                                                                                                                                                                                                                   0.0s
-       => => exporting layers                                                                                                                                                                                                                  0.0s
-       => => writing image sha256:a8d7d9004c62b282196042b6ba65e2df340d916d6cc36d6c3f4953ba5b2942f3                                                                                                                                             0.0s
-       => => naming to docker.io/library/centos-jdk:8                                                                                                                                                                                          0.0s
+       => [internal] load build definition from Dockerfile                                                                                                                                                                                     0.0s
+       => => transferring dockerfile: 439B                                                                                                                                                                                                     0.0s
+       => [internal] load metadata for docker.io/library/centos:centos7.9.2009.zh                                                                                                                                                              0.0s
+       => [1/3] FROM docker.io/library/centos:centos7.9.2009.zh                                                                                                                                                                                0.1s
+       => [internal] load build context                                                                                                                                                                                                        3.6s
+       => => transferring context: 191.85MB                                                                                                                                                                                                    3.2s
+       => [2/3] RUN mkdir /usr/local/java                                                                                                                                                                                                      3.7s
+       => [3/3] ADD jdk-8u201-linux-x64.tar.gz /usr/local/java                                                                                                                                                                                 5.7s
+       => exporting to image                                                                                                                                                                                                                   2.7s
+       => => exporting layers                                                                                                                                                                                                                  2.7s
+       => => writing image sha256:1d8f07606c31855f263f7554673980a872a2b097433972bf8663759db3aaa50e                                                                                                                                             0.0s
+       => => naming to docker.io/library/centos:centos7.9.2009.zh.jdk8                                                                                                                                                                         0.0s
       
-      [root@centos jdk8]# docker images
-      REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
-      centos-jdk     8         a8d7d9004c62   6 minutes ago   628MB
-      centos-java8   latest    4bfb1a2b306e   21 hours ago    820MB
-      nginx          1.23      3f8a00f137a0   2 weeks ago     142MB
-      mysql          5.7       be16cf2d832a   3 weeks ago     455MB
-      centos         centos8   5d0da3dc9764   17 months ago   231MB
+      [root@centos centos7.9.2009.zh.jdk8]# docker images
+      REPOSITORY   TAG                      IMAGE ID       CREATED          SIZE
+      centos       centos7.9.2009.zh.jdk8   1d8f07606c31   18 seconds ago   601MB
+      centos       centos7.9.2009.zh        2da052a37ba1   14 hours ago     204MB
+      centos       centos7.9.2009           eeb6ee3f44bd   17 months ago    204MB
 
 - 运行镜像
 
-      [root@centos jdk8]# docker run -di --name=centos-jdk8 centos-jdk:8
-      3c2017a81597ac922240cccb1515d25ddef9a5a6c845e890c9c1a09abece80e1
+      [root@centos centos7.9.2009.zh.jdk8]# docker run -di --name=centos-zh-jdk8 centos:centos7.9.2009.zh.jdk8
+      0366238d416a90d33cb75ad4940705579d481ba393ecfc01be3e389483174e62
       
-      [root@centos jdk8]# docker ps -a
-      CONTAINER ID   IMAGE            COMMAND       CREATED         STATUS         PORTS     NAMES
-      3c2017a81597   centos-jdk:8     "/bin/bash"   6 seconds ago   Up 5 seconds             centos-jdk8
-      b2df06fed844   centos:centos8   "/bin/bash"   2 days ago      Up 2 days                centos-daemon
-      6cffb2f2757b   centos:centos8   "/bin/bash"   2 days ago      Up 47 hours              centos
+      [root@centos centos7.9.2009.zh.jdk8]# docker ps
+      CONTAINER ID   IMAGE                           COMMAND       CREATED         STATUS         PORTS     NAMES
+      0366238d416a   centos:centos7.9.2009.zh.jdk8   "/bin/bash"   8 seconds ago   Up 7 seconds             centos-zh-jdk8
+      14e9d2cc3400   centos:centos7.9.2009.zh        "/bin/bash"   14 hours ago    Up 14 hours              centos-zh
+      9feed4d0b8aa   centos:centos7.9.2009           "/bin/bash"   16 hours ago    Up 16 hours              centos-init
       
-      [root@centos jdk8]# docker exec -it centos-jdk8 /bin/bash
-      [root@3c2017a81597 /]# java -version
+      [root@centos centos7.9.2009.zh.jdk8]# docker exec -it centos-zh-jdk8 /bin/bash
+      [root@0366238d416a /]# date
+      Sun Mar  5 12:23:51 CST 2023
+      
+      [root@0366238d416a /]# locale
+      LANG=en_US.utf8
+      LC_CTYPE="en_US.utf8"
+      LC_NUMERIC="en_US.utf8"
+      LC_TIME="en_US.utf8"
+      LC_COLLATE="en_US.utf8"
+      LC_MONETARY="en_US.utf8"
+      LC_MESSAGES="en_US.utf8"
+      LC_PAPER="en_US.utf8"
+      LC_NAME="en_US.utf8"
+      LC_ADDRESS="en_US.utf8"
+      LC_TELEPHONE="en_US.utf8"
+      LC_MEASUREMENT="en_US.utf8"
+      LC_IDENTIFICATION="en_US.utf8"
+      LC_ALL=
+      [root@0366238d416a /]# java -version
       java version "1.8.0_201"
       Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
       Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
