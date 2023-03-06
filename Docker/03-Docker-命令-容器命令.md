@@ -501,5 +501,10 @@ OPTIONS:
     [root@centos ~]# docker rm 8039fed3fe21
     8039fed3fe21
 
+## 创建容器-覆盖镜像CMD命令
+
+    // 创建mysql容器-指定编码和时区
+    root@centos ~]# docker run -d -p 33060:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql-57 mysql:5.7 mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --default-time-zone=Asia/Shanghai
+    d47d7720ce21df3598c3fbb989f53ba9c4300cadd0f73f56271738474c907c6
 
 # 完
