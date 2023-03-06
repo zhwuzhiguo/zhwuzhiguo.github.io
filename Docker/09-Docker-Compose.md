@@ -42,6 +42,7 @@
           - mysqld
           - --character-set-server=utf8mb4
           - --collation-server=utf8mb4_general_ci
+          - --default-time-zone=Asia/Shanghai
         # 卷映射
         volumes:
           - mysql-data:/var/lib/mysql
