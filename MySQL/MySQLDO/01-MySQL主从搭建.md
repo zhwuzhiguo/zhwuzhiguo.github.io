@@ -199,7 +199,7 @@
 
 如果没有单独创建网络，可以这样查看`主实例`容器的`ip`地址(本例使用`网络别名`访问连接`主实例`)：
 
-    docker inspect --format={{.NetworkSettings.IPAddress}} mysql-33061-master
+    docker inspect --format='{{.NetworkSettings.IPAddress}}' mysql-33061-master
 
 然后在`从实例`上进行`主实例`的连接信息的设置：
 
