@@ -1,6 +1,6 @@
 # 01-MySQL主从搭建
 
-`docker` 搭建 `MySQL` 主从结构。
+使用 `docker` 搭建 `MySQL` 主从结构。
 
 ## 1 创建网络
 
