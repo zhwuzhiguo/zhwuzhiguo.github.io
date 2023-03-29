@@ -454,6 +454,92 @@
      ⠿ Container zookeeper-cluster-zoo2-1  Started                                                                                                                                                                                           0.7s
      ⠿ Container zookeeper-cluster-zoo1-1  Started                                                                                                                                                                                           0.9s
 
+
+## 查看服务角色
+
+    // 服务状态 zoo1
+    [root@centos zookeeper-cluster]# docker compose exec zoo1 zkServer.sh status
+    ZooKeeper JMX enabled by default
+    Using config: /conf/zoo.cfg
+    Client port found: 2181. Client address: localhost. Client SSL: false.
+    Mode: follower
+
+    // 服务状态 zoo2
+    [root@centos zookeeper-cluster]# docker compose exec zoo2 zkServer.sh status
+    ZooKeeper JMX enabled by default
+    Using config: /conf/zoo.cfg
+    Client port found: 2181. Client address: localhost. Client SSL: false.
+    Mode: follower
+    
+    // 服务状态 zoo3
+    [root@centos zookeeper-cluster]# docker compose exec zoo3 zkServer.sh status
+    ZooKeeper JMX enabled by default
+    Using config: /conf/zoo.cfg
+    Client port found: 2181. Client address: localhost. Client SSL: false.
+    Mode: leader
+
+##  连接服务
+
+    // 连接服务 zoo1
+    [root@centos zookeeper-cluster]# docker compose exec zoo1 zkCli.sh
+    Connecting to localhost:2181
+    Welcome to ZooKeeper!
+    JLine support is enabled
+    
+    WATCHER::
+    
+    WatchedEvent state:SyncConnected type:None path:null
+    [zk: localhost:2181(CONNECTED) 0] ls -R /
+    /
+    /zookeeper
+    /zookeeper/config
+    /zookeeper/quota
+    [zk: localhost:2181(CONNECTED) 1] quit
+    
+    WATCHER::
+    
+    WatchedEvent state:Closed type:None path:null
+    
+    // 连接服务 zoo2
+    [root@centos zookeeper-cluster]# docker compose exec zoo2 zkCli.sh
+    Connecting to localhost:2181
+    Welcome to ZooKeeper!
+    JLine support is enabled
+    
+    WATCHER::
+    
+    WatchedEvent state:SyncConnected type:None path:null
+    [zk: localhost:2181(CONNECTED) 0] ls -R /
+    /
+    /zookeeper
+    /zookeeper/config
+    /zookeeper/quota
+    [zk: localhost:2181(CONNECTED) 1] quit
+    
+    WATCHER::
+    
+    WatchedEvent state:Closed type:None path:null
+    
+    // 连接服务 zoo3
+    [root@centos zookeeper-cluster]# docker compose exec zoo3 zkCli.sh
+    Connecting to localhost:2181
+    Welcome to ZooKeeper!
+    JLine support is enabled
+    
+    WATCHER::
+    
+    WatchedEvent state:SyncConnected type:None path:null
+    [zk: localhost:2181(CONNECTED) 0] ls -R /
+    /
+    /zookeeper
+    /zookeeper/config
+    /zookeeper/quota
+    [zk: localhost:2181(CONNECTED) 1] quit
+    
+    WATCHER::
+    
+    WatchedEvent state:Closed type:None path:null
+
 ## 停止并移除服务
 
     // 停止并移除服务
