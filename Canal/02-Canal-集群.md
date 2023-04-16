@@ -422,7 +422,8 @@ ZK地址：
     ## 是否使用druid处理所有的ddl解析来获取库和表名
     canal.instance.filter.druid.ddl = true
     canal.instance.filter.query.dcl = false
-    canal.instance.filter.query.dml = false
+    ## 过滤 QUERY 类型的日志
+    canal.instance.filter.query.dml = true
     canal.instance.filter.query.ddl = false
     canal.instance.filter.table.error = false
     canal.instance.filter.rows = false
@@ -513,11 +514,14 @@ ZK地址：
     bash-4.2# mysql -u root -p123456
     ...
     
+    mysql> flush logs;
+    Query OK, 0 rows affected (0.01 sec)
+    
     mysql> show master status;
     +------------------+----------+--------------+------------------+-------------------+
     | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
     +------------------+----------+--------------+------------------+-------------------+
-    | mysql-bin.000004 |      154 |              |                  |                   |
+    | mysql-bin.000006 |      154 |              |                  |                   |
     +------------------+----------+--------------+------------------+-------------------+
     1 row in set (0.00 sec)
 
@@ -529,7 +533,7 @@ ZK地址：
     ## 主库同步点位
     canal.instance.gtidon = false
     canal.instance.master.address = mysql-33071-master:3306
-    canal.instance.master.journal.name = mysql-bin.000004
+    canal.instance.master.journal.name = mysql-bin.000006
     canal.instance.master.position = 154
     canal.instance.master.timestamp = 
     canal.instance.master.gtid = 
@@ -606,7 +610,7 @@ ZK地址：
 
 查看实例当前的主库同步位点信息：
 
-    [zk: localhost:2181(CONNECTED) 5] get /otter/canal/destinations/sample-instance/1001/cursor
+    [zk: localhost:2181(CONNECTED) 4] get /otter/canal/destinations/sample-instance/1001/cursor
     {
         "@type": "com.alibaba.otter.canal.protocol.position.LogPosition",
         "identity": {
@@ -619,17 +623,17 @@ ZK地址：
         "postion": {
             "gtid": "",
             "included": false,
-            "journalName": "mysql-bin.000004",
-            "position": 4991,
+            "journalName": "mysql-bin.000006",
+            "position": 15931,
             "serverId": 1,
-            "timestamp": 1681296637000
+            "timestamp": 1681654379000
         }
     }
 
 查看实例当前运行在哪个容器：
 
-    [zk: localhost:2181(CONNECTED) 6] get /otter/canal/destinations/sample-instance/running
-    {"active":true,"address":"canal-server-master:11111"}
+    [zk: localhost:2181(CONNECTED) 5] get /otter/canal/destinations/sample-instance/running
+    {"active":true,"address":"canal-server-slave:11111"}
 
 
 # 完
