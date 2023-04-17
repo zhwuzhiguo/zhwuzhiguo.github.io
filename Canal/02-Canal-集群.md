@@ -521,7 +521,7 @@ ZK地址：
     +------------------+----------+--------------+------------------+-------------------+
     | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
     +------------------+----------+--------------+------------------+-------------------+
-    | mysql-bin.000006 |      154 |              |                  |                   |
+    | mysql-bin.000008 |      154 |              |                  |                   |
     +------------------+----------+--------------+------------------+-------------------+
     1 row in set (0.00 sec)
 
@@ -533,7 +533,7 @@ ZK地址：
     ## 主库同步点位
     canal.instance.gtidon = false
     canal.instance.master.address = mysql-33071-master:3306
-    canal.instance.master.journal.name = mysql-bin.000006
+    canal.instance.master.journal.name = mysql-bin.000008
     canal.instance.master.position = 154
     canal.instance.master.timestamp = 
     canal.instance.master.gtid = 
@@ -558,6 +558,47 @@ ZK地址：
     
 
 现在整个集群就跑起来了。
+
+## 查看主库信息
+
+查看从库列表：
+
+    mysql> show slave hosts;
+    +------------+-------------+-------+-----------+--------------------------------------+
+    | Server_id  | Host        | Port  | Master_id | Slave_UUID                           |
+    +------------+-------------+-------+-----------+--------------------------------------+
+    | 1478033422 | 172.25.0.14 | 39362 |         1 | 9397d58c-dcd0-11ed-84bc-0242ac190009 |
+    |          2 |             |  3306 |         1 | 12d80a18-d914-11ed-9ce4-0242ac19000a |
+    +------------+-------------+-------+-----------+--------------------------------------+
+    2 rows in set (0.00 sec)
+
+查看连接列表：
+
+    mysql> show processlist;
+    +------+-------------+-------------------+---------------+-------------+--------+---------------------------------------------------------------+------------------+
+    | Id   | User        | Host              | db            | Command     | Time   | State                                                         | Info             |
+    +------+-------------+-------------------+---------------+-------------+--------+---------------------------------------------------------------+------------------+
+    |    4 | system user |                   | NULL          | Connect     | 410858 | Waiting for master to send event                              | NULL             |
+    |    5 | system user |                   | NULL          | Connect     | 246760 | Slave has read all relay log; waiting for more updates        | NULL             |
+    | 5820 | reader      | 172.25.0.10:51844 | NULL          | Binlog Dump | 233354 | Master has sent all binlog to slave; waiting for more updates | NULL             |
+    | 6093 | root        | 172.25.0.13:34464 | canal_manager | Sleep       |      2 |                                                               | NULL             |
+    | 6094 | root        | 172.25.0.13:34472 | canal_manager | Sleep       |      2 |                                                               | NULL             |
+    | 6096 | root        | localhost         | NULL          | Query       |      0 | starting                                                      | show processlist |
+    | 6097 | root        | 172.25.0.14:39352 | canal_tsdb    | Sleep       |    197 |                                                               | NULL             |
+    | 6098 | reader      | 172.25.0.14:39354 | NULL          | Sleep       |    197 |                                                               | NULL             |
+    | 6102 | reader      | 172.25.0.14:39362 | NULL          | Binlog Dump |    197 | Master has sent all binlog to slave; waiting for more updates | NULL             |
+    +------+-------------+-------------------+---------------+-------------+--------+---------------------------------------------------------------+------------------+
+    10 rows in set (0.00 sec)
+
+查看现在源数据库的二进制日志位置信息：
+
+    mysql> show master status;
+    +------------------+----------+--------------+------------------+-------------------+
+    | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
+    +------------------+----------+--------------+------------------+-------------------+
+    | mysql-bin.000008 |     5572 |              |                  |                   |
+    +------------------+----------+--------------+------------------+-------------------+
+    1 row in set (0.00 sec)
 
 ## 查看 ZooKeeper 数据
 
@@ -605,12 +646,12 @@ ZK地址：
 
 查看实例可运行的服务：
 
-    [zk: localhost:2181(CONNECTED) 3] ls /otter/canal/destinations/sample-instance/cluster
+    [zk: localhost:2181(CONNECTED) 4] ls /otter/canal/destinations/sample-instance/cluster
     [canal-server-master:11111, canal-server-slave:11111]
 
 查看实例当前的主库同步位点信息：
 
-    [zk: localhost:2181(CONNECTED) 4] get /otter/canal/destinations/sample-instance/1001/cursor
+    [zk: localhost:2181(CONNECTED) 5] get /otter/canal/destinations/sample-instance/1001/cursor
     {
         "@type": "com.alibaba.otter.canal.protocol.position.LogPosition",
         "identity": {
@@ -623,17 +664,16 @@ ZK地址：
         "postion": {
             "gtid": "",
             "included": false,
-            "journalName": "mysql-bin.000006",
-            "position": 15931,
+            "journalName": "mysql-bin.000008",
+            "position": 5541,
             "serverId": 1,
-            "timestamp": 1681654379000
+            "timestamp": 1681702390000
         }
     }
 
 查看实例当前运行在哪个容器：
 
-    [zk: localhost:2181(CONNECTED) 5] get /otter/canal/destinations/sample-instance/running
-    {"active":true,"address":"canal-server-slave:11111"}
-
+    [zk: localhost:2181(CONNECTED) 6] get /otter/canal/destinations/sample-instance/running
+    {"active":true,"address":"canal-server-master:11111"}
 
 # 完
