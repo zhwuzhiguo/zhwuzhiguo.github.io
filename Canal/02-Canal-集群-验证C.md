@@ -1148,6 +1148,461 @@
 
 ## 回溯同步验证
 
-// todo
+假定需要跳过 `temp` 表的建表操作，重新从如下插入操作开始同步数据：
+
+    INSERT INTO temp(id, name, address) VALUES 
+    (1, '北京', '中国北京市'),
+    (2, '上海', '中国上海市'),
+    (3, '广州', '中国广州市');
+
+查找该操作的二进制日志点位：
+
+    mysql> show binlog events in 'mysql-bin.000014' \G
+    ...
+    *************************** 17. row ***************************
+       Log_name: mysql-bin.000014
+            Pos: 4602
+     Event_type: Anonymous_Gtid
+      Server_id: 1
+    End_log_pos: 4667
+           Info: SET @@SESSION.GTID_NEXT= 'ANONYMOUS'
+    *************************** 18. row ***************************
+       Log_name: mysql-bin.000014
+            Pos: 4667
+     Event_type: Query
+      Server_id: 1
+    End_log_pos: 4749
+           Info: BEGIN
+    *************************** 19. row ***************************
+       Log_name: mysql-bin.000014
+            Pos: 4749
+     Event_type: Rows_query
+      Server_id: 1
+    End_log_pos: 4917
+           Info: # INSERT INTO temp(id, name, address) VALUES
+    (1, '北京', '中国北京市'),
+    (2, '上海', '中国上海市'),
+    (3, '广州', '中国广州市')
+    *************************** 20. row ***************************
+       Log_name: mysql-bin.000014
+            Pos: 4917
+     Event_type: Table_map
+      Server_id: 1
+    End_log_pos: 4977
+           Info: table_id: 161 (sample.temp)
+    *************************** 21. row ***************************
+       Log_name: mysql-bin.000014
+            Pos: 4977
+     Event_type: Write_rows
+      Server_id: 1
+    End_log_pos: 5156
+           Info: table_id: 161 flags: STMT_END_F
+    *************************** 22. row ***************************
+       Log_name: mysql-bin.000014
+            Pos: 5156
+     Event_type: Xid
+      Server_id: 1
+    End_log_pos: 5187
+           Info: COMMIT /* xid=4479973 */
+    *************************** 23. row ***************************
+    ...
+
+可见该操作的起始点位信息为：`mysql-bin.000014` 的 `4667` 位置。
+
+### 停止实例
+
+在 `Canal Admin` 中停止 `sample-instance-rollback` 实例。
+
+### 修改实例配置
+
+重新设置实例的起始点位：
+
+    ## 主库同步点位
+    canal.instance.gtidon = false
+    canal.instance.master.address = mysql-33071-master:3306
+    canal.instance.master.journal.name = mysql-bin.000014
+    canal.instance.master.position = 4667
+    canal.instance.master.timestamp = 
+    canal.instance.master.gtid = 
+    
+    ## 阿里云数据库二进制日志OSS
+    canal.instance.rds.accesskey = 
+    canal.instance.rds.secretkey = 
+    canal.instance.rds.instanceId = 
+    
+    ## 主库同步账号
+    canal.instance.dbUsername = reader
+    canal.instance.dbPassword = 123456
+    canal.instance.connectionCharset = UTF-8
+    
+    ## 主库同步过滤规则
+    canal.instance.filter.regex = sample\\.temp
+    canal.instance.filter.black.regex = 
+    
+    ## 同步消息队列
+    canal.mq.topic = sample-topic-rollback
+    canal.mq.partition = 0
+
+
+### 删除ZK中实例节点
+
+删除ZK中实例 `sample-instance-rollback` 的节点：
+
+    /otter/canal/destinations/sample-instance-rollback
+
+### 启动实例
+
+在 `Canal Admin` 中启动 `sample-instance-rollback` 实例，下面是启动日志：
+
+    2023-04-17 18:23:59.299 [canal-instance-scan-0] INFO  c.a.o.c.i.spring.support.PropertyPlaceholderConfigurer - Properties resource not found: class path resource [sample-instance-rollback/instance.properties] cannot be opened because it does not exist
+    2023-04-17 18:23:59.356 [canal-instance-scan-0] INFO  c.a.o.c.i.spring.support.PropertyPlaceholderConfigurer - Properties resource not found: class path resource [sample-instance-rollback/instance.properties] cannot be opened because it does not exist
+    2023-04-17 18:23:59.489 [canal-instance-scan-0] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-sample-instance-rollback 
+    2023-04-17 18:23:59.495 [canal-instance-scan-0] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^sample\.temp$
+    2023-04-17 18:23:59.495 [canal-instance-scan-0] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : 
+    2023-04-17 18:23:59.509 [canal-instance-scan-0] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+    2023-04-17 18:23:59.522 [destination = sample-instance-rollback , address = mysql-33071-master/172.25.0.9:3306 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+    2023-04-17 18:23:59.525 [destination = sample-instance-rollback , address = mysql-33071-master/172.25.0.9:3306 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position mysql-bin.000014:4602:1681724087000
+    2023-04-17 18:23:59.544 [destination = sample-instance-rollback , address = mysql-33071-master/172.25.0.9:3306 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000014,position=4602,serverId=1,gtid=,timestamp=1681724087000] cost : 22ms , the next step is binlog dump
+    2023-04-17 18:23:59.690 [MultiStageCoprocessor-other-sample-instance-rollback-0] WARN  c.a.o.canal.parse.inbound.mysql.tsdb.DatabaseTableMeta - dup apply for sql : ALTER TABLE temp 
+    DROP COLUMN address,
+    ADD COLUMN telephone varchar(256) NOT NULL DEFAULT '' COMMENT '电话' AFTER status
+
+日志中提示查找起始点位的位置为：`mysql-bin.000014` 的 `4602` 位置，是设置的 `4667` 位置的前一个 `Anonymous_Gtid` 的位置。
+
+
+### 查看回溯的 RocketMQ 消息
+
+#### 消息11
+
+    // 消息 ID
+    7F0000010A602090562B56587D630011 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": [
+            {
+                "id": "1",
+                "name": "北京",
+                "address": "中国北京市",
+                "status": "0",
+                "create_time": "2023-04-17 17:36:35",
+                "update_time": "2023-04-17 17:36:35"
+            },
+            {
+                "id": "2",
+                "name": "上海",
+                "address": "中国上海市",
+                "status": "0",
+                "create_time": "2023-04-17 17:36:35",
+                "update_time": "2023-04-17 17:36:35"
+            },
+            {
+                "id": "3",
+                "name": "广州",
+                "address": "中国广州市",
+                "status": "0",
+                "create_time": "2023-04-17 17:36:35",
+                "update_time": "2023-04-17 17:36:35"
+            }
+        ],
+        "database": "sample",
+        "es": 1681724195000,
+        "id": 1,
+        "isDdl": false,
+        "mysqlType": {
+            "id": "bigint(20) unsigned",
+            "name": "varchar(256)",
+            "address": "varchar(256)",
+            "status": "int(20)",
+            "create_time": "datetime",
+            "update_time": "datetime"
+        },
+        "old": null,
+        "pkNames": [
+            "id"
+        ],
+        "sql": "",
+        "sqlType": {
+            "id": -5,
+            "name": 12,
+            "address": 12,
+            "status": 4,
+            "create_time": 93,
+            "update_time": 93
+        },
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "INSERT"
+    }
+
+#### 消息12
+
+    // 消息 ID
+    7F0000010A602090562B56587D650012 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": [
+            {
+                "id": "2",
+                "name": "上海",
+                "address": "中国",
+                "status": "0",
+                "create_time": "2023-04-17 17:36:35",
+                "update_time": "2023-04-17 17:36:41"
+            }
+        ],
+        "database": "sample",
+        "es": 1681724201000,
+        "id": 1,
+        "isDdl": false,
+        "mysqlType": {
+            "id": "bigint(20) unsigned",
+            "name": "varchar(256)",
+            "address": "varchar(256)",
+            "status": "int(20)",
+            "create_time": "datetime",
+            "update_time": "datetime"
+        },
+        "old": [
+            {
+                "address": "中国上海市",
+                "update_time": "2023-04-17 17:36:35"
+            }
+        ],
+        "pkNames": [
+            "id"
+        ],
+        "sql": "",
+        "sqlType": {
+            "id": -5,
+            "name": 12,
+            "address": 12,
+            "status": 4,
+            "create_time": 93,
+            "update_time": 93
+        },
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "UPDATE"
+    }
+
+#### 消息13
+
+    // 消息 ID
+    7F0000010A602090562B56587D670013 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": [
+            {
+                "id": "3",
+                "name": "广州",
+                "address": "中国广州市",
+                "status": "0",
+                "create_time": "2023-04-17 17:36:35",
+                "update_time": "2023-04-17 17:36:35"
+            }
+        ],
+        "database": "sample",
+        "es": 1681724209000,
+        "id": 1,
+        "isDdl": false,
+        "mysqlType": {
+            "id": "bigint(20) unsigned",
+            "name": "varchar(256)",
+            "address": "varchar(256)",
+            "status": "int(20)",
+            "create_time": "datetime",
+            "update_time": "datetime"
+        },
+        "old": null,
+        "pkNames": [
+            "id"
+        ],
+        "sql": "",
+        "sqlType": {
+            "id": -5,
+            "name": 12,
+            "address": 12,
+            "status": 4,
+            "create_time": 93,
+            "update_time": 93
+        },
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "DELETE"
+    }
+
+#### 消息14
+
+    // 消息 ID
+    7F0000010A602090562B56587D690014 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": null,
+        "database": "sample",
+        "es": 1681724322000,
+        "id": 1,
+        "isDdl": true,
+        "mysqlType": null,
+        "old": null,
+        "pkNames": null,
+        "sql": "ALTER TABLE temp \nDROP COLUMN address,\nADD COLUMN telephone varchar(256) NOT NULL DEFAULT '' COMMENT '电话' AFTER status",
+        "sqlType": null,
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "ALTER"
+    }
+
+#### 消息15
+
+    // 消息 ID
+    7F0000010A602090562B56587D6B0015 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": [
+            {
+                "id": "4",
+                "name": "深圳",
+                "status": "0",
+                "telephone": "12345",
+                "create_time": "2023-04-17 17:39:40",
+                "update_time": "2023-04-17 17:39:40"
+            },
+            {
+                "id": "5",
+                "name": "重庆",
+                "status": "0",
+                "telephone": "12345",
+                "create_time": "2023-04-17 17:39:40",
+                "update_time": "2023-04-17 17:39:40"
+            }
+        ],
+        "database": "sample",
+        "es": 1681724380000,
+        "id": 1,
+        "isDdl": false,
+        "mysqlType": {
+            "id": "bigint(20) unsigned",
+            "name": "varchar(256)",
+            "status": "int(20)",
+            "telephone": "varchar(256)",
+            "create_time": "datetime",
+            "update_time": "datetime"
+        },
+        "old": null,
+        "pkNames": [
+            "id"
+        ],
+        "sql": "",
+        "sqlType": {
+            "id": -5,
+            "name": 12,
+            "status": 4,
+            "telephone": 12,
+            "create_time": 93,
+            "update_time": 93
+        },
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "INSERT"
+    }
+
+#### 消息16
+
+    // 消息 ID
+    7F0000010A602090562B56587D6F0016 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": [
+            {
+                "id": "4",
+                "name": "深圳",
+                "status": "0",
+                "telephone": "13512345678",
+                "create_time": "2023-04-17 17:39:40",
+                "update_time": "2023-04-17 17:39:48"
+            }
+        ],
+        "database": "sample",
+        "es": 1681724388000,
+        "id": 1,
+        "isDdl": false,
+        "mysqlType": {
+            "id": "bigint(20) unsigned",
+            "name": "varchar(256)",
+            "status": "int(20)",
+            "telephone": "varchar(256)",
+            "create_time": "datetime",
+            "update_time": "datetime"
+        },
+        "old": [
+            {
+                "telephone": "12345",
+                "update_time": "2023-04-17 17:39:40"
+            }
+        ],
+        "pkNames": [
+            "id"
+        ],
+        "sql": "",
+        "sqlType": {
+            "id": -5,
+            "name": 12,
+            "status": 4,
+            "telephone": 12,
+            "create_time": 93,
+            "update_time": 93
+        },
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "UPDATE"
+    }
+
+#### 消息17
+
+    // 消息 ID
+    7F0000010A602090562B56587D700017 | sample-tag | 2023-04-17 18:23:59
+    
+    {
+        "data": [
+            {
+                "id": "5",
+                "name": "重庆",
+                "status": "0",
+                "telephone": "12345",
+                "create_time": "2023-04-17 17:39:40",
+                "update_time": "2023-04-17 17:39:40"
+            }
+        ],
+        "database": "sample",
+        "es": 1681724393000,
+        "id": 1,
+        "isDdl": false,
+        "mysqlType": {
+            "id": "bigint(20) unsigned",
+            "name": "varchar(256)",
+            "status": "int(20)",
+            "telephone": "varchar(256)",
+            "create_time": "datetime",
+            "update_time": "datetime"
+        },
+        "old": null,
+        "pkNames": [
+            "id"
+        ],
+        "sql": "",
+        "sqlType": {
+            "id": -5,
+            "name": 12,
+            "status": 4,
+            "telephone": 12,
+            "create_time": 93,
+            "update_time": 93
+        },
+        "table": "temp",
+        "ts": 1681727039841,
+        "type": "DELETE"
+    }
+
+回溯的消息结构和原来的一模一样，这主要依赖 `TSDB` 的支持。
 
 # 完
