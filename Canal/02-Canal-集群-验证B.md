@@ -8,7 +8,7 @@
 
 ## 备份表
 
-备份 user 表并记录当前二进制日志的位置：
+备份 `user` 表并记录当前二进制日志的位置：
 
     mysqldump \
     --host=127.0.0.1 \
@@ -116,7 +116,7 @@
 在 `Canal Admin` 的 `Instance` 界面新建集群 `canal-cluster-1` 的名为 `sample-instance-tables` 的 `Instance`。
 
 在实例配置中指定：
-- `同步的表：user`
+- 同步的表：`user`
 - 同步点位：备份表的时候脚本中输出的当时的点位。
 - 同步队列：`sample-topic-tables`
 
