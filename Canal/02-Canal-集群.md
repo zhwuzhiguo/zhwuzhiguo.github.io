@@ -383,6 +383,7 @@ ZK地址：
     #################################################
     ## ZK配置
     canal.zkServers = zoo1:2181,zoo2:2181,zoo3:2181
+    ## 数据更新ZK频率(毫秒)
     canal.zookeeper.flush.period = 1000
     canal.withoutNetty = false
     
@@ -394,8 +395,13 @@ ZK地址：
     canal.serverMode = rocketMQ
     
     ## 内存配置
+    ## canal内存store中可缓存buffer记录数(需要为2的指数)
     canal.instance.memory.buffer.size = 16384
-    canal.instance.memory.buffer.memunit = 1024 
+    ## canal内存store中内存记录的单位大小(默认1KB)
+    canal.instance.memory.buffer.memunit = 1024
+    ## canal内存store中数据缓存模式
+    ## ITEMSIZE: 根据 buffer.size 进行限制，只限制记录的数量
+    ## MEMSIZE: 根据 buffer.size * buffer.memunit 的大小进行限制，限制缓存记录的大小
     canal.instance.memory.batch.mode = MEMSIZE
     canal.instance.memory.rawEntry = true
     
@@ -421,13 +427,24 @@ ZK地址：
     ## 二进制日志过滤配置
     ## 是否使用druid处理所有的ddl解析来获取库和表名
     canal.instance.filter.druid.ddl = true
+    ## 是否忽略dcl语句
     canal.instance.filter.query.dcl = false
-    ## 过滤 QUERY 类型的日志
+    ## 是否忽略MySQL如下配置为TRUE时dml操作生成的query类型的日志
+    ## binlog-rows-query-log-events=TRUE
     canal.instance.filter.query.dml = true
+    ## 是否忽略ddl语句
     canal.instance.filter.query.ddl = false
+    ## 是否忽略binlog表结构获取失败的异常
+    ## 解决回溯binlog时对应表已被删除或者表结构和binlog不一致的情况
     canal.instance.filter.table.error = false
+    ## 是否忽略dml的数据变更日志(insert update delete)
     canal.instance.filter.rows = false
+    ## 是否忽略事务头和尾
+    ## 针对写入kakfa的消息时不写入TransactionBegin/TransactionEnd事件
     canal.instance.filter.transaction.entry = false
+    ## 是否忽略dml的insert操作
+    ## 是否忽略dml的update操作
+    ## 是否忽略dml的delete操作
     canal.instance.filter.dml.insert = false
     canal.instance.filter.dml.update = false
     canal.instance.filter.dml.delete = false
@@ -437,10 +454,13 @@ ZK地址：
     canal.instance.binlog.image = FULL,MINIMAL,NOBLOB
     
     ## DDL语句是否单独一个batch返回
+    ## 下游dml/ddl如果做batch内无序并发处理会导致结构不一致
     canal.instance.get.ddl.isolation = false
     
     ## 并行解析
+    ## 是否开启binlog并行解析模式
     canal.instance.parser.parallel = true
+    ## binlog并行解析的异步ringbuffer队列(需要为2的指数)
     canal.instance.parser.parallelBufferSize = 256
     
     ## TSDB
@@ -448,7 +468,9 @@ ZK地址：
     canal.instance.tsdb.url = jdbc:mysql://mysql-33071-master:3306/canal_tsdb
     canal.instance.tsdb.dbUsername = root
     canal.instance.tsdb.dbPassword = 123456
+    ## 快照生成间隔(小时)
     canal.instance.tsdb.snapshot.interval = 24
+    ## 快照过期时间(小时)
     canal.instance.tsdb.snapshot.expire = 360
     canal.instance.tsdb.spring.xml = classpath:spring/tsdb/mysql-tsdb.xml
     
@@ -554,6 +576,8 @@ ZK地址：
     
     ## 同步消息队列
     canal.mq.topic = sample-topic
+    ## 消息队列分区
+    ## 保证消息消费的顺序性
     canal.mq.partition = 0
     
 
