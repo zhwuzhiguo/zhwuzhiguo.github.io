@@ -403,4 +403,18 @@
                Master_TLS_Version:
     1 row in set (0.00 sec)
 
+## 补充
+
+    // 检查双主参数设置
+    SHOW VARIABLES LIKE 'log_bin';
+    SHOW VARIABLES LIKE 'binlog_format';
+    SHOW VARIABLES LIKE 'binlog_cache_size';
+    SHOW VARIABLES LIKE 'max_binlog_size';
+    SHOW VARIABLES LIKE 'binlog_rows_query_log_events';
+    SHOW VARIABLES LIKE 'expire_logs_days';
+    SHOW VARIABLES LIKE 'log_slave_updates';
+    SHOW VARIABLES LIKE 'relay_log';
+    SHOW VARIABLES LIKE 'log_bin_trust_function_creators';
+
+
 # 完
