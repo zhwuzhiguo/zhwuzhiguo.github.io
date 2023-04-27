@@ -5,3 +5,4 @@
 - [02-Canal-集群-验证A](./02-Canal-集群-验证A.md)
 - [02-Canal-集群-验证B](./02-Canal-集群-验证B.md)
 - [02-Canal-集群-验证C](./02-Canal-集群-验证C.md)
+- [02-Canal-集群-验证D](./02-Canal-集群-验证D.md)
