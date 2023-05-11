@@ -1420,6 +1420,24 @@
 
 ## 总结
 
+需要注意的一点：
+
 `DDL` 操作消息的 `sql` 字段是原始执行的 `SQL` 语句，有可能 `表名` 的前面会有 `数据库名`，消费的时候如果要同步到不同名的 `数据库`，需要对 `SQL` 语句执行相应的替换处理。
+
+    {
+        "data": null,
+        "database": "sample",
+        "es": 1683797379000,
+        "id": 53,
+        "isDdl": true,
+        "mysqlType": null,
+        "old": null,
+        "pkNames": null,
+        "sql": "ALTER TABLE `sample`.`demo` \nADD COLUMN `memo` varchar(128) NULL COMMENT '备注' AFTER `update_time`",
+        "sqlType": null,
+        "table": "demo",
+        "ts": 1683797379456,
+        "type": "ALTER"
+    }
 
 # 完
