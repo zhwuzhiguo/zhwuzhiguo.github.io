@@ -4,6 +4,8 @@
 
 ## [Java](./Java/index.md)
 
+## [Python](./Python/index.md)
+
 ## [Docker](./Docker/index.md)
 
 ## [MySQL](./MySQL/index.md)
