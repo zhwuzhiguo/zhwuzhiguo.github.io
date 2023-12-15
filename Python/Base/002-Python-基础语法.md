@@ -1,4 +1,4 @@
-# 002-Python基础语法
+# 002-Python-基础语法
 
 ## main.py
 
@@ -78,7 +78,7 @@ print(c)
 # sep 指定分隔字符串
 # end 指定结束字符串
 print("aaa", "bbb", "ccc", sep="|", end="")
-print("ddd", "eee", "fff", sep="___", end=";;")
+print("ddd", "eee", "fff", sep="|", end=";;")
 print("xxx")
 
 # input 输入
@@ -90,7 +90,7 @@ print(a)
 
 ## 运行程序
 
-    /Users/wuzhiguo/py/pydemo/venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
+    /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
     123
     true
     true
@@ -102,10 +102,10 @@ print(a)
     dddd
     eeee
     ffff
-    aaa|bbb|cccddd___eee___fff;;xxx
+    aaa|bbb|cccddd|eee|fff;;xxx
     input:
-    345
-    345
+    123
+    123
 
 
 # 完

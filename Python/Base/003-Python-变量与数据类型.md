@@ -1,4 +1,4 @@
-# 003-Python变量与数据类型
+# 003-Python-变量与数据类型
 
 ## main.py
 
@@ -86,8 +86,8 @@ print(17 % 3)  # 取余 输出 2
 print(2 ** 5)  # 乘方 输出 32
 
 # String（字符串）
-# 创建字符串可以使用单引号、双引号、三单引号和三双引号
-# 三引号可以多行定义字符串
+# 创建字符串可以使用单引号、双引号、三个单引号和三个双引号
+# 三个引号可以多行定义字符串
 # 不支持单字符类型
 # 单字符也是一个字符串
 print("String（字符串）")
@@ -104,23 +104,32 @@ fff""")
 
 # 字符串常见操作
 # 取子串：
-# str[start:end:direct]
+# str[start:end:step]
 # start:开始位置
 # end:结束位置(不包含)
-# direct:截取方向(1正序 -1倒序)
+# step:步长(正负步长都可以)
 s = '0123456789'
 print("字符串常见操作:")
 print(s[0])  # 0
+print(s[1])  # 1
 print(s[-1])  # 9
 print(s[-2])  # 8
-print(s[3:])  # 3456789
-print(s[3:5])  # 34
+
+print(s[1:8])  # 1234567
+print(s[1:8:1])  # 1234567
+print(s[1:8:2])  # 1357
+print(s[1:])  # 123456789 正步长不指定end默认结尾
+print(s[:8])  # 01234567 正步长不指定start默认开头
+
+print(s[8:1])  # 输出空
+print(s[8:1:-1])  # 8765432
+print(s[8:1:-2])  # 8642
+print(s[8::-1])  # 876543210 负步长不指定end默认开头
+print(s[:1:-1])  # 98765432 负步长不指定start默认结尾
+
 print(s[::])  # 0123456789
 print(s[::1])  # 0123456789
-print(s[::-1])  # 倒序 9876543210
-print(s[3::-1])  # 倒序 3210
-print(s[3:1:-1])  # 倒序 32
-print(s[3:5:1])  # 34
+print(s[::-1])  # 9876543210
 
 s = 'Abcde'
 print(s.replace('bcd', 'xxx'))  # Axxxe
@@ -203,23 +212,23 @@ print(people[0:3])
 # 列表中元素的类型可以不相同
 # 表中的元素是可以改变
 print("List（列表）")
-data_list = [111, 222, 'aaa', 'bbb', 'ccc']
-print(data_list)
-print(data_list[0])
-print(data_list[1])
-print(data_list[2])
-print(data_list[3])
-print(data_list[4])
-data_list[0] = 0
-data_list.append(222)
-print(data_list)
-data_list.remove(222)  # 只删除第一个相等的元素
-print(data_list)
-data_list.insert(3, 222)
-print(data_list)
-print(data_list.count(222))
-print(data_list.index(222))
-print(len(data_list))
+data = [111, 222, 'aaa', 'bbb', 'ccc']
+print(data)
+print(data[0])
+print(data[1])
+print(data[2])
+print(data[3])
+print(data[4])
+data[0] = 0
+data.append(222)
+print(data)
+data.remove(222)  # 只删除第一个相等的元素
+print(data)
+data.insert(3, 222)
+print(data)
+print(data.count(222))
+print(data.index(222))
+print(len(data))
 
 # Sets（集合）
 # 集合是一个无序不重复元素的序列
@@ -227,17 +236,17 @@ print(len(data_list))
 # 创建一个空集合必须用 set() 而不是 {}
 # 因为 {} 是用来创建一个空字典
 print("Sets（集合）")
-data_set = {111, 222, 'aaa', 'bbb', 'ccc'}
-print(data_set)
-data_set.add(222)
-data_set.add(333)
-print(data_set)
-data_set.remove(222)  # 删除不存在元素报错
-data_set.discard('ddd')  # 删除不存在元素不报错
-print(data_set)
-print(len(data_set))
-data_set = set()
-print(data_set)
+data = {111, 222, 'aaa', 'bbb', 'ccc'}
+print(data)
+data.add(222)
+data.add(333)
+print(data)
+data.remove(222)  # 删除不存在元素报错
+data.discard('ddd')  # 删除不存在元素不报错
+print(data)
+print(len(data))
+data = set()
+print(data)
 
 # Dictionary（字典）
 # 字典是一种映射类型
@@ -245,36 +254,36 @@ print(data_set)
 # 字典的关键字必须为不可变类型且不能重复
 # 创建空字典使用 {}
 print("Dictionary（字典）")
-data_dict = {
+data = {
     'aaa': 111,
     'bbb': 222,
     333: 'ccc',
-    'ddd': 3.14
+    'ddd': 444
 }
 
-print(data_dict)
-print(data_dict['aaa'])
-print(data_dict[333])
-print(data_dict.keys())
-print(data_dict.values())
-print(data_dict.items())
-print(len(data_dict))
+print(data)
+print(data['aaa'])
+print(data[333])
+print(data.keys())
+print(data.values())
+print(data.items())
+print(len(data))
 
-data_dict['ddd'] = 444
-data_dict['eee'] = 555
-print(data_dict)
+data['ddd'] = 444000
+data['eee'] = 555
+print(data)
 
-data_dict.pop(333)
-print(data_dict)
+data.pop(333)
+print(data)
 
-data_dict.clear()
-print(data_dict)
+data.clear()
+print(data)
 
 ```
 
 ## 运行程序
 
-    /Users/wuzhiguo/py/pydemo/venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
+    /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
     123
     abc
     a: 1
@@ -315,16 +324,22 @@ print(data_dict)
     fff
     字符串常见操作:
     0
+    1
     9
     8
-    3456789
-    34
+    1234567
+    1234567
+    1357
+    123456789
+    01234567
+    
+    8765432
+    8642
+    876543210
+    98765432
     0123456789
     0123456789
     9876543210
-    3210
-    32
-    34
     Axxxe
     0
     2
@@ -383,21 +398,21 @@ print(data_dict)
     3
     6
     Sets（集合）
-    {'aaa', 'ccc', 'bbb', 222, 111}
-    {'aaa', 'ccc', 'bbb', 333, 222, 111}
-    {'aaa', 'ccc', 'bbb', 333, 111}
+    {'bbb', 'ccc', 222, 'aaa', 111}
+    {333, 'bbb', 'ccc', 222, 'aaa', 111}
+    {333, 'bbb', 'ccc', 'aaa', 111}
     5
     set()
     Dictionary（字典）
-    {'aaa': 111, 'bbb': 222, 333: 'ccc', 'ddd': 3.14}
+    {'aaa': 111, 'bbb': 222, 333: 'ccc', 'ddd': 444}
     111
     ccc
     dict_keys(['aaa', 'bbb', 333, 'ddd'])
-    dict_values([111, 222, 'ccc', 3.14])
-    dict_items([('aaa', 111), ('bbb', 222), (333, 'ccc'), ('ddd', 3.14)])
+    dict_values([111, 222, 'ccc', 444])
+    dict_items([('aaa', 111), ('bbb', 222), (333, 'ccc'), ('ddd', 444)])
     4
-    {'aaa': 111, 'bbb': 222, 333: 'ccc', 'ddd': 444, 'eee': 555}
-    {'aaa': 111, 'bbb': 222, 'ddd': 444, 'eee': 555}
+    {'aaa': 111, 'bbb': 222, 333: 'ccc', 'ddd': 444000, 'eee': 555}
+    {'aaa': 111, 'bbb': 222, 'ddd': 444000, 'eee': 555}
     {}
 
 

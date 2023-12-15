@@ -1,4 +1,4 @@
-# 004-Python流程控制
+# 004-Python-流程控制
 
 ## main.py
 
@@ -107,7 +107,7 @@ class MyClass:
 
 ## 运行程序
 
-    /Users/wuzhiguo/py/pydemo/venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
+    /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
     if 语句
     x == 3
     for 循环
@@ -161,6 +161,6 @@ class MyClass:
     apple
     orange
     pass 语句
-    
+        
 
 # 完

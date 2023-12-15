@@ -1,4 +1,4 @@
-# 005-Python函数
+# 005-Python-函数
 
 ## main.py
 
@@ -65,6 +65,7 @@ x = 2
 y = 4
 nx, ny = more(x, y)
 print(nx, ny)
+print(more(x, y))
 
 
 def fact(n):
@@ -80,7 +81,7 @@ print('fact({})={}'.format(5, fact(5)))
 
 ## 运行程序
 
-    /Users/wuzhiguo/py/pydemo/venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
+    /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
     无参函数
     say..
     有参函数
@@ -93,6 +94,7 @@ print('fact({})={}'.format(5, fact(5)))
     300
     函数返回多值
     4 8
+    (4, 8)
     递归函数
     fact(5)=120
     

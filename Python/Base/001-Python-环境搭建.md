@@ -1,4 +1,4 @@
-# 001-Python环境搭建
+# 001-Python-环境搭建
 
 [https://www.python.org/](https://www.python.org/)
 
