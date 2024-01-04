@@ -5,11 +5,12 @@
 ```python
 # 定义类
 class Car(object):
-    # 定义属性
+    # 定义类变量
     name = 'Car'
 
     # 构造函数
     def __init__(self, name):
+        # 定义实例变量(无需声明)
         self.name = name
 
     # 类方法
