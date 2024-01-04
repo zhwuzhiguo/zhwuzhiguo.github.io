@@ -122,4 +122,34 @@ ben_car.run('100km/h')
     BENCar: 奔驰 100km/h 行驶
 
 
+## main2.py
+
+```python
+from dataclasses import dataclass
+
+
+# 定义类似其他语言的类
+@dataclass
+class Employee:
+    name: str
+    age: int
+
+
+employee1 = Employee('jack', 20)
+employee2 = Employee('jim', 30)
+print(employee1)
+print(employee2)
+print(employee1.name)
+print(employee2.name)
+
+```
+
+## 运行程序
+
+    /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main2.py 
+    Employee(name='jack', age=20)
+    Employee(name='jim', age=30)
+    jack
+    jim
+
 # 完
