@@ -153,8 +153,6 @@ except Exception as err:
 # 只需要创建一个类
 # 并继承 Exception 类或其子类
 class CustomError(Exception):
-    message = ''
-
     def __init__(self, message):
         self.message = message
 
@@ -167,7 +165,7 @@ except CustomError as err:
 
 # 预定义的清理行为
 # 一些对象定义了标准的清理行为
-# 无论系统是否成功的使用了它
+# 无论系统是否成功使用了它
 # 一旦不需要它了
 # 那么这个标准的清理行为就会执行
 # 关键词 with 语句可以保证:
@@ -184,8 +182,8 @@ except IOError as err:
     print(err)
     print('{} closed: {}'.format(filename, file.closed))
 
-# 完成异常处理示例
-print("完成异常处理示例:")
+# 完整异常处理示例
+print("完整异常处理示例:")
 try:
     raise Exception('模拟异常')
 except ZeroDivisionError as err:
@@ -238,7 +236,7 @@ finally:
     01234
     模拟读文件异常
     temp.data closed: True
-    完成异常处理示例:
+    完整异常处理示例:
     finally..
     Traceback (most recent call last):
       File "/Users/wuzhiguo/py/pydemo/main.py", line 140, in <module>
@@ -249,7 +247,7 @@ finally:
         raise Exception('aaa', 'bbb', 'ccc')
     Exception: ('aaa', 'bbb', 'ccc')
     Traceback (most recent call last):
-      File "/Users/wuzhiguo/py/pydemo/main.py", line 185, in <module>
+      File "/Users/wuzhiguo/py/pydemo/main.py", line 183, in <module>
         raise Exception('模拟异常')
     Exception: 模拟异常
 
