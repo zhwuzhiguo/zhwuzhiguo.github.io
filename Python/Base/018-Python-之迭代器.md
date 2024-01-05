@@ -101,15 +101,14 @@ print("实现一个迭代器类:")
 
 
 class Reverse:
-    data = ''
-    index = 0
-
     def __init__(self, data):
         self.data = data
         self.index = len(data)
 
     def __iter__(self):
-        return self
+        # return self
+        # 支持多次迭代
+        return Reverse(self.data)
 
     def __next__(self):
         if self.index == 0:
@@ -146,9 +145,14 @@ print(next(ri))
 # 抛出一个StopIteration异常时终止for循环
 print("for语句与迭代器:")
 re = Reverse('0123456789')
+
+print("第一次迭代:")
 for item in re:
     print(item)
 
+print("第二次迭代:")
+for item in re:
+    print(item)
 
 # 总结
 # 迭代器（iterator）首先要是可迭代的（iterable）
@@ -180,12 +184,24 @@ for item in re:
     3
     4
     5
-    ll1 [1, 2, 3, 4, 5] 4326101056
-    li1 <list_iterator object at 0x101efb490> 4327453840
-    li2 <list_iterator object at 0x101efb490> 4327453840
+    ll1 [1, 2, 3, 4, 5] 4422275136
+    li1 <list_iterator object at 0x107ab3310> 4423627536
+    li2 <list_iterator object at 0x107ab3310> 4423627536
     实现一个迭代器类:
-    re <__main__.Reverse object at 0x101efb200> 4327453184
-    ri <__main__.Reverse object at 0x101efb200> 4327453184
+    re <__main__.Reverse object at 0x107acc740> 4423731008
+    ri <__main__.Reverse object at 0x107acc800> 4423731200
+    9
+    8
+    7
+    6
+    5
+    9
+    8
+    7
+    6
+    5
+    for语句与迭代器:
+    第一次迭代:
     9
     8
     7
@@ -196,7 +212,7 @@ for item in re:
     2
     1
     0
-    for语句与迭代器:
+    第二次迭代:
     9
     8
     7
