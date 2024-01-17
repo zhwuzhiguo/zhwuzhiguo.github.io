@@ -1,4 +1,4 @@
-# 006-Python-random-模块
+# 007-Python模块-logging-模块
 
 ## main.py
 

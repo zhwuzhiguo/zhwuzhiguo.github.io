@@ -1,4 +1,4 @@
-# 005-Python-collections-模块
+# 014-Python模块-itertools-模块
 
 ## main.py
 

@@ -1,4 +1,4 @@
-# 021-Python-Queue-进阶用法
+# 005-Python模块-collections-模块
 
 ## main.py
 

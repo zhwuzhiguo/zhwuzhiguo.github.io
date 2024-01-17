@@ -1,4 +1,4 @@
-# 024-Python-多线程-Event
+# 006-Python模块-random-模块
 
 ## main.py
 
