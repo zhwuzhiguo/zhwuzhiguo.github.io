@@ -146,6 +146,42 @@ obj = foo1(100, 200)
 print(obj)
 print(foo1.__name__)  # foo1
 
+# 带参数的装饰器
+print("带参数的装饰器:")
+
+
+# 如果decorator本身需要传入参数
+# 那就需要编写一个返回decorator的高阶函数
+def fun_param(path):
+    def decorator(fun):
+        print(f"{path} : {fun}")
+
+        @functools.wraps(fun)
+        def wrapper(*args, **kwargs):
+            print(f"path: {path}")
+            return fun(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
+
+
+@fun_param("add")
+def fun_param1(a, b):
+    return a + b
+
+
+@fun_param("sub")
+def fun_param2(a, b):
+    return a - b
+
+
+print(fun_param1(100, 200))
+print(fun_param2(100, 200))
+print(fun_param1.__name__)
+print(fun_param2.__name__)
+
+
 ```
 
 ## 运行程序
@@ -165,6 +201,15 @@ print(foo1.__name__)  # foo1
     foo1
     300
     foo1
+    带参数的装饰器:
+    add : <function fun_param1 at 0x10a8b8720>
+    sub : <function fun_param2 at 0x10a8b8860>
+    path: add
+    300
+    path: sub
+    -100
+    fun_param1
+    fun_param2
 
 
 # 完
