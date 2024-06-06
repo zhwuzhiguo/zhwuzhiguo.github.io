@@ -15,6 +15,54 @@ elif x == 2:
 else:
     print("x == {}".format(x))
 
+# match 语句
+print("match 语句")
+score = 'B'
+match score:
+    case 'A':
+        print("score is A")
+    case 'B':
+        print("score is B")
+    case 'C':
+        print("score is C")
+    case 'D':
+        print("score is D")
+    case _:  # 匹配任意值
+        print("score is other")
+
+# 复杂匹配
+age = 15
+match age:
+    case x if x < 20:  # 匹配范围，并且把匹配后的值绑定到变量
+        print(f"age({x}) < 20")
+    case 20:
+        print("age = 20")
+    case 30 | 40 | 50:  # 匹配多个值
+        print("age is 30 | 40 | 50")
+    case _:  # 匹配任意值
+        print("age is other")
+
+# 匹配列表
+args = ['gcc', 'hello.c', 'world.c', 'run.c']
+# args = ['gcc', 'hello.c']
+# args = ['clean']
+# args = ['gcc']
+match args:
+    # 仅出现gcc
+    case ['gcc']:
+        print('gcc: missing source files.')
+    # 出现gcc且至少指定了一个文件
+    # 第二个字符串绑定到变量file1
+    # 后面的任意个字符串绑定到*files
+    # 它实际上表示至少指定一个文件
+    case ['gcc', file1, *files]:
+        print("gcc compile:", file1, ','.join(files))
+    # 仅出现clean
+    case ['clean']:
+        print('clean')
+    case _:
+        print('invalid command.')
+
 # for 循环
 # for 循环可以遍历任何序列的项目
 # 如一个列表或者一个字符串
@@ -110,6 +158,10 @@ class MyClass:
     /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main.py 
     if 语句
     x == 3
+    match 语句
+    score is B
+    age(15) < 20
+    gcc compile: hello.c world.c,run.c
     for 循环
     a
     b
