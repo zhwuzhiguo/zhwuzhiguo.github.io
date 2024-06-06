@@ -165,6 +165,20 @@ print('{}, {}'.format(21, 'jack'))  # 21, jack
 print('{0}, {1}, {0}'.format('jack', 21))  # jack, 21, jack
 print('{name}: {age}'.format(age=21, name='jack'))  # jack: 21
 
+# 格式化补充
+print("格式化补充:")
+age = 123
+name = "jack"
+print("%s is %d years old." % (name, age))  # jack is 123 years old.
+print(f"{name} is {age} years old.")  # jack is 123 years old.
+print("{} is {} years old.".format(name, age))  # jack is 123 years old.
+print("{name} is {age} years old.".format(name=name, age=age))  # jack is 123 years old.
+
+# 字符串前加r表示字符串不转义
+print("字符串前加r表示字符串不转义:")
+print("abc\tdef")
+print(r"abc\tdef")
+
 # 连接与分割
 # 使用 + 连接字符串
 # 每次操作会重新计算、开辟、释放内存，效率很低
@@ -188,6 +202,11 @@ print(s.encode('gbk'))  # b'\xd1\xa7\xcf\xb0Python'
 print(s.encode().decode())  # 学习Python
 print(s.encode('utf8').decode('utf8'))  # 学习Python
 print(s.encode('gbk').decode('gbk'))  # 学习Python
+
+# 字符编码
+print("字符编码:")
+print(ord("A"))  # 65
+print(chr(65))  # A
 
 # Tuple（元组）
 # 元组（tuple）与列表类似
@@ -365,6 +384,14 @@ print(data)
     21, jack
     jack, 21, jack
     jack: 21
+    格式化补充:
+    jack is 123 years old.
+    jack is 123 years old.
+    jack is 123 years old.
+    jack is 123 years old.
+    字符串前加r表示字符串不转义:
+    abc	def
+    abc\tdef
     ['2017', '03', '29', '22:00']
     2017-03-29-22:00
     ['2017', '03', '29', '22:00']
@@ -374,6 +401,9 @@ print(data)
     学习Python
     学习Python
     学习Python
+    字符编码:
+    65
+    A
     Tuple（元组）
     ('jack', 20, 175.5, 'BJ')
     jack
@@ -398,9 +428,9 @@ print(data)
     3
     6
     Sets（集合）
-    {'bbb', 'ccc', 222, 'aaa', 111}
-    {333, 'bbb', 'ccc', 222, 'aaa', 111}
-    {333, 'bbb', 'ccc', 'aaa', 111}
+    {'aaa', 'ccc', 'bbb', 222, 111}
+    {'aaa', 'ccc', 'bbb', 333, 222, 111}
+    {'aaa', 'ccc', 'bbb', 333, 111}
     5
     set()
     Dictionary（字典）
