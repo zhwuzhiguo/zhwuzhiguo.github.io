@@ -166,6 +166,19 @@ for index in range(len(ll)):
     print(ll[index], end=' ')
 print()
 
+# 内置 enumerate 函数可以把一个序列变成索引-元素对
+# 这样可以在 for 循环中同时迭代索引和元素
+print("内置 enumerate 函数可以把一个序列变成索引-元素对:")
+for i, value in enumerate(("a", "b", "c")):
+    print(i, value)
+
+for i, value in enumerate(["a", "b", "c"]):
+    print(i, value)
+
+for i, value in enumerate("abc"):
+    print(i, value)
+
+
 ```
 
 ## 运行程序
@@ -211,6 +224,16 @@ print()
     遍历列表:
     0 1 2 3 4 5 6 7 8 9 
     0 1 2 3 4 5 6 7 8 9 
+    内置 enumerate 函数可以把一个序列变成索引-元素对:
+    0 a
+    1 b
+    2 c
+    0 a
+    1 b
+    2 c
+    0 a
+    1 b
+    2 c
 
 
 # 完
