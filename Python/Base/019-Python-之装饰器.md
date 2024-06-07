@@ -181,6 +181,28 @@ print(fun_param2(100, 200))
 print(fun_param1.__name__)
 print(fun_param2.__name__)
 
+# 偏函数
+# 当函数的参数个数太多需要简化时
+# 使用functools.partial可以创建一个新的函数
+# 这个新函数可以固定住原函数的部分参数
+# 从而在调用时更简单
+print("偏函数:")
+print(int("12"))
+print(int("12", base=16))
+
+
+# 转16进制整数
+def int16(x, base=16):
+    return int(x, base)
+
+
+# 定义偏函数
+fun_int16 = functools.partial(int, base=16)
+
+print(int16("12"))
+print(fun_int16("12"))
+# 也可以重新制定base参数
+print(fun_int16("12", base=8))
 
 ```
 
@@ -202,14 +224,20 @@ print(fun_param2.__name__)
     300
     foo1
     带参数的装饰器:
-    add : <function fun_param1 at 0x10a8b8720>
-    sub : <function fun_param2 at 0x10a8b8860>
+    add : <function fun_param1 at 0x102c28720>
+    sub : <function fun_param2 at 0x102c28860>
     path: add
     300
     path: sub
     -100
     fun_param1
     fun_param2
+    偏函数:
+    12
+    18
+    18
+    18
+    10
 
 
 # 完
