@@ -224,6 +224,88 @@ set22 = set('ab89')
 set21.symmetric_difference_update(set22)
 print(set21)
 
+# 生成器
+# 如果列表元素可以按照某种算法推算出来
+# 在循环的过程中不断推算出后续的元素
+# 这种一边循环一边计算的机制
+# 称为生成器(generator)
+
+# 创建一个generator的第一种方法
+# 把一个列表推导式的[]改成()
+# 就创建了一个generator
+print("创建一个generator的第一种方法:")
+g = (x * x for x in range(3))
+print(g)
+# next()函数获得generator的下一个返回值
+# 每次调用next()就计算下一个元素的值
+# 直到计算到最后一个元素
+# 没有更多的元素时抛出StopIteration错误
+print(next(g))
+print(next(g))
+print(next(g))
+# print(next(g))
+
+# 正确的方法是使用for循环来迭代
+# 不需要关心StopIteration的错误
+print("使用for循环来迭代:")
+g = (x * x for x in range(3))
+for n in g:
+    print(n)
+
+# 创建一个generator的另一种方法
+# 如果一个函数定义中包含yield关键字
+# 那么这个函数就不再是一个普通函数
+# 而是一个generator函数
+# 调用一个generator函数将返回一个generator对象
+print("创建一个generator的另一种方法:")
+
+
+# 斐波拉契数列
+# 除第一个和第二个数外
+# 任意一个数都是前两个数的和
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+
+# 最难理解的就是generator函数和普通函数的执行流程不一样
+# 普通函数遇到return语句或者最后一行函数语句就返回
+# generator函数在每次调用next()的时候执行
+# 遇到yield语句返回
+# 再次执行时从上次返回的yield语句处继续执行
+f = fib(6)
+print(f)
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f))
+
+print("使用for循环来迭代:")
+for n in fib(6):
+    print(n)
+
+# 用for循环调用generator时
+# 拿不到 return 语句的返回值
+# 如果想要拿到 return 语句返回值
+# 必须捕获 StopIteration 错误
+# 返回值包含在 StopIteration 的 value 中
+print("获取return返回值:")
+f = fib(6)
+while True:
+    try:
+        print(next(f))
+    except StopIteration as e:
+        print(f"return: {e.value}")
+        break
+
+# generator是非常强大的工具
+# 在Python中可以简单地把列表生成式改成generator
+# 也可以通过函数实现复杂逻辑的generator
+
 ```
 
 ## 运行程序
@@ -239,14 +321,14 @@ print(set21)
     {1, 2, 3, 4, 5}
     集合的基本操作:
     添加元素
-    {'bbb', 'ccc', 'aaa', 'ddd'}
-    {0, 1, 2, 'a', 'aaa', 'c', 'x', 'd', '222', 'b', 'ddd', 'bbb', 'y', 'ccc', '111'}
+    {'bbb', 'ddd', 'aaa', 'ccc'}
+    {0, 1, 2, 'x', 'd', '111', 'c', 'b', 'a', 'bbb', 'ddd', 'y', '222', 'aaa', 'ccc'}
     移除元素
-    {'bbb', 'ccc', 'aaa', 'ddd'}
+    {'ccc', 'bbb', 'aaa', 'ddd'}
     {'aaa', 'ddd'}
-    {'bbb', 'ccc', 'aaa', 'ddd'}
-    bbb
+    {'ccc', 'bbb', 'aaa', 'ddd'}
     ccc
+    bbb
     aaa
     ddd
     元素个数
@@ -257,31 +339,31 @@ print(set21)
     True
     False
     集合运算
-    {'1', '0', 'b', 'a'}
-    {'9', 'b', 'a', '8'}
-    {'1', '0'}
-    {'0', '9', 'a', 'b', '8', '1'}
+    {'a', '0', '1', 'b'}
+    {'a', '8', '9', 'b'}
+    {'0', '1'}
+    {'1', '8', 'b', 'a', '9', '0'}
     {'a', 'b'}
-    {'0', '9', '8', '1'}
+    {'1', '8', '9', '0'}
     列表推导式:
     [0, 200, 400, 600, 800]
     字典推导式:
     {'bbb': 200, 'ddd': 400}
     集合推导式:
-    {'1', '0', '3', '2'}
+    {'0', '1', '2', '3'}
     推导式前面使用if必须有else:
     [0, 20, 40, 600, 800]
     集合内置方法:
     difference()
-    {'1', '0'}
-    difference_update()
     {'0', '1'}
+    difference_update()
+    {'1', '0'}
     intersection()
     {'a', 'b'}
     intersection_update()
     {'a', 'b'}
     union()
-    {'0', '9', 'a', 'b', '8', '1'}
+    {'1', '8', 'b', 'a', '9', '0'}
     isdisjoint()
     False
     issubset()
@@ -289,9 +371,39 @@ print(set21)
     issuperset()
     True
     symmetric_difference()
-    {'0', '9', '8', '1'}
+    {'1', '8', '9', '0'}
     symmetric_difference_update()
-    {'0', '9', '8', '1'}
+    {'1', '8', '9', '0'}
+    创建一个generator的第一种方法:
+    <generator object <genexpr> at 0x10f8f8520>
+    0
+    1
+    4
+    使用for循环来迭代:
+    0
+    1
+    4
+    创建一个generator的另一种方法:
+    <generator object fib at 0x10f9f5a80>
+    1
+    1
+    2
+    3
+    使用for循环来迭代:
+    1
+    1
+    2
+    3
+    5
+    8
+    获取return返回值:
+    1
+    1
+    2
+    3
+    5
+    8
+    return: done
 
 
 # 完
