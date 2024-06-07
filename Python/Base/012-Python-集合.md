@@ -123,6 +123,11 @@ set1 = set('ab01cd23ef')
 set2 = {value for value in set1 if '0' <= value <= '9'}
 print(set2)
 
+print("推导式前面使用if必须有else:")
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = [i * 10 if i < 5 else i * 100 for i in a if i % 2 == 0]
+print(b)
+
 # 集合内置方法
 print("集合内置方法:")
 
@@ -234,8 +239,8 @@ print(set21)
     {1, 2, 3, 4, 5}
     集合的基本操作:
     添加元素
-    {'ccc', 'aaa', 'ddd', 'bbb'}
-    {'b', 'ccc', 0, 'aaa', 1, 2, 'y', 'ddd', 'c', 'd', 'bbb', 'a', 'x', '222', '111'}
+    {'bbb', 'ccc', 'aaa', 'ddd'}
+    {0, 1, 2, 'a', 'aaa', 'c', 'x', 'd', '222', 'b', 'ddd', 'bbb', 'y', 'ccc', '111'}
     移除元素
     {'bbb', 'ccc', 'aaa', 'ddd'}
     {'aaa', 'ddd'}
@@ -252,29 +257,31 @@ print(set21)
     True
     False
     集合运算
-    {'a', '1', 'b', '0'}
-    {'a', '9', 'b', '8'}
+    {'1', '0', 'b', 'a'}
+    {'9', 'b', 'a', '8'}
     {'1', '0'}
-    {'b', '9', '1', '8', 'a', '0'}
+    {'0', '9', 'a', 'b', '8', '1'}
     {'a', 'b'}
-    {'9', '1', '8', '0'}
+    {'0', '9', '8', '1'}
     列表推导式:
     [0, 200, 400, 600, 800]
     字典推导式:
     {'bbb': 200, 'ddd': 400}
     集合推导式:
-    {'2', '1', '3', '0'}
+    {'1', '0', '3', '2'}
+    推导式前面使用if必须有else:
+    [0, 20, 40, 600, 800]
     集合内置方法:
     difference()
     {'1', '0'}
     difference_update()
-    {'1', '0'}
+    {'0', '1'}
     intersection()
     {'a', 'b'}
     intersection_update()
     {'a', 'b'}
     union()
-    {'b', '9', '1', '8', 'a', '0'}
+    {'0', '9', 'a', 'b', '8', '1'}
     isdisjoint()
     False
     issubset()
@@ -282,9 +289,9 @@ print(set21)
     issuperset()
     True
     symmetric_difference()
-    {'9', '1', '8', '0'}
+    {'0', '9', '8', '1'}
     symmetric_difference_update()
-    {'9', '1', '8', '0'}
+    {'0', '9', '8', '1'}
 
 
 # 完
