@@ -134,6 +134,20 @@ print(sorted3)
 print(sorted4)
 print(sorted5)
 
+# 匿名函数
+# 关键字lambda表示匿名函数
+# 冒号前面的x表示函数参数
+# 匿名函数只能有一个表达式
+# 不用写return
+# 返回值就是该表达式的结果
+# 匿名函数也是一个函数对象
+# 也可以把匿名函数赋值给一个变量
+# 再利用变量来调用该函数
+f = lambda x: x * x
+print(f(5))
+result = map(lambda x: x * x, [1, 2, 3, 4])
+print(list(result))
+
 ```
 
 ## 运行程序
@@ -167,6 +181,8 @@ print(sorted5)
     [50, 30, 10, -20, -40]
     [50, -40, 30, -20, 10]
     ['a', 'aa', 'bbb', 'aaaa']
+    25
+    [1, 4, 9, 16]
 
 
 # 完
