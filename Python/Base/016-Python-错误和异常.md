@@ -252,4 +252,54 @@ finally:
     Exception: 模拟异常
 
 
+## main2.py
+
+```python
+# 记录异常日志
+import logging
+
+# 默认日志级别：
+# WARNING = 30
+print(logging.getLogger().level)
+# 设置日志级别
+logging.basicConfig(level=logging.DEBUG)
+
+# 记录日志
+logging.debug("This is a debug log..")
+logging.info("This is a info log..")
+logging.warning("This is a warning log..")
+logging.error("This is a error log..")
+
+print("记录异常日志:")
+try:
+    raise Exception('模拟异常')
+except ZeroDivisionError as err:
+    print(err)
+except ValueError as err:
+    print(err)
+except Exception as err:
+    # 记录异常日志
+    logging.exception(err)
+finally:
+    print("finally..")
+
+
+```
+
+## 运行程序
+
+    /Users/wuzhiguo/py/pydemo/.venv/bin/python /Users/wuzhiguo/py/pydemo/main2.py 
+    DEBUG:root:This is a debug log..
+    INFO:root:This is a info log..
+    WARNING:root:This is a warning log..
+    ERROR:root:This is a error log..
+    ERROR:root:模拟异常
+    Traceback (most recent call last):
+      File "/Users/wuzhiguo/py/pydemo/main2.py", line 18, in <module>
+        raise Exception('模拟异常')
+    Exception: 模拟异常
+    30
+    记录异常日志:
+    finally..
+
 # 完
