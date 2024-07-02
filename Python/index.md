@@ -7,3 +7,4 @@
 ## [Python数据分析](./NumPy/index.md)
 ## [Python办公](./Office/index.md)
 ## [Python笔记](./Note/index.md)
+## [Python游戏](./Game/index.md)
