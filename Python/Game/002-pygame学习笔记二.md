@@ -1,3 +1,8 @@
+# 002-pygame学习笔记二
+
+## main.py
+
+```python
 import sys
 
 import pygame
@@ -87,3 +92,5 @@ while True:
 
     # 刷新窗口表面
     pygame.display.flip()
+
+```
