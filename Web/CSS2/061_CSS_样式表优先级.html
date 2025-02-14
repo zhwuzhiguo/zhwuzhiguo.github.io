@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--内部样式和外部样式按引用顺序来，后来者居上-->
+    <link rel="stylesheet" href="./css/061_CSS_样式表优先级.css">
+    <style>
+        h1 {
+            color: green;
+            font-size: 60px;
+        }
+
+        h2 {
+            color: green;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: blue;">行内样式最优先</h1>
+    <h2>内部样式和外部样式后来者居上</h2>
+    <h3>内部样式和外部样式后来者居上</h3>
+
+</body>
+
+</html>
