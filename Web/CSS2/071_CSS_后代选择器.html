@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        后代选择器(中间用空格分隔的各种选择器组合，也可以是交集或并集选择器)
+         */
+        ul li {
+            color: red;
+            font-size: 20px;
+        }
+
+        ul div a {
+            color: green;
+            font-size: 20px;
+        }
+
+        .big {
+            font-size: 100px;
+        }
+
+        .small {
+            font-size: 50px;
+        }
+
+        p {
+            color: red;
+        }
+
+        ul .big {
+            color: green;
+        }
+
+        ul p.small {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>无序列表项</li>
+        <li>无序列表项</li>
+        <li>无序列表项</li>
+        <div>
+            <li>无序列表项孙子</li>
+        </div>
+        <div>
+            <a href="#">3层级后代选择器</a>
+        </div>
+        <p>段落</p>
+        <p class="big">段落big</p>
+        <p class="small">段落small</p>
+    </ul>
+    <ol>
+        <li>有序列表项</li>
+        <li>有序列表项</li>
+        <li>有序列表项</li>
+    </ol>
+
+</body>
+
+</html>

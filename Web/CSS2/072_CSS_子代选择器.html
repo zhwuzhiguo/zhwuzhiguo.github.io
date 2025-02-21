@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        子代选择器(中间用大于号分隔的各种选择器组合，也可以是交集或并集选择器)
+         */
+        div>a {
+            color: red;
+            font-size: 50px;
+        }
+        div>p>a {
+            color: green;
+            font-size: 50px;
+        }
+        .big {            
+            background: blue;
+        }
+        .big>a {
+            color: orange;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <a href="#">子代</a>
+        <a href="#">子代</a>
+        <a href="#">子代</a>
+        <p>
+            <a href="#">孙子代</a>
+            <p>段落</p>
+            <div class="big">
+                <a href="#">重孙子代</a>               
+            </div>
+        </p>
+    </div>
+
+
+</body>
+
+</html>

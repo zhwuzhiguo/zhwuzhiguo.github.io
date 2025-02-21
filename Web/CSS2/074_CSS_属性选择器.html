@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        属性选择器定义方法1：
+        所有包含指定属性(title)的元素
+         */
+        /* 
+        [title] {
+            color: red;
+            font-size: 50px;
+        } 
+        */
+
+        /* 
+        属性选择器定义方法2：
+        所有包含指定属性(title)且等于指定值的元素
+         */
+        /* 
+         [title="属性选择器1"] {
+            color: red;
+            font-size: 50px;
+        } 
+        */
+
+        /* 
+        属性选择器定义方法3：
+        所有包含指定属性(title)且以指定值开头的元素
+         */
+        /* 
+        [title^="bro"] {
+            color: red;
+            font-size: 50px;
+        } 
+        */
+
+        /* 
+        属性选择器定义方法4：
+        所有包含指定属性(title)且以指定值结尾的元素
+         */
+        /* 
+         [title$="1"] {
+            color: red;
+            font-size: 50px;
+        } 
+        */
+
+        /* 
+        属性选择器定义方法5：
+        所有包含指定属性(title)且包含指定值的元素
+         */
+        /* 
+        [title*="the"] {
+            color: red;
+            font-size: 50px;
+        } 
+        */
+
+
+        /* 
+        属性选择器和其他选择器组成交集选择器
+         */
+        .big {
+            background-color: blueviolet;
+        }
+
+        div[title*="the"] {
+            color: green;
+            font-size: 50px;
+        }
+
+        .big[title*="the"] {
+            color: orange;
+            font-size: 50px;
+        }
+
+        /* 
+        这个并集选择器针对前面交集选择器命中的元素不生效！！！
+        优先级问题？？？
+         */
+        .big,[title*="the"] {
+            color: red;
+            font-size: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div title="属性选择器1">属性选择器1</div>
+    <div title="属性选择器2">属性选择器2</div>
+    <div title="brother1">brother1</div>
+    <div title="brother2">brother2</div>
+    <div title="another1">another1</div>
+    <div title="another2">another2</div>
+    <p title="another2">another2</p>
+    <p title="another2">another2</p>
+    <p class="big" title="another3">another3</p>
+
+</body>
+
+</html>

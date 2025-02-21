@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 通配选择器 */
+        * {
+            color: green;
+            font-size: 60px;
+        }
+        /* 元素选择器 */
+        h1 {
+            color: red;
+            font-size: 100px;
+        }
+        /* 类选择器 */
+        /* 
+        类选择名定义规则：
+        1. 以英文字母开头命名
+        2. 多个单词中划线分隔
+        3. 不能使用数字开头
+         */
+        .pclass1 {
+            color: blue;
+        }
+        .pclass2 {
+            color: yellow;
+            font-size: 80px;
+        }
+        .pclass3 {
+            color: orange;
+        }
+
+        /* id选择器 */
+        /* 
+        id选择器名定义规则和id的命名规则一样：
+        1. 不能使用数字开头
+        2. 不能重复
+        3. 区分大小写
+         */
+        #id1 {
+            color: red;
+            font-size: 100px;
+        }
+
+        /* 同时应用多个选择器 */
+        span {
+            cursor: wait;
+        }
+        #id2 {
+            font-weight: 1000;
+            
+        }
+        .span-class {
+            background-color: blueviolet;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>元素选择器H1</h1>
+    <h2>通配选择器H2</h2>
+    <h3>通配选择器H3</h3>
+    <p class="pclass1">类选择器段落1</p>
+    <p class="pclass1">类选择器段落1</p>
+    <p class="pclass2">类选择器段落2</p>
+    <p class="pclass2">类选择器段落2</p>
+    <span class="pclass2">类选择器2</span>
+    <br>
+    <!--
+    应用多个类选择器
+    也是按定义的顺序后来者居上原则生效
+    和声明中的属性值的顺序无关
+    -->
+    <span class="pclass3 pclass1 pclass2">应用多个类选择器</span>
+
+    <br>
+    <span id="id1">id选择器</span>
+
+    <!--
+    同时应用多个选择器
+    -->
+    <br>
+    <span id="id2" class="span-class">同时应用多个选择器</span>
+
+</body>
+
+</html>

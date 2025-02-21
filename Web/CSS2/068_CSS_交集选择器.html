@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 100px;
+        }
+
+        .rich {
+            color: gold;
+            
+        }
+
+        .big {
+            font-size: 200px;
+            
+        }
+
+        /* 
+        交集选择器（元数选择器+类选择器）
+        p元素且设置了rich类选择器
+        最常用
+         */
+        p.rich {
+            background-color: blueviolet;
+        }
+
+        /* 
+        交集选择器（类选择器+类选择器）
+        同时设置了rich和big类选择器
+        不常用
+         */
+        .rich.big {
+            background-color:darkgreen
+        }
+        
+    </style>
+</head>
+
+<body>
+    <p>元数选择器</p>
+    <div class="rich">类选择器</div>
+    <p class="rich">交集选择器</p>
+    <div class="rich big">交集选择器</div>
+   
+
+</body>
+
+</html>

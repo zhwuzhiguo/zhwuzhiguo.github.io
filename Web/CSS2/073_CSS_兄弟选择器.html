@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        相邻兄弟选择器(+表示紧随其后的第一个兄弟元素，中间不能隔其他元素)
+         */
+        /* 
+        div+p {
+            color: red;
+            font-size: 50px;
+        } 
+        */
+
+        /* 
+        通用兄弟选择器(~表示紧随其后的所有兄弟元素，中间可以隔其他元素)
+         */
+        div~p {
+            color: red;
+            font-size: 50px;
+        }
+
+        /* 
+        兄弟选择器应用
+         */
+        /* li+li {
+            color: green;
+            font-size: 50px;
+        } */
+        li~li {
+            color: blue;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>兄弟0</p>
+    <div>兄弟选择器</div>
+    <!-- <h1>间隔元素</h1> -->
+    <p>兄弟1</p>
+    <p>兄弟2</p>
+    <p>兄弟3</p>
+
+    <ul>
+        <li>子元素列表</li>
+        <li>子元素1</li>
+        <li>子元素2</li>
+        <li>子元素3</li>
+    </ul>
+
+</body>
+
+</html>

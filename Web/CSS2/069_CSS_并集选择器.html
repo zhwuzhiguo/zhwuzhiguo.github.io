@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: blue;
+            font-size: 100px;
+        }
+
+        p {
+            color: green;
+        }
+
+        .big {
+            font-size: 200px;
+        }
+
+        .small {
+            font-size: 20px;
+        }
+
+        #id1 {
+            color: red;
+        }
+
+        /* 
+        并集选择器（各种选择器逗号分隔）
+        满足任意一个选择器即生效
+         */
+        p, 
+        .big, 
+        .small, 
+        #id1 {
+            background-color:blueviolet;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>并集选择器示例</h1>
+    <hr>
+    <p>并集选择器</p>
+    <hr>
+    <div class="big">并集选择器</div>
+    <hr>
+    <div class="small">并集选择器</div>
+    <hr>
+    <div id="id1">并集选择器</div>
+
+</body>
+
+</html>
