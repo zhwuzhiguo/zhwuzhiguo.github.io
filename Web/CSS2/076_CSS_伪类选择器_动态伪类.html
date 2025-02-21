@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        伪类选择器
+        很想类但又不是类
+        是元素特殊状态的一种描述
+         */
+
+         /* 
+         这几个伪类选择器需要是如下的顺序定义（lvha）：
+         a:link
+         a:visited
+         a:hover
+         a:active 
+         原因：
+         状态触发顺序：   
+         1.未访问过的链接
+         2.访问过的链接
+         3.鼠标悬浮
+         4.鼠标点击按下
+         */
+
+        /* 
+        未访问过
+        只有在a标签中才能使用
+         */
+        a:link {
+            color: red;
+        }
+        /* 
+        访问过
+        只有在a标签中才能使用
+        */
+        a:visited {
+            color: green;
+        }
+        /* 
+        鼠标悬浮 
+        所有标签能使用
+        */
+        */
+        a:hover {
+            color: blue;
+        }
+        /* 
+        鼠标点击按下 
+        所有标签能使用
+        */
+        a:active {
+            color: yellow;
+        }
+
+        span:hover {
+            color: red;
+        }
+        span:active {
+            color: yellow;
+        }
+
+        /* 
+        获取焦点 
+        只有表单类元素能使用
+        */
+        /* 
+        input:focus {
+            color: red;
+            background-color: yellow;
+        }
+        select:focus {
+            color: red;
+            background-color: yellow;
+        } 
+        */
+
+        /* 
+        也可使用并集选择器
+        */
+        input:focus,
+        select:focus {
+            color: red;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+    <a href="https://baidu.com" target="_blank">百度</a>
+    <br>
+    <a href="https://jd.com" target="_blank">京东</a>
+    <br>
+    <span>这是一个span标签</span>
+    <br>
+    <input type="text"></input><br>
+    <input type="text"></input><br>
+    <input type="text"></input><br>
+    <select name="" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</body>
+
+</html>
