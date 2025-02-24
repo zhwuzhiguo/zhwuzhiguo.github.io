@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* div的子元素p元素中不包含failed类的p元素 */
+        div>p:not(.failed) {
+            color: red;
+        }
+
+        /* div的子元素p元素中不包含failed类或不包含“需要加油”开头的title属性的p元素 */
+        div>p:not(.failed,[title^="需要加油"]) {
+            color: gold;
+        }
+
+        /* div的子元素p元素中排除第一个元素 */
+        div>p:not(:first-child) {
+            color: blue;
+        }
+
+        h1:not(.xxx) {
+            color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <p>第一名：98</p>
+        <p>第二名：88</p>
+        <p>第三名：78</p>
+        <p title="需要加油呀">第四名：68</p>
+        <p title="需要加油呀">第五名：58</p>
+        <p class="failed">第六名：40</p>
+        <p class="failed">第七名：20</p>
+    </div>
+
+    <h1 class="xxx">aaa</h1>
+    <h1>bbb</h1>
+
+</body>
+
+</html>

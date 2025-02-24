@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+        div的第一个子元素并且是p元素
+        注意这里的意思是：
+        div的第一个元素并且是p元素才有效
+        */
+        div>p:first-child {
+            color: red;
+        }
+
+        /*
+        div的后代元素中p是它父元素的第一个子元素
+        注意：
+        first-child 指该元素是其父元素的第一个子元素
+        */
+        div p:first-child {
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- div>p:first-child -->
+    <div>
+        <p>第一名：98</p>
+        <p>第二名：88</p>
+        <p>第三名：78</p>
+        <p>第四名：68</p>
+    </div>
+
+    <hr>
+
+    <!-- div p:first-child -->
+    <div>
+        <p>第一个元素</p>
+        <marquee>
+            <p>第一名：98</p>
+        </marquee>
+        <p>第二名：88</p>
+        <p>第三名：78</p>
+        <p>第四名：68</p>
+    </div>
+
+</body>
+
+</html>

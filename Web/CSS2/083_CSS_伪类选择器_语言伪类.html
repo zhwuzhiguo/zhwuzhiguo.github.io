@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        语言伪类
+        根据指定的语言选中元素 
+        */
+        div:lang(en) {
+            color: red;
+        }
+        div:lang(zh-CN) {
+            color: green;
+        }
+        :lang(zh-CN) {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+   <div>中文</div>
+   <div lang="en">英文</div>
+   <p>中文</p>
+   <span>中文</span>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        每个选择器，都可计算出一组权重，格式为: (a,b,c) 
+        a : ID 选择器的个数
+        b : 类、伪类、属性 选择器的个数
+        c : 元素、伪元素 选择器的个数
+        最后分别按a->b->c比较权重。
+        */
+        #id1 {
+            color: orange;
+        }
+
+        .container span.slogan {
+            color: red;
+        }
+
+        div>p>span:nth-child(1) {
+            color: green;
+        }
+
+        div>p>span:first-child {
+            color: blue;
+        }
+
+        /* !important 优先级最高，行内样式次之，其他再比较权重 */
+        .slogan {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <p>
+            <span id="id1" class="slogan" style="color: blueviolet;">选择器优先级</span>
+            <span>选择器优先级权重计算</span>
+        </p>
+    </div>
+
+</body>
+
+</html>

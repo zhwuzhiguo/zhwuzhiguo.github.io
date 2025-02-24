@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+        div的第一个子元素并且是p元素
+        注意这里的意思是：
+        div的第一个子元素并且是p元素才有效
+        */
+        div[title="aa"]>p:first-child {
+            color: red;
+        }
+
+        /*
+        div的最后一个子元素并且是p元素
+        注意这里的意思是：
+        div的最后一个子元素并且是p元素才有效
+        */
+        div[title="aa"]>p:last-child {
+            color: green;
+        }
+
+        /*
+        div的第 3 个子元素并且是p元素
+        注意这里的意思是：
+        div的第 3 个子元素并且是p元素才有效
+        数字的范围是(1-正无穷)
+        也可是公式：
+        2n 偶数(n从0开始递增)
+        2n + 1 奇数(n从0开始递增)   
+        */
+        div[title="aa"]>p:nth-child(3) {
+            color: blue;
+        }
+
+        div[title="bb"]>p:nth-child(2n) {
+            color: blueviolet;
+        }
+
+        div[title="bb"]>p:nth-child(2n+1) {
+            color: chocolate;
+        }
+
+        /*
+        div的子元素p元素中的第一个
+        */
+        div[title="cc"]>p:first-of-type {
+            color: green;
+        }
+
+        /*
+        div的子元素p元素中的最后一个
+        */
+        div[title="cc"]>p:last-of-type {
+            color: red;
+        }
+
+        /*
+        div的子元素p元素中的第 3 个p元素
+        */
+        div[title="cc"]>p:nth-of-type(3) {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div title="aa">
+        <p>第一名：98</p>
+        <p>第二名：88</p>
+        <p>第三名：78</p>
+        <p>第四名：68</p>
+    </div>
+
+    <hr>
+
+
+    <div title="bb">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>11</p>
+    </div>
+
+    <hr>
+
+    <div title="cc">
+        <span>第0名</span>
+        <p>第一名</p>
+        <p>第二名</p>
+        <p>第三名</p>
+        <p>第四名</p>
+        <span>第5名</span>
+    </div>
+
+</body>
+
+</html>
