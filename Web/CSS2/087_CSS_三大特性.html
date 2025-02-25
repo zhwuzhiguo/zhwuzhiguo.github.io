@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        CSS三大特性：
+        层叠性：多个样式定义按优先级层叠覆盖
+        继承性：继承最近的父元素的样式
+        优先级：继承的样式的优先级最低，低于通配选择器
+        
+        */
+        div {
+            color: red; /* 可继承 */
+            font-size: 40px; /* 可继承 */
+            background-color: yellow; /* 不可继承 */
+        }
+
+        p {
+            color: blue;
+        }
+
+        * {
+            color: blueviolet;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div>
+        div的文字<br>
+        <span>div中span中的文字1</span><br>
+        <span>div中span中的文字1</span><br>
+        <span>div中span中的文字1</span><br>
+        <p>            
+            <span>p中span中的文字</span>
+        </p>
+    </div>
+
+</body>
+
+</html>
