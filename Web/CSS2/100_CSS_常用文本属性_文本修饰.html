@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .text1 {
+            font-size: 50px;
+            color: red;
+            /* 
+            上划线 
+            虚线            
+            棕色
+            无顺序要求
+            */
+            text-decoration: overline dotted #888800;
+
+        }
+
+        .text2 {
+            font-size: 50px;
+            color: rgb(50, 200, 100);
+            /* 
+            下划线
+            波浪线
+            红色
+             */
+            text-decoration: underline wavy red;
+
+
+        }
+
+        .text3 {
+            font-size: 50px;
+            color: rgba(50, 200, 100, 0.5);
+            /* 删除线 */
+            text-decoration: line-through;
+        }
+
+        .text4 {
+            font-size: 50px;
+            color: #888800;
+            /* 无文本修饰 */
+            text-decoration: none;
+        }
+
+        .text5 {
+            font-size: 50px;
+            color: red;
+            /* 
+            无文本修饰 
+            去掉超链接默认的下划线
+            */
+            text-decoration: none;
+        }
+
+        .text {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="text1">I am Chinese. 我是中国人111</div>
+    <div class="text2">I am Chinese. 我是中国人111</div>
+    <div class="text3">I am Chinese. 我是中国人111</div>
+    <div class="text4">I am Chinese. 我是中国人111</div>
+    <a class="text5" href="#">打开京东</a>
+    <br>
+    <ins>插入的文本</ins>
+    <br>
+    <del>删除的文本</del>
+    <br>
+    <ins class="text">插入的文本</ins>
+    <br>
+    <del class="text">删除的文本</del>
+</body>
+
+</html>

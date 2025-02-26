@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .text {
+            /* 
+            行高
+            设置为像素
+            行高设置成和字体尺寸一样，对应一些超出字体设计框的字上下行会重叠。
+            所以行高要适当大于字体尺寸。
+            如果不设置行高，或设置为 normal 则浏览器会根据字体设置合适的行高。
+            注意点：
+            1 行高最小值是0，小于0浏览器默认设置为normal，行高太小文字会重叠。
+            2 行高可以继承。
+            3 设置了height元素的高度就是该值，不设置，元素的高度就是行高乘以行数。
+              不设置的情况下，此时如果如果行高设置成0，则元素的高度就会是0，所以即使设置了元素的背景色，也是看不见的。
+            */
+            background-color: yellow;
+            font-size: 40px;
+            line-height: 1.5;
+            height: 400px;
+        }
+
+        span {
+            font-size: 80px;
+            color: red;
+        }
+
+        /* 
+         行高应用场景：
+        1、调整多行文字间距。
+        2、调整单行文字垂直居中。
+        */
+        .text2 {        
+            background-color: green;
+            font-size: 40px;
+            /* 
+            调整单行文字垂直居中:
+            line-height 和 height 设置成一样的高度。
+             */
+            line-height: 200px;
+            height: 200px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="text">我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是x<span>x中国人</span>我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人。</div>
+
+    <div class="text2">我是中国人</div>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .text1 {
+            /* 
+            行高
+            设置为像素
+            行高设置成和字体尺寸一样，对应一些超出字体设计框的字上下行会重叠。
+            所以行高要适当大于字体尺寸。
+            如果不设置行高，或设置为 normal 则浏览器会根据字体设置合适的行高。
+            */
+            background-color: red;
+            font-size: 50px;
+            line-height: 50px;
+        }
+
+        .text2 {
+            /* 
+            行高
+            设置为normal
+            如果不设置行高，或设置为 normal 则浏览器会根据字体设置合适的行高。
+            */
+            background-color: green;
+            font-size: 50px;
+            line-height:normal;
+        }
+
+        .text3 {
+            /* 
+            行高
+            设置为数字，表示font-size的倍数（最常用）
+            1表示和font-size一样
+            */
+            background-color: blue;
+            font-size: 50px;
+            line-height:1.5;
+        }
+
+        .text4 {
+            /* 
+            行高
+            设置为百分比，表示font-size的百分比
+            */
+            background-color: brown;
+            font-size: 50px;
+            line-height:150%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="text1">我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人。</div>
+    <div class="text2">我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人。</div>
+    <div class="text3">我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人。</div>
+    <div class="text4">我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人。</div>
+</body>
+
+</html>

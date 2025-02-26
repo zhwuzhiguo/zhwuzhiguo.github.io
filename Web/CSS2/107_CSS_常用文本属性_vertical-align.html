@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        vertical-align:
+        用于指定同一行元素之间，或 表格单元格 内文字的 垂直对齐方式。
+        常用值:
+        baseline (默认值):使元素的基线与父元素的基线对齐。 
+        top :使元素的顶部与其所在行的顶部对齐。
+        middle:使元素的中部与父元素的基线加上父元素字母 x 的一半对齐。 
+        bottom:使元素的 底部 与其 所在行的底部 对齐。
+
+        特别注意: 
+        vertical-align 不能控制父容器中的文本，只能控制子元素。
+        vertical-align 不能控制块元素（如div）。
+        */
+        .text {
+            font-size: 100px;
+            background-color: red;
+            height: 300px;
+        }
+
+        /* 默认值：baseline */
+        .baseline {
+            font-size: 40px;
+            background-color: green;
+            vertical-align: baseline;
+        }
+
+        .top {
+            font-size: 40px;
+            background-color: green;
+            vertical-align: top;
+        }
+
+        .middle {
+            font-size: 40px;
+            background-color: green;
+            vertical-align: middle;
+        }
+
+        .bottom {
+            font-size: 40px;
+            background-color: green;
+            vertical-align: bottom;
+        }
+
+        img {
+            height: 30px;
+        }
+
+        .san {
+            vertical-align: top;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="text">
+        我是x<span class="baseline">x中国</span>人
+        我是x<span class="top">x中国</span>人
+        我是x<span class="middle">x中国</span>人
+        我是x<span class="bottom">x中国</span>人
+    </div>
+
+    <div class="text">
+        我是x<img src="./image1.png" class="baseline"></img>人
+        我是x<img src="./image1.png" class="top">x中国</img>人
+        我是x<img src="./image1.png" class="middle">x中国</img>人
+        我是x<img src="./image1.png" class="bottom">x中国</img>人
+    </div>
+
+    <table border="1" cellspacing="0">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr height="200px">
+                <td valign="top">张三</td>
+                <td class="san">20</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>30</td>
+                <td>女</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
