@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul {
+            /* 列表前的标号 none最常用，不使用标号 */
+            /* list-style-type: none; */
+            list-style-type: decimal;
+            /* 列表前的标号在里面还是外面 */
+            list-style-position: inside;
+            /* 列表前的标号设置成图片 */
+            list-style-image: url("./image1.png");
+            /* 复合属性 */
+            /* list-style: decimal inside url("./image1.png"); */
+            list-style: decimal inside;
+        }
+
+        li {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>无序列表</h2>
+    <ul>
+        <li>第一项</li>
+        <li>第二项</li>
+        <li>第三项</li>
+    </ul>
+
+
+    <h2>有序列表</h2>
+    <ol>
+        <li>第一项</li>
+        <li>第二项</li>
+        <li>第三项</li>
+    </ol>
+
+
+
+    <h2>自定义列表</h2>
+    <dl>
+        <dt>第一项</dt>
+        <dd>第一项描述</dd>
+        <dt>第二项</dt>
+        <dd>第二项描述</dd>
+    </dl>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 表格跨行跨列只能用html属性控制 */
+        table {
+            border: 2px, green, solid;
+            width: 500px;
+            /* 
+            [表格独有属性]
+            控制列宽：
+            auto 默认
+            fixed 固定列宽 
+            */
+            table-layout: fixed;
+
+            /* 
+            [表格独有属性]
+            单元格间距：
+            */
+            border-spacing: 5px;
+
+            /* 
+            [表格独有属性]
+            合并相邻的单元格边框：
+            separate 默认不合并
+            collapse 合并
+            合并后单元格的样式覆盖表格外边框。
+            合并时单元格间距无效。
+            */
+            /* border-collapse:collapse; */
+
+            /* 
+            [表格独有属性]
+            隐藏没有内容的单元格：
+            不合并相邻的单元格边框是能看出来。
+            */
+            empty-cells: hide;
+
+            /* 
+            [表格独有属性]
+            设置表格标题位置:
+            top 默认
+            bottom 底部
+            */
+            caption-side: top;
+        }
+        th,td {
+            border: 2px, red, solid;
+        }
+
+        .number {
+            width: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <caption>人员信息</caption>
+        <thead>
+            <tr>
+                <th class="number">ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>政治面貌</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>张三</td>
+                <td>20</td>
+                <td>男</td>
+                <td>团员</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>李四</td>
+                <td>30</td>
+                <td>女</td>
+                <td>群众</td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>王五</td>
+                <td>40</td>
+                <td></td>
+                <td>群众</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

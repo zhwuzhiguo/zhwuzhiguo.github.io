@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 440px;
+            height: 440px;
+            border: 20px, green, solid;
+            font-size: 40px;
+
+            /* 
+            设置背景色 
+            默认值 transparent 透明 
+            */
+            /* background-color:transparent; */
+            background-color: chocolate;
+
+            /* 
+            设置背景图片
+            图片大回截取坐上部分平铺
+            图片小会排列平铺（可用于纹理背景）
+            */
+            /* background-image: url("./image1.png"); */
+            background-image: url("./image2.png");
+
+            /* 
+            设置背景图片            
+            图片小会排列平铺
+            设置排列方式：
+            repeat 默认
+            repeat-x 只在横向平铺
+            repeat-y 只在纵向平铺
+            no-repeat 只显示一个，不平铺
+            */
+            background-repeat:no-repeat;
+
+            /* 
+            设置背景图片            
+            图片小会排列平铺
+            控制北京图片位置：
+            水平位置 left center right
+            垂直位置 top  center bottom
+            只指定一个值，认为是水平位置，y值默认center
+            */
+            background-position: right top ;
+            background-position: center top;
+            background-position: center center;
+            background-position: center bottom;
+            background-position: left;
+
+            /* 
+            设置背景图片            
+            图片小会排列平铺
+            控制北京图片位置：
+            通过像素控制：xpx ypx
+            这种方式比较常用。
+            只指定一个值，认为是x值，y值默认center
+            */
+            background-position: 50px 300px;
+            background-position: 50px;
+
+            /* 
+            设置背景复合属性：
+            顺序随意。
+            */
+            background:chocolate url("./image2.png") no-repeat 50px 300px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>中国人</div>
+</body>
+</html>
