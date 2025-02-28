@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            /* 内容区的宽高 */
+            width: 400px;
+            /* height: 400px; */
+            background-color: grey;
+
+        }
+
+        .inner1 {
+            /* 内容区的宽高 */
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* 
+            上下相邻的元素
+            上面的元素设置下外边距
+            会和下面元素设置的上外边距合并
+             */
+            margin-bottom: 50px;
+        }
+
+        .inner2 {
+            /* 内容区的宽高 */
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            
+            /* 
+            上下相邻的元素
+            下面的元素设置上外边距
+            会和上面元素设置的下外边距合并
+             */
+            margin-top: 50px;
+        }
+
+        /* 
+        注意： 
+        左右相邻的元数不存在这种外边距合并的情况。
+        */
+
+        /* 
+        注意： 
+        外边距合并问题最好的处理方式是不解决，设计中规避。
+        */
+
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner1">中国人1</div>
+        <div class="inner2">中国人2</div>
+    </div>
+    <div>我是一行文字</div>
+</body>
+
+</html>

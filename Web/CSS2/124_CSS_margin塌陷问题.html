@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            /* 内容区的宽高 */
+            width: 400px;
+            /* height: 400px; */
+            background-color: grey;
+            /* 父元素加上边框能解决：margin塌陷问题 */
+            /* border: 1px solid red; */
+            /* 父元素加上内边距能解决：margin塌陷问题 */
+            /* padding: 1px; */
+
+            /* 完美解决方案：
+            overflow溢出设置为hidden解决：
+            margin塌陷问题 */
+            overflow: hidden;
+        }
+
+        .inner1 {
+            /* 内容区的宽高 */
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* 这里上外边框会被父元素抢走(margin塌陷问题) */
+            margin-top: 50px;
+            /* 没问题 */
+            margin-bottom: 50px;
+        }
+
+        .inner2 {
+            /* 内容区的宽高 */
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* 没问题 */
+            margin-top: 50px;
+            /* 这里下外边框会被父元素抢走(margin塌陷问题) */
+            margin-bottom: 50px;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner1">中国人1</div>
+        <div class="inner2">中国人2</div>
+    </div>
+    <div>我是一行文字</div>
+</body>
+
+</html>

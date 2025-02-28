@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            height: 500px;
+            background-color: gray;
+
+            /* 行内元数和行内块元素，彼此之间的换行会被转换为一个空白字符导致元素之间的空白 */
+            /* 方法1：不换行（不推荐） */
+            /* 方法2：设置父元素字体尺寸为0避免子元素之间的换行转空格占用空间 */
+            font-size: 0;
+        }
+
+        span {
+            /* 重新设置子元素字体尺寸覆盖继承的父元素的字体尺寸 */
+            font-size: 20px;
+        }
+
+        .span1 {
+            background-color: red;
+        }
+
+        .span2 {
+            background-color: green;
+        }
+
+        .span3 {
+            background-color: blue;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="span1">人人人</span>
+        <span class="span2">之之之</span>
+        <span class="span3">初初初</span>
+
+        <img src="./image1.png" alt="">
+        <img src="./image1.png" alt="">
+        <img src="./image1.png" alt="">
+
+    </div>
+
+</body>
+
+</html>

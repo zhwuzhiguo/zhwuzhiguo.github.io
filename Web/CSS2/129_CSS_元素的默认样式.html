@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #div1 {
+            font-size: 40px;
+            color: orange;
+        }
+
+        a {
+            /* 
+            默认样式优先级大于继承的优先级
+            所以需要重置 
+            */
+            color: blueviolet;
+            cursor: default;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<!-- body也有默认样式 -->
+<body>
+    <div id="div1">
+        <!-- 超链接继承了div的color但比默认的颜色属性优先级低，用了默认的蓝色 -->
+        <a href="https://jd.com">打开京东</a>
+        <!-- span继承了div的color，自己没有默认属性，用了继承的颜色 -->
+        <span>你好</span>
+    </div>
+
+    <hr>
+
+    <!-- 有默认样式 -->
+    <h1>H1</h1>
+    <h2>H2</h2>
+
+    <!-- 有默认样式 -->
+    <p>段落</p>
+
+
+</body>
+
+</html>

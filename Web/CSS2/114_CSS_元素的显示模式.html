@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: gray;
+        }
+
+        .div1 {
+            background-color: red;
+            width: 200px;
+            height: 100px;
+        }
+
+        .div2 {
+            background-color: green;
+            width: 200px;
+            height: 100px;
+        }
+
+        .div3 {
+            background-color: blue;
+            width: 200px;
+            height: 100px;
+        }
+        .span1 {
+            background-color:chartreuse;
+            /* 设置宽高无效 */
+            width: 200px;
+            height: 100px;
+        }
+        .span2 {
+            background-color:blueviolet;
+        }
+        .image1 {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    块元素：
+    1. 独占一行
+    2. 默认宽度充满整个父元素
+    3. 高度由内容撑开
+    4. 可以通过CSS设置宽和高
+    -->
+    <div class="div1">中国人</div>
+    <div class="div2">中国人</div>
+    <div class="div3">中国人</div>
+
+    <!-- 
+    行内元素：
+    1. 不独占一行
+    2. 宽度由内容撑开
+    3. 高度由内容撑开
+    4. 无法通过CSS设置宽和高
+    -->
+    <span class="span1">我是中国人</span>
+    <span class="span2">我是中国人</span>
+    <span class="span1">我是中国人</span>
+    <span class="span2">我是中国人</span>
+    <span class="span1">我是中国人</span>
+    <span class="span2">我是中国人</span>
+    <span class="span1">我是中国人</span>
+    <span class="span2">我是中国人</span>
+    <span class="span1">我是中国人</span>
+    <span class="span2">我是中国人</span>
+
+    <hr>
+
+    <!-- 
+    行内块元素：
+    1. 不独占一行
+    2. 宽度由内容撑开
+    3. 高度由内容撑开
+    4. 可以通过CSS设置宽和高
+    -->
+    <img src="./image2.png" class="image1">
+    <img src="./image2.png" class="image1">
+    <img src="./image2.png" class="image1">
+</body>
+
+</html>

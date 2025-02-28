@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            background-color: gray;
+            /* 
+            解决方案三：
+            设置父元素字体尺寸为0，
+            此时需要注意，子元素需要单独设置字体尺寸。
+            */
+            /* font-size: 0; */
+
+        }
+
+
+        img {
+            width: 300px;
+            height: 300px;
+            /* 
+            解决方案一（推荐）：
+            vertical-align:
+            用于指定同一行元素之间，或 表格单元格 内文字的 垂直对齐方式。
+            常用值:
+            baseline (默认值):使元素的基线与父元素的基线对齐。 
+            top :使元素的顶部与其所在行的顶部对齐。
+            middle:使元素的中部与父元素的基线加上父元素字母 x 的一半对齐。 
+            bottom:使元素的 底部 与其 所在行的底部 对齐。
+
+            特别注意: 
+            vertical-align 不能控制父容器中的文本，只能控制子元素。
+            vertical-align 不能控制块元素（如div）。
+            */
+            vertical-align: bottom;
+
+            /* 
+            解决方案二：
+            设置为块元素
+            但此时后面不能跟文字，因为块元素独占一行
+            */
+            /* display: block; */
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- 默认基线对齐导致底部缝隙 -->
+        <img src="./image1.png" alt="">xg
+
+    </div>
+
+</body>
+
+</html>

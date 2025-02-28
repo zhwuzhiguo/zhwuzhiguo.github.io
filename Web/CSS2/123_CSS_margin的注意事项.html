@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            /* 内容区的宽高 */
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+            background-color: grey;
+        }
+
+        .inner {
+            /* 内容区的宽高 */
+            width: 100px;
+            height: 100px;
+
+            /* 子元素的外边框在父元素的内容区 */
+            /* 块元素设置四个方向的外边距都没有问题 */
+            margin: 100px;
+
+            /* 
+            背景色填充：
+            1.内容区域
+            2.内边距区域
+            3.边框区域 
+            */
+            background-color: chocolate;
+            font-size: 20px;
+        }
+
+        img {
+            width: 100px;
+            /* 行内块元素设置四个方向的外边距都没有问题 */
+            margin: 20px;
+        }
+
+        .span1 {
+            background-color: red;
+        }
+
+        .span2 {
+            background-color: green;
+            /* 行内元素设置左右外边距没问题 */
+            margin-left: 20px;
+            margin-right: 20px;
+            /* 
+            行内元素设置上下外边距无效 
+            */
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            /* 类似的：行内元素设置左右内边距没问题，上下会向外扩张。 */
+        }
+
+        .span3 {
+            background-color: blue;
+        }
+
+        .div1 {
+            background-color:blueviolet;
+        }
+
+        .div2 {
+            background-color: blueviolet;
+        }
+
+        .div3 {
+            background-color: blueviolet;
+        }
+
+
+        .div4 {
+            background-color:brown;
+            
+            /* 块级元素左右margin设置成auto可以实现居中 */
+            /* 行内元素不可以*/
+            /* 需要指定宽度 */
+            width: 400px;
+            /* margin-left: auto;
+            margin-right: auto; */
+            margin: 0px auto;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+
+        .box5 {
+            background-color: red;
+            /* margin-bottom: -100px; */
+        }
+
+        .box6 {
+            background-color: green;
+            /* 
+            margin可以是负值
+            元素会反向移动
+            */
+            margin-top: -100px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">中国人</div>
+    </div>
+    <hr>
+    <div class="div1">div1</div>
+    <img src="./image1.png"><img src="./image1.png" class="img"><img src="./image1.png">
+    <div class="div2">div2</div>
+    <span class="span1">111</span><span class="span2">222</span><span class="span3">333</span>
+    <div class="div3">div3</div>
+    
+    <hr>
+
+    <div class="div4">div4</div>
+
+    <hr>
+
+    <div class="box box5">div5</div>
+    <div class="box box6">div6</div>
+
+</body>
+
+</html>

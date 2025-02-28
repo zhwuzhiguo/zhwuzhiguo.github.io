@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* html {
+            font-size: 30px;
+        } */
+
+        #id1 {
+            /* 像素 */
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+            background-color: red;
+        }
+
+        #id2 {
+            /* em 
+            相对于当前元素的font-size的倍数
+            如果元素和继承的父元素都没有font-size，默认font-size是16px
+            如果font-size也设置成em单位，同理使用父元素的font-size，如果没有设置默认用16px
+            */
+            width: 10em;
+            height: 10em;
+            font-size: 20px;
+            font-size: 1em;
+            background-color: green;
+        }
+
+        #id3 {
+            /* rem 
+            相对于根元素（html）的font-size的倍数，如果没有设置默认用16px
+            */
+            width: 10rem;
+            height: 10rem;
+            font-size: 1em;
+            background-color: blue;
+        }
+
+        #id4 {
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+            background-color: yellow;
+        }
+
+        #id41 {
+            /* 百分比 
+            相对于父元素对应属性的百分比
+            */
+            width: 50%;
+            height: 30%;
+            font-size: 150%;
+            background-color: chocolate;
+        }
+
+        #id5 {
+            /* 
+            首行缩进
+            text-indent设置为em单位表示缩进几个字符
+            */
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+            background-color: blueviolet;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id1">1</div>
+    <div id="id2">2</div>
+    <div id="id3">3</div>
+    <div id="id4">
+        <div id="id41">4</div>
+    </div>
+    <div id="id5">我是中国人我是中国人我是中国人我是中国人</div>
+</body>
+
+</html>

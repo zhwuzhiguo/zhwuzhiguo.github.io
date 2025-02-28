@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .id1 {
+
+            width: 400px;
+            height: 400px;
+
+            /* 
+            注意：
+            1. padding 不能设置负数
+            2. 
+            */
+
+            /* 设置4个方向的内边距一样 */
+            padding: 50px;
+
+            /* 单独设置4个方向的内边距 */
+            padding-left: 10px;
+            padding-top: 20px;
+            padding-right: 30px;
+            padding-bottom: 40px;
+
+            /* 设置 上下 + 左右 */
+            padding: 10px 30px;
+
+            /* 设置 上 + 左右 + 下 */
+            padding: 10px 30px 40px;
+
+            /* 设置 上 + 右 + 下 + 左 */
+            padding: 10px 20px 30px 40px;
+
+
+
+            background-color: chocolate;
+            font-size: 20px;
+        }
+
+        .span1 {
+
+            width: 400px;
+            height: 400px;
+
+            /* 
+            注意：
+            行内元素设置左右内边距没问题，上下会向外扩张。             
+            */
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+
+            background-color: green;
+            font-size: 20px;
+        }
+
+        .img1 {
+
+            width: 400px;
+            height: 400px;
+
+            /* 
+            注意：
+            行内块元素设置左右上下都没问题。
+            */
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+
+            background-color: green;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="id1">你好</div>
+    <hr>
+    <hr>
+    <span class="span1">中国</span>
+    <hr>
+    <hr>
+    <img src="./image1.png" class="img1"></img>
+</body>
+
+</html>
