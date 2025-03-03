@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        布局发展历史：
+        1、表格布局
+        2、浮动布局（最初是实现文字环绕图片效果的）
+        3、弹性盒子（CSS3的内容）
+
+        */
+        div {
+            width: 600px;
+            height: 600px;
+            background-color:burlywood;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;            
+            /* margin: 10px; */
+            /* 浮动到右边 */
+            float: right;
+
+        }
+
+        .div2 {
+            width: 600px;
+            height: 400px;
+            background-color:burlywood;
+        }
+
+        .div2::first-letter {
+            font-size: 80px;
+            /* 浮动到左边 */
+            float: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./image1.png" alt="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In accusantium, qui quasi error modi expedita nobis eligendi necessitatibus nulla aspernatur suscipit voluptatum numquam ea ipsum autem laboriosam! Blanditiis autem laudantium atque eius. Sit, similique iure necessitatibus aut eum explicabo eaque ab numquam sapiente, consequuntur labore modi, blanditiis suscipit soluta! Quibusdam porro facilis praesentium illum deserunt sapiente consequatur repellendus odio ab non, necessitatibus eos nostrum ut. Adipisci, commodi laudantium. Est, suscipit qui expedita cum dolor eaque enim mollitia, magni obcaecati sit eveniet minus doloremque. Dolore ipsum sapiente quisquam? Blanditiis, ipsum necessitatibus, quia temporibus placeat quod et veniam fugiat inventore facilis illo?
+
+    </div>
+
+    <hr>
+
+    <div class="div2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In accusantium, qui quasi error modi expedita nobis eligendi necessitatibus nulla aspernatur suscipit voluptatum numquam ea ipsum autem laboriosam! Blanditiis autem laudantium atque eius. Sit, similique iure necessitatibus aut eum explicabo eaque ab numquam sapiente, consequuntur labore modi, blanditiis suscipit soluta! Quibusdam porro facilis praesentium illum deserunt sapiente consequatur repellendus odio ab non, necessitatibus eos nostrum ut. Adipisci, commodi laudantium. Est, suscipit qui expedita cum dolor eaque enim mollitia, magni obcaecati sit eveniet minus doloremque. Dolore ipsum sapiente quisquam? Blanditiis, ipsum necessitatibus, quia temporibus placeat quod et veniam fugiat inventore facilis illo?
+
+    </div>
+
+</body>
+
+</html>

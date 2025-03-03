@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        浮动
+        */
+        .outer1 {
+            width: 500px;
+            background-color:gray;
+            border: 1px solid black;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+        }
+        .box11 {
+            background-color: red;
+            float: left;
+        }
+        .box12 {
+            background-color: green;
+            float: left;
+        }
+        .box13 {
+            background-color: blue;
+            float: left;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="outer1">
+        <!-- 
+        前面的不浮动兄弟元素会占据一行
+        不影响
+        -->
+        <!-- <div class="box1 box10">盒子0</div> -->
+        <div class="box1 box11">盒子1</div>
+        <div class="box1 box12">盒子2</div>
+        <div class="box1 box13">盒子3</div>
+        <!-- 
+        后面的兄弟元素会占据前面浮动元素的位置
+        在浮动元素的下面
+        但后面兄弟元素的内容会被挤出到下面
+        -->
+        <!-- <div class="box1 box14">盒子4</div> -->
+    </div>
+
+    <!-- 浮动影响一 -->
+    <!-- 子元素全部浮动后父元素高度塌陷，高度没了，后续的其他元素就会顶上来，破坏了布局 -->
+    <div style="background-color:blueviolet; height: 200px;">
+        顶上去了
+    </div>
+
+
+</body>
+
+</html>

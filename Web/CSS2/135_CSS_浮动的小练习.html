@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        浮动
+        */
+        .outer1 {
+            width: 500px;
+            background-color:gray;
+            border: 1px solid black;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+        }
+        .box11 {
+            background-color: red;
+            float: right;
+        }
+        .box12 {
+            background-color: green;
+
+        }
+        .box13 {
+            background-color: blue;
+
+        }
+
+        /* 
+        浮动
+        */
+        .outer2 {
+            width: 500px;
+            background-color:gray;
+            border: 1px solid black;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+        }
+        .box21 {
+            background-color: red;
+            /* 左浮动 */
+            /* 盒子2跑到盒子1的下面了，但文字报道盒子3的上面了 */
+            float: left;
+        }
+        .box22 {
+            background-color: green;
+
+        }
+        .box23 {
+            background-color: blue;
+
+        }
+
+        /* 
+        浮动
+        */
+        .outer3 {
+            width: 500px;
+            background-color:gray;
+            border: 1px solid black;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+            /* 所有盒子左浮动 */
+            /* 所有盒子都飘起来了，父容器没有内容撑开了，高度为0，只剩下上下边框的俩条线在顶部 */
+            float: left;
+        }
+        .box31 {
+            background-color: red;
+        }
+        .box32 {
+            background-color: green;
+        }
+        .box33 {
+            background-color: blue;
+
+        }
+
+        /* 
+        浮动
+        */
+        .outer4 {
+            width: 300px;
+            background-color:gray;
+            border: 1px solid black;
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+            /* 所有盒子左浮动 */
+            /* 所有盒子都飘起来了，父容器没有内容撑开了，高度为0，只剩下上下边框的俩条线在顶部 */
+            /* 浮动的盒子排列，宽度超过父容器的宽度会换行 */
+            float: left;
+        }
+        .box41 {
+            background-color: red;
+        }
+        .box42 {
+            background-color: green;
+
+        }
+        .box43 {
+            background-color: blue;
+
+        }
+
+
+        /* 
+        浮动
+        */
+        .outer5 {
+            width: 300px;
+            background-color:gray;
+            border: 1px solid black;
+        }
+
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+            /* 所有盒子左浮动 */
+            /* 所有盒子都飘起来了，父容器没有内容撑开了，高度为0，只剩下上下边框的俩条线在顶部 */
+            /* 浮动的盒子排列，宽度超过父容器的宽度会换行 */
+            /* 盒子3换行后由于盒子1突出来了，所以会排列到后侧盒子2的下面 */
+            float: left;
+        }
+        .box51 {
+            background-color: red;
+            /* 高度加大 */
+            height: 130px;
+        }
+        .box52 {
+            background-color: green;
+
+        }
+        .box53 {
+            background-color: blue;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="outer1">
+        <div class="box1 box11">盒子1</div>
+        <div class="box1 box12">盒子2</div>
+        <div class="box1 box13">盒子3</div>
+    </div>
+
+    <hr>
+
+    <div class="outer2">
+        <div class="box2 box21">盒子1</div>
+        <div class="box2 box22">盒子2</div>
+        <div class="box2 box23">盒子3</div>
+    </div>
+
+    <hr>
+
+    <div class="outer3">
+        <div class="box3 box31">盒子1</div>
+        <div class="box3 box32">盒子2</div>
+        <div class="box3 box33">盒子3</div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>    
+
+
+    <div class="outer4">
+        <div class="box4 box41">盒子1</div>
+        <div class="box4 box42">盒子2</div>
+        <div class="box4 box43">盒子3</div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>    
+
+    <div class="outer5">
+        <div class="box5 box51">盒子1</div>
+        <div class="box5 box52">盒子2</div>
+        <div class="box5 box53">盒子3</div>
+    </div>
+
+</body>
+
+</html>

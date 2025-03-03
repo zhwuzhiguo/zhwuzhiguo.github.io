@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 清除默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 左浮动 */
+        .leftfix {
+            float: left;
+        }
+
+        /* 右浮动 */
+        .rightfix {
+            float: right;
+        }
+
+        /* 清除浮动影响 */
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* 容器 */
+        .container {
+            width: 960px;
+            /* 容器左右居中 */
+            margin: 0 auto;
+            /* 后代元素文本水平居中 */
+            text-align: center;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        .banner1 {
+            width: 540px;
+            /* 设置左右外边框 */
+            margin: 0 10px;
+        }
+
+        .banner2 {
+            width: 200px;
+        }
+
+        .logo,
+        .banner1,
+        .banner2 {
+            height: 80px;
+            /* 文本垂直居中 */
+            line-height: 80px;
+            background-color: darkgrey;
+        }
+
+        .menu {
+            height: 30px;
+            line-height: 30px;
+            background-color: darkgrey;
+            /* 设置上外边框 */
+            margin-top: 10px;
+        }
+
+        .content {
+            /* 设置上外边框 */
+            margin-top: 10px;
+        }
+
+        .item1,
+        .item2 {
+            width: 368px;
+            height: 198px;
+            line-height: 198px;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        .bottom {
+            margin-top: 10px;
+        }
+
+        .item3,
+        .item4,
+        .item5,
+        .item6 {
+            width: 178px;
+            height: 198px;
+            line-height: 198px;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        .item7,
+        .item8,
+        .item9 {
+            width: 198px;
+            height: 128px;
+            line-height: 128px;
+            border: 1px solid black;
+        }
+
+        .item8 {
+            /* 设置上下外边框 */
+            margin: 10px 0;
+        }
+
+        .footer {
+            height: 60px;
+            line-height: 60px;
+            background-color: darkgrey;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="page-header clearfix">
+            <div class="logo leftfix">logo</div>
+            <div class="banner1 leftfix">banner1</div>
+            <div class="banner2 leftfix">banner2</div>
+        </div>
+
+        <!-- 菜单 -->
+        <div class="menu">菜单</div>
+
+        <!-- 内容 -->
+        <div class="content clearfix">
+            <div class="left leftfix">
+                <div class="top clearfix">
+                    <div class="item1 leftfix">栏目一</div>
+                    <div class="item2 leftfix">栏目二</div>
+                </div>
+                <div class="bottom clearfix">
+                    <div class="item3 leftfix">栏目三</div>
+                    <div class="item4 leftfix">栏目四</div>
+                    <div class="item5 leftfix">栏目五</div>
+                    <div class="item6 leftfix">栏目六</div>
+                </div>
+            </div>
+
+            <div class="right rightfix">
+                <div class="item7">栏目七</div>
+                <div class="item8">栏目八</div>
+                <div class="item9">栏目九</div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">页脚</div>
+
+    </div>
+</body>
+
+</html>

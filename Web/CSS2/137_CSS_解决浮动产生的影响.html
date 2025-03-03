@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        浮动
+        */
+        .outer1 {
+            width: 500px;
+            background-color:gray;
+            border: 1px solid black;
+            /* 
+            解决方案一
+            设置父元素高度
+            解决后续元素顶上来问题
+            不解决兄弟元素问题 
+            */
+            /* height: 122px; */
+
+            /* 
+            解决方案二
+            设置父元素也浮动
+            只是父元素高度正常了
+            不解决其他问题
+            */
+            /* float: left; */
+
+            /* 
+            解决方案三
+            设置父元素溢出处理为 hidden
+            只是父元素高度正常了
+            解决后续元素顶上来问题
+            不解决兄弟元素问题 
+            */
+            /* overflow: hidden; */
+
+
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid darkorange;
+            margin: 10px;
+        }
+        .box11 {
+            background-color: red;
+            float: left;
+        }
+        .box12 {
+            background-color: green;
+            float: left;
+        }
+        .box13 {
+            background-color: blue;
+            float: left;
+        }
+
+        .box14 {
+            background-color:chartreuse;
+            /* 
+            解决方案四
+            设置后面不浮动的兄弟元素的 clear 为：
+            left 消除掉该元素之前 左浮动元素 产生的影响
+            right 消除掉该元素之前 右浮动元素 产生的影响
+            both 消除掉该元素之前 左右浮动元素 产生的影响
+
+            父元素高度正常了
+            解决后续元素顶上来问题
+            解决兄弟元素问题
+            */
+            /* clear: both; */
+
+            /* 
+            解决方案四
+            问题1：
+            如果后面兄弟元素也是浮动的就不行了
+            */
+            /* float: left; */
+
+             /* 
+            解决方案四
+            问题2：
+            后面兄弟元素必须是块元素，不能是行内元素
+            且设置高度也不行，因为行内元素不能设置宽高
+            貌似行内块元素可以
+            */
+            /* display: inline;
+            display: inline-block; */
+
+            /* 
+            完美方案方案四 
+            盒子4也是浮动的
+            */
+            float: left;
+
+        }
+
+        .box15 {
+            background-color:chartreuse;
+            /* 
+            完美方案方案四
+            后面追加一个空盒子
+            设置 clear 为：both
+            left 消除掉该元素之前 左浮动元素 产生的影响
+            right 消除掉该元素之前 右浮动元素 产生的影响
+            both 消除掉该元素之前 左右浮动元素 产生的影响
+
+            父元素高度正常了
+            解决后续元素顶上来问题
+            解决兄弟元素问题
+            */
+            /* clear: both; */
+
+        }
+
+        /* 
+        完美方案方案五（推荐）
+        给浮动元素的父元素
+        设置伪元素
+        通过伪元素清除浮动
+        原理与方案四相同
+        该方案前提：
+        所有子元素都是浮动的
+        如果最有一个元素不浮动应使用方案四
+        */
+        .outer1::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* 
+        布局原则：
+        子元素全浮动或者全不浮动 
+        */
+
+
+    </style>
+</head>
+
+<body>
+    <div class="outer1">
+        <!-- 
+        前面的不浮动兄弟元素会占据一行
+        不影响
+        -->
+        <!-- <div class="box1 box10">盒子0</div> -->
+        <div class="box1 box11">盒子1</div>
+        <div class="box1 box12">盒子2</div>
+        <div class="box1 box13">盒子3</div>
+        <!-- 
+        后面的兄弟元素会占据前面浮动元素的位置
+        在浮动元素的下面
+        但后面兄弟元素的内容会被挤出到下面
+        -->
+        <div class="box1 box14">盒子4</div>
+
+        <!-- 
+        完美方案方案四
+        后面追加一个空盒子 
+        -->
+        <!-- <div class="box15"></div> -->
+    </div>
+
+    <!-- 浮动影响一 -->
+    <!-- 子元素全部浮动后父元素高度塌陷，高度没了，后续的其他元素就会顶上来，破坏了布局 -->
+    <div style="background-color:blueviolet; height: 200px;">
+        顶上去了
+    </div>
+
+
+</body>
+
+</html>
