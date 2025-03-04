@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* 让最下面的内容也能滚动到上面 */
+            height: 2000px;
+        }
+
+        .page-header {
+            height: 100px;
+            background-color: burlywood;
+        }
+
+        .content {
+            /* 设置高度比他的内容小的时候具有滚动属性 */
+            height: 200px;
+            /* 溢出自动出现滚动条 */
+            overflow: auto;
+        }
+
+        .item {
+            background-color: gray;
+        }
+
+        .first {
+            background-color: skyblue;
+            font-size: 40px;
+
+            /* 粘性定位 */
+            position: sticky;
+
+            /* 
+            粘性定位
+            参考离他最近的可以滚动的祖先元素（默认是body可以滚动），
+            当位置到达的时候粘性定位生效，
+            当他的父容器也滚动到了该位置的时候粘性定位失效。
+            */
+
+            /* 最常用的是top */
+            /* top: 10px; */
+            top: 0;
+
+            /* 粘性定位不改变文档流，
+            是一种专门用于窗口滚动的新定位方式，
+            和相对定位基本是一致的，
+            不同的是粘性定位在元素到达某个位置时将其固定（类似固定定位）。 */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page-header">头部</div>
+    <div class="content">
+        <div class="item">
+            <div class="first">A</div>
+            <h2>AAA</h2>
+            <h2>AAA</h2>
+            <h2>AAA</h2>
+            <h2>AAA</h2>
+            <h2>AAA</h2>
+        </div>
+        <div class="item">
+            <div class="first">B</div>
+            <h2>BBB</h2>
+            <h2>BBB</h2>
+            <h2>BBB</h2>
+            <h2>BBB</h2>
+            <h2>BBB</h2>
+        </div>
+        <div class="item">
+            <div class="first">C</div>
+            <h2>CCC</h2>
+            <h2>CCC</h2>
+            <h2>CCC</h2>
+            <h2>CCC</h2>
+            <h2>CCC</h2>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer1 {
+            width: 500px;
+            padding: 20px;
+            background-color: skyblue;
+            border: 1px solid black;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+        }
+
+        .box11 {
+            background-color: red;
+        }
+
+        .box12 {
+            background-color: green;
+            /* 开启固定定位 */
+            /* 
+            固定定位改变文档流 
+            会浮动起来，原来的占位没了（其他元素顶上来）
+            和浮动的区别是顶上来的元素的文字不会踢出去，整体顶上来。
+            */
+            position: fixed;
+
+            /* 
+            固定定位 
+            直接参考视窗定位，
+            不会随着网页滚动条的滚动而滚动。
+            其他基本和绝对定位一样。
+            */
+
+            /* 
+            top和bottom同时存在以top为准
+            */
+            /* top: 10px; */
+            /* bottom: 10px; */
+
+            /*             
+            left和right同时存在以left为准
+            */
+            /* left: 10px; */
+            /* right: 10px; */
+
+            /* 
+            定位和margin可以同时使用
+            top left 和 margin-top margin-left 一起使用。
+            bottom right 和 margin-bottom margin-right 一起使用。
+            但不推荐，有些浏览器不支持。
+            */
+
+            /* top:0;
+            left: 0;
+            margin-top: 10px;
+            margin-left: 10px; */
+
+            /* bottom: 0;
+            right: 0;
+            margin-bottom: 10px;
+            margin-right: 10px; */
+
+            /* 
+            不能是负值
+            不能移出父容器  
+            */
+
+            bottom: 0;
+            right: 0;
+            margin-bottom: 10px;
+            margin-right: 10px;
+
+            /* 固定定位和浮动不可以同时使用
+            同时设置时固定定位有效。 */
+            /* float: right; */
+
+            /* 
+            不管是块元素，行内元素，行内块元素，使用了固定定位的元素，叫固定定位元素。
+            固定定位元素特点：
+            1、默认宽高被内容撑开。
+            2、宽高也可调整（如span也可调整宽高）。
+            */
+
+            
+
+            
+
+            
+
+
+
+        }
+
+        .box13 {
+            background-color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outer1">
+        <div class="box1 box11">1</div>
+        <div class="box1 box12">2</div>
+        <div class="box1 box13">3</div>
+    </div>
+
+</body>
+
+</html>

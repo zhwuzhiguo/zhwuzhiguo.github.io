@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer1 {
+            width: 800px;
+            height: 600px;
+            padding: 20px;
+            background-color: skyblue;
+            border: 50px solid gray;
+
+            /* 
+            相对定位配合子元素绝对定位
+            */
+            position: relative;
+        }
+
+        .inner1 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+
+            /* 
+            定位的相对位置越过padding
+            不越过border 
+            */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .outer2 {
+            height: 400px;
+            background-color: gray;
+            /* 
+            相对定位配合子元素绝对定位
+            */
+            position: relative;
+        }
+
+        .inner2 {
+            background-color: orange;
+            font-size: 20px;
+            padding: 20px;
+            border: 10px solid black;
+
+            /* 
+            绝对定位
+            宽高由于内容撑开
+            */
+            position: absolute;
+
+            /* 想让子元素宽度填满父元素 */
+            
+            /* 
+            方案一：
+            设置宽度100% 
+            width 和 height 属性都是指的内容区的尺寸
+            这个子元素还有padding和border，所以会超出父元素的宽度
+            */
+            /* top: 0;
+            left: 0;
+            width: 100%; */
+
+            /* 
+            方案二：
+            完美解决
+            前提是不能设置子元素的宽高
+            */
+            left: 0;
+            right: 0;
+
+            /* 子元素高度也填满父元素 */
+            top: 0;
+            bottom: 0;
+
+            /* 
+            方案二：
+            不设置子元素宽高的情况下才可以
+            */
+            /* width: 200px;
+            height: 200px; */
+
+            /* 总结：
+            一个绝对定位的元素，
+            没有设置宽高，
+            可以使用 left right top bottom 设置充满整个父元素。 */
+        }
+
+        .outer3 {
+            width: 800px;
+            height: 400px;
+            background-color: gray;
+
+            /* ========老方法实现======== */
+            /* 避免margin塌陷问题 */
+            /* overflow: hidden; */
+            /* ========老方法实现======== */
+
+            /* ========定位方法实现======== */
+            position: relative;
+            /* ========定位方法实现======== */
+
+        }
+
+        .inner3 {
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+            font-size: 20px;
+     
+            /* 想让子元素在父元素水平垂直居中 */
+
+            /* ========老方法实现======== */
+            /* 左右居中 */
+            /* margin: 0 auto; */
+            /* 计算上外边距使其居中 */
+            /* margin-top: 150px; */
+
+            /* 文本水平居中 */
+            /* text-align: center; */
+            /* 文本垂直居中 */
+            /* line-height: 100px; */
+            /* ========老方法实现======== */
+
+
+            /* ========定位方法实现======== */
+            position: absolute;
+
+            /* 方法一(推荐) */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            /* 方法二 */
+            /* top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -200px; */
+
+            /* ========定位方法实现======== */
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="outer1">
+        <div class="inner1"></div>
+    </div>
+
+    <hr>
+
+    <div class="outer2">
+        <div class="inner2">你好</div>
+    </div>
+
+    <hr>
+
+    <div class="outer3">
+        <div class="inner3">你好</div>
+    </div>
+
+</body>
+
+</html>

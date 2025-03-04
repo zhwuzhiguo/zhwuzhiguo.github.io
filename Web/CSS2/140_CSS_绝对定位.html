@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer1 {
+            width: 500px;
+            padding: 20px;
+            background-color: skyblue;
+            border: 10px solid black;
+            /* 父元素开启相对定位 */
+            position: relative;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .box11 {
+            background-color: red;
+        }
+
+        .box12 {
+            background-color: green;
+            /* 开启绝对定位 */
+            /* 
+            绝对定位改变文档流 
+            会浮动起来，原来的占位没了（其他元素顶上来）
+            和浮动的区别是顶上来的元素的文字不会踢出去，整体顶上来。
+            */
+            position: absolute;
+
+            /* 
+            绝对定位参考点：参考包含块。
+            包含块：
+            1、没有脱离文档流的元素的包含块是其父元素。
+            2、脱离文档流的元素的包含块是其从内到外第一个开启定位的祖先元素（如果都没开启，就是最外层的html元素）。
+
+            一般：
+            子元素开启绝对定位，父元素开启相对定位。
+            这样子元素就是相对父元素的定位了，比较方便处理。
+            */
+
+            /* 
+            也可以负值
+            向相反的方向移动
+            可以移出父容器  
+            */
+
+            /* 
+            top和bottom同时存在以top为准
+            */
+            top: 0;
+            /* bottom: -10px; */
+
+            /* 
+            可以移出父容器 
+            left和right同时存在以left为准
+            */
+            left: 0;
+            /* right: -10px; */
+
+            /* 
+            定位和margin可以同时使用
+            top left 和 margin-top margin-left 一起使用。
+            bottom right 和 margin-bottom margin-right 一起使用。
+            但不推荐，有些浏览器不支持。
+            */
+
+            /* top:0;
+            left: 0;
+            margin-top: 30px;
+            margin-left: 30px; */
+
+            /* bottom: 0;
+            right: 0;
+            margin-bottom: 30px;
+            margin-right: 30px; */
+
+            /* 绝对定位和浮动不可以同时使用
+            同时设置时绝对定位有效。 */
+            /* float: right; */
+
+            /* 
+            不管是块元素，行内元素，行内块元素，使用了绝对定位的元素，叫绝对定位元素。
+            绝对定位元素特点：
+            1、默认宽高被内容撑开。
+            2、宽高也可调整（如span也可调整宽高）。
+            */
+
+            /* 
+            绝对定位主流应用场景
+            一个元素盖到另一个元素上面。 
+            */
+            top: 220px;
+            left: 20px;
+
+            /* 
+            绝对定位主流应用场景
+            一个元素盖到另一个元素上面
+            当鼠标在outer1上移动时，box12移动到后侧漏出box13
+            动画效果(CSS3)
+            */
+            transition: 1s all linear;
+
+
+            /* 
+            注意：
+            绝对定位参考包含块，不包括边框，以边框内左上角为基点。 
+            */
+
+            /* 
+            话外音：
+            相对定位和绝对定位是对浮动的补充 
+            */
+
+        }
+
+        .box13 {
+            background-color: blue;
+        }
+
+        /* 
+        绝对定位主流应用场景
+        一个元素盖到另一个元素上面
+        当鼠标在outer1上移动时，box12移动到后侧漏出box13
+        */
+        .outer1:hover .box12 {
+            left: 220px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outer1">
+        <div class="box1 box11">1</div>
+        <div class="box1 box12">2</div>
+        <div class="box1 box13">3</div>
+    </div>
+
+</body>
+
+</html>

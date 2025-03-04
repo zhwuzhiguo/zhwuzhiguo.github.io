@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer1 {
+            width: 500px;
+            padding: 20px;
+            background-color: skyblue;
+            border: 1px solid black;
+
+            /* 父元素相对定位
+            配合绝对定位设置 */
+            position: relative;
+
+            /* 
+            设置父元素的z轴索引
+            */
+            z-index: 10;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+        }
+
+        .box11 {
+            background-color: red;
+            /* 
+            不是定位元素
+            不配有z轴索引值
+            设置了也无效
+            定位元素的层级一定比普通元素高
+            */
+            /* z-index: 100; */
+
+            /* 
+            定位元素的层级一定比普通元素高
+            */
+        }
+
+        .box12 {
+            background-color: green;
+            /* 相对定位 */
+            position: relative;
+            top: -150px;
+            left: 50px;
+
+            /* 
+            针对定位元素：
+            z轴索引表示层级
+            从屏幕垂直向外方向
+            默认值：0
+            */
+            z-index: 3;
+        }
+
+        .box13 {
+            background-color: blue;
+            /* 绝对定位 */
+            position: absolute;
+            top: 130px;
+            left: 130px;
+
+            /* 
+            针对定位元素：
+            z轴索引表示层级
+            从屏幕垂直向外方向
+            默认值：0
+            */
+            z-index: 2;
+        }
+
+        .box14 {
+            background-color: yellow;
+            /* 固定定位 */
+            position: fixed;
+            top: 200px;
+            left: 200px;
+
+            /* 
+            针对定位元素：
+            z轴索引表示层级
+            从屏幕垂直向外方向
+            默认值：0
+            */
+            z-index: 1;
+        }
+
+        .box15 {
+            background-color: blueviolet;
+            /* 固定定位 */
+            position: fixed;
+            top: 300px;
+            left: 300px;
+
+            /* 
+            z轴索引只和同级的outer1元素的z轴索引比较
+            和不同级别的元素无关。
+            */
+            z-index: 9;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outer1">
+        <!-- 默认后定义的元素压着前面的元素 -->
+        <div class="box1 box11">1</div>
+        <div class="box1 box12">2</div>
+        <div class="box1 box13">3</div>
+        <div class="box1 box14">4</div>
+    </div>
+
+    <div class="box1 box15">5</div>
+
+</body>
+
+</html>

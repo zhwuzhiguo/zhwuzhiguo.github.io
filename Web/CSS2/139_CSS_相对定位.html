@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer1 {
+            width: 500px;
+            padding: 20px;
+            background-color: skyblue;
+            border: 1px solid black;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .box11 {
+            background-color: red;
+        }
+
+        .box12 {
+            background-color: green;
+            /* 开启相对定位 */
+            /* 
+            相对定位不改变文档流 
+            原来的占位不变（其他元素不会顶上来）
+            只是相对原来的位置移动
+            浮动不能超出父容器
+            定位可以超出父容器
+            */
+            position: relative;
+            /* 
+            相对原来的位置移动
+            其他元素不会顶上来
+             */
+            /* left: 300px; */
+
+            /* 也可以负值，向相反的方向移动 */
+            /* left: -10px; */
+
+            /* 
+            可以移出父容器 
+            left和right同时存在以left为准
+            */
+            /* right: 100px; */
+
+            /* 
+            top和bottom同时存在以top为准
+            */
+            top: 100px;
+            /* bottom: 10px; */
+
+            /* 
+            元素开启了定位
+            层级就比普通元素高
+            会盖在普通元素上
+            但不是浮动那样飘起来
+            不改变文档流
+
+            如果俩个元素都开启了定位
+            后面的元素会盖在前面的元素上
+
+            定位和margin可以同时使用
+            但不推荐
+
+            相对定位和浮动可以同时使用
+            是在浮动位置的基础上，再进行相对定位
+            不推荐同时使用
+
+            相对定位应用场景：
+            1、对元素位置微调，不改变文档流，其他元素位置不变。
+            2、和绝对定位配合使用（90%的用途）
+            */
+
+
+        }
+
+        .box13 {
+            background-color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outer1">
+        <div class="box1 box11">1</div>
+        <div class="box1 box12">2</div>
+        <div class="box1 box13">3</div>
+    </div>
+
+</body>
+
+</html>
