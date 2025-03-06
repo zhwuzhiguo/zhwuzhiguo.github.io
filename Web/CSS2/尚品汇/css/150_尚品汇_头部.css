@@ -11,6 +11,45 @@
 
 /* #region header */
 
+.header {
+    height: 120px;
+    /* 暂时设置一个背景色 */
+    background-color: skyblue;
+}
 
+.header .search form {
+    margin-top: 42px;
+    /* input 和 button 的文字有默认样式
+    这里的字体尺寸会被覆盖 */
+    font-size: 0;
+}
+
+.header .search input {
+    width: 508px;
+    height: 34px;
+    border: 1px solid #DD302D;
+}
+
+.header .search button {
+    width: 80px;
+    height: 36px;
+    background-color: #DD302D;
+    /* 输入框和按钮垂直对齐是默认文字基线对齐
+    输入框文字基线正好在垂直正中
+    但按钮不是正中
+    造成按钮和输入框对不齐
+    将按钮改成顶部对齐就可以了
+    也就是和父元素form的顶部对齐 */
+    vertical-align: top;
+
+    /* 按钮大图片小会平铺 */
+    background-image: url("../images/serch_icon.png");
+    /* 图片不重复 */
+    background-repeat: no-repeat;
+    /* 设置图片位置 */
+    background-position: 28px 6px;
+    /* 设置图片位置方式二 */
+    /* background-position: center center; */
+}
 
 /* #endregion header */
