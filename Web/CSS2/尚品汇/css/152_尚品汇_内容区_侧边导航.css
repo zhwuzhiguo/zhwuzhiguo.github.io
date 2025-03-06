@@ -9,8 +9,46 @@
     /* background-color: aqua; */
 }
 
-/* #region xxxxxx */
+/* #region main-content */
+
+.main-content {
+    margin-top: 10px;
+}
+
+.main-content .side-nav {
+    width: 190px;
+    height: 458px;
+    background-color: #F4F4F4;
+}
+
+.main-content .side-nav li {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 16px;
+}
+
+.main-content .side-nav li:hover {
+    background-color: #DD302D;
+}
+
+.main-content .side-nav li:hover a {
+    color: white;
+}
+
+.main-content .banner {
+    width: 690px;
+    height: 458px;
+    background-color: green;
+    margin: 0 10px;
+}
+
+.main-content .side-other {
+    width: 290px;
+    height: 458px;
+    background-color: orange;
+}
 
 
 
-/* #endregion xxxxxx */
+/* #endregion main-content */
