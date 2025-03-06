@@ -1,0 +1,86 @@
+/* 基础设置 */
+/* 公用版心 */
+/* 让内容居中 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+    /* 版心不设置高度，由内容撑开 */
+    /* height: 30px; */
+    /* background-color: aqua; */
+}
+
+/* 成对 #region 和 #endregion 可以使内容折叠 */
+/* #region topbar */
+
+.topbar {
+    height: 30px;
+    background-color: #ECECEC;
+}
+
+.welcome {
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    /* 去除子元素见换行导致的空格 */
+    font-size: 0;
+}
+
+/* 单独设置子元素字体 */
+.welcome span,
+.welcome a {
+    font-size: 12px;
+}
+
+/* 设置间距 */
+.welcome .hello {
+    margin-right: 28px;
+}
+
+/* 设置间距 */
+/* 设置分割线 */
+.welcome .login {
+    padding-right: 10px;
+    border-right: 1px solid #666;
+}
+
+/* 设置间距 */
+.welcome .register {
+    padding-left: 10px;
+}
+
+/* 垂直居中 */
+.topbar-nav .list {
+    height: 30px;
+    line-height: 30px;
+}
+
+/* 所有 li 左浮动 */
+/* 这样可以不用每个 li 都使用公共的左浮动 */
+.topbar-nav .list li {
+    float: left;
+    /* 边框不能加到这里
+    因为li的行高是整体的高度30px
+    所以边框的高度也会是30px
+    顶满整个高度 */
+    /* padding: 0 15px;
+    border-right: 1px solid #666; */
+}
+
+/* 在所有a元素增加内边框和行高 */
+.topbar-nav .list li a {
+    padding: 0 15px;
+    border-right: 1px solid #666;
+}
+
+/* 去掉第一个a的左边距 */
+.topbar-nav .list li:first-child a {
+    padding-left: 0;
+}
+
+/* 去掉最后一个a的右边距和边框 */
+.topbar-nav .list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+/* #endregion topbar */
