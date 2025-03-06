@@ -9,8 +9,105 @@
     /* background-color: aqua; */
 }
 
-/* #region xxxxxx */
+/* #region main-content */
+
+.main-content {
+    margin-top: 10px;
+}
+
+.main-content .side-nav {
+    width: 190px;
+    height: 458px;
+    background-color: #F4F4F4;
+
+    /* 父元素相对定位
+    配合子元素绝对定位 */
+    position: relative;
+}
+
+.main-content .side-nav li {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 16px;
+}
+
+.main-content .side-nav li:hover {
+    background-color: #DD302D;
+}
+
+.main-content .side-nav li:hover>a {
+    color: white;
+}
+
+.main-content .side-nav li:hover .second-menu {
+    /* 一级菜单鼠标浮动
+    二级菜单才显示 */
+    display: block;
+}
+
+.main-content .second-menu {
+    /* 加大宽度紧贴一级菜单 */
+    /* width: 700px; */
+    /* 减掉左内边框
+    保持整体宽度仍然是700 */
+    width: 680px;
+    height: 458px;
+    background-color: white;
+
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 190px;
+
+    /* 距离左边宽度 */
+    padding-left: 20px;
+
+    /* 默认不显示 */
+    display: none;
+}
+
+.main-content .second-menu dl {
+    height: 36px;
+    line-height: 36px;
+}
+
+.main-content .second-menu dl:first-child {
+    margin-top: 10px;
+}
+
+.main-content .second-menu dt {
+    float: left;
+    width: 70px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.main-content .second-menu dd {
+    float: left;
+}
+
+.main-content .second-menu dd a {
+    padding: 0 10px;
+    border-left: 1px solid #666666;
+}
 
 
 
-/* #endregion xxxxxx */
+
+
+.main-content .banner {
+    width: 690px;
+    height: 458px;
+    background-color: green;
+    margin: 0 10px;
+}
+
+.main-content .side-other {
+    width: 290px;
+    height: 458px;
+    background-color: orange;
+}
+
+
+/* #endregion main-content */
