@@ -1,0 +1,16 @@
+/* 基础设置 */
+/* 公用版心 */
+/* 让内容居中 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+    /* 版心不设置高度，由内容撑开 */
+    /* height: 30px; */
+    /* background-color: aqua; */
+}
+
+/* #region header */
+
+
+
+/* #endregion header */
