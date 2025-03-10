@@ -9,8 +9,120 @@
     /* background-color: aqua; */
 }
 
-/* #region xxxxxx */
+/* #region floor */
 
+.floor {
+    margin-top: 48px;
+}
 
+.floor-nav {
+    height: 30px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #DD302D;
+}
 
-/* #endregion xxxxxx */
+.floor-name {
+    font-size: 20px;
+}
+
+.floor-nav-list li {
+    float: left;
+    font-size: 16px;
+}
+
+.floor-nav-list li a {
+    padding: 0 10px;
+    border-right: 1px solid #666;
+}
+
+.floor-nav-list li:first-child a {
+    padding-left: 0;
+}
+
+.floor-nav-list li:last-child a {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.floor-info .item {
+    float: left;
+}
+
+.floor-info .item1 {
+    /* 宽高减去padding */
+    /* width: 230px;
+    height: 432px; */
+    width: 190px;
+    height: 392px;
+    background-color: #F4F4F4;
+    padding: 20px;
+}
+
+.floor-info .item1 .item1-list {
+    padding-bottom: 30px;
+}
+
+.floor-info .item1 .item1-list li {
+    width: 90px;
+    height: 22px;
+    padding-bottom: 3.5px;
+    border-bottom: 1px solid #D9D9D9;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 奇数项左浮动 */
+.floor-info .item1 .item1-list li:nth-child(2n-1) {
+    float: left;
+}
+
+/* 偶数项左浮动 */
+.floor-info .item1 .item1-list li:nth-child(2n) {
+    float: right;
+}
+
+/* 偶数项左浮动 */
+.floor-info .item1 .item1-list li:nth-child(3),
+.floor-info .item1 .item1-list li:nth-child(4) {
+    margin: 14.4px 0;
+}
+
+.floor-info .item2 {
+    width: 340px;
+    height: 432px;
+    background-color: green;
+}
+
+.floor-info .item3 {
+    width: 206px;
+    height: 432px;
+    background-color: blue;
+    border-right: 1px solid #E2E2E2;
+}
+
+.floor-info .item3 img {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.floor-info .item4 {
+    width: 206px;
+    height: 432px;
+    background-color: aqua;
+    border-right: 1px solid #E2E2E2;
+}
+
+.floor-info .item4 img {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.floor-info .item5 {
+    width: 206px;
+    height: 432px;
+    background-color: brown;
+}
+
+.floor-info .item5 img {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+/* #endregion floor */

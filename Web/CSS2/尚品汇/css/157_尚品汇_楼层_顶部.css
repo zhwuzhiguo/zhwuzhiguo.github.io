@@ -9,8 +9,75 @@
     /* background-color: aqua; */
 }
 
-/* #region xxxxxx */
+/* #region floor */
 
+.floor {
+    margin-top: 48px;
+}
 
+.floor-nav {
+    height: 30px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #DD302D;
+}
 
-/* #endregion xxxxxx */
+.floor-name {
+    font-size: 20px;
+}
+
+.floor-nav-list li {
+    float: left;
+    font-size: 16px;
+}
+
+.floor-nav-list li a {
+    padding: 0 10px;
+    border-right: 1px solid #666;
+}
+
+.floor-nav-list li:first-child a {
+    padding-left: 0;
+}
+
+.floor-nav-list li:last-child a {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.floor-info .item {
+    float: left;
+}
+
+.floor-info .item1 {
+    width: 230px;
+    height: 432px;
+    background-color: red;
+}
+
+.floor-info .item2 {
+    width: 340px;
+    height: 432px;
+    background-color: green;
+}
+
+.floor-info .item3 {
+    width: 206px;
+    height: 432px;
+    background-color: blue;
+    border-right: 1px solid #E2E2E2;
+}
+
+.floor-info .item4 {
+    width: 206px;
+    height: 432px;
+    background-color: aqua;
+    border-right: 1px solid #E2E2E2;
+}
+
+.floor-info .item5 {
+    width: 206px;
+    height: 432px;
+    background-color: brown;
+}
+
+/* #endregion floor */
