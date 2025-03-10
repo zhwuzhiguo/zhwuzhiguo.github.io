@@ -9,8 +9,25 @@
     /* background-color: aqua; */
 }
 
-/* #region xxxxxx */
+/* #region seckill */
+
+.seckill {
+    margin-top: 10px;
+
+}
+
+.seckill img {
+    float: left;
+    margin-right: 11px;
+    /* 修改鼠标样式为小手
+    后续通过JS设置链接地址 */
+    cursor: pointer;
+
+}
+
+.seckill img:last-child {
+    margin-right: 0;
+}
 
 
-
-/* #endregion xxxxxx */
+/* #endregion seckill */
