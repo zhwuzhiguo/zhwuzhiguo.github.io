@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- novalidate 表单所有验证不生效 -->
+    <form action="#" novalidate>
+        账号：<input type="text" name="account"><br>
+        密码：<input type="password" name="pwd"><br>
+        性别：
+        <input type="radio" value="male" name="gender">男
+        <input type="radio" value="female" name="gender">女
+        <br>
+        爱好：
+        <input type="checkbox" value="smoke" name="hobby">抽烟
+        <input type="checkbox" value="drink" name="hobby">喝酒
+        <input type="checkbox" value="perm" name="hobby">烫头
+        <br>
+        其他：<textarea name="other" placeholder="请输入其他信息"></textarea>
+        <br>
+
+        <hr>
+        
+        邮箱(有格式校验)：<input type="email" name="mail"><br>
+        网址(有格式校验)：<input type="url" name="url"><br>
+        <!-- 设置了step后值必须是对应步进的值 -->
+        数值(有格式校验)：<input type="number" name="num" step="5" max="20" min="10"><br>
+
+        搜索：<input type="search" name="query"><br>
+
+        <!-- 手机浏览器上弹出数字键盘，PC浏览器无效 -->
+        电话：<input type="tel" name="tele"><br>
+
+        <!-- 默认范围0-100 -->
+        范围：<input type="range" name="range" max="80" min="50" value="70"><br>
+
+        颜色：<input type="color" name="color"><br>
+
+        日期：<input type="date" name="date"><br>
+
+        月份：<input type="month" name="month"><br>
+
+
+        周：<input type="week" name="week"><br>
+
+
+        时间：<input type="time" name="time"><br>
+
+        日期+时间：<input type="datetime-local" name="datetime"><br>
+
+
+        <button>提交</button>
+
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <!-- autofocus只能有一个控件有效，一般用在文本输入控件上 -->
+        <!-- autocomplete提交过的内容下次再输入的时候会下拉提示，需要浏览器设置（地址和其他信息开关打开）配合
+         只能用在普通文本输入控件上，密码控件，单选多选，多行文本都不适用 
+         pattern 正则定义输入规则，不输入也认为匹配（所以一般和required同时使用）
+         密码输入控件可用，多行输入不可用
+        -->
+        账号：
+        <input 
+        type="text" 
+        name="account" 
+        placeholder="请输入账号" 
+        required 
+        autofocus 
+        autocomplete="on"
+        pattern="\w{6}"
+        ><br>
+        密码：<input type="password" name="pwd" placeholder="请输入8位密码" required><br>
+        性别：
+        <!-- 单选required设置其中一个选项元素即可实现必须选一个效果 -->
+        <input type="radio" value="male" name="gender" required>男
+        <input type="radio" value="female" name="gender">女
+        <br>
+        爱好：
+        <!-- 复选控件设置required表示该选项必选 -->
+        <input type="checkbox" value="smoke" name="hobby" required>抽烟
+        <input type="checkbox" value="drink" name="hobby">喝酒
+        <input type="checkbox" value="perm" name="hobby">烫头
+        <br>
+        其他：<textarea name="other" placeholder="请输入其他信息" required></textarea>
+        <br>
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+
+    </form>
+</body>
+
+</html>

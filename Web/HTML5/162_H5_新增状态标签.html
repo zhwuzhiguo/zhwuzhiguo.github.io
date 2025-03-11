@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>手机电量：默认显示</div>
+    <div>低于下限(黄色)：<meter min="0" max="100" value="10" low="20" high="80"></meter></div>
+    <div>正常范围(绿色)：<meter min="0" max="100" value="60" low="20" high="80"></meter></div>
+    <div>高于上限(黄色)：<meter min="0" max="100" value="100" low="20" high="80"></meter></div>
+
+    <hr>
+
+    <div>手机电量：
+        optimum 指示最优值范围是哪个区间，对应区间是绿色，相邻区间是黄色，最远区间是红色
+    </div>
+    <div>低于下限(红色)：<meter min="0" max="100" value="10" low="20" high="80" optimum="90"></meter></div>
+    <div>正常范围(黄色)：<meter min="0" max="100" value="60" low="20" high="80" optimum="90"></meter></div>
+    <div>高于上限(绿色)：<meter min="0" max="100" value="100" low="20" high="80" optimum="90"></meter></div>
+
+    <div>手机电量：</div>
+    <div>低于下限(红色)：<meter min="0" max="100" value="10" low="20" high="80" optimum="81"></meter></div>
+    <div>正常范围(黄色)：<meter min="0" max="100" value="60" low="20" high="80" optimum="81"></meter></div>
+    <div>高于上限(绿色)：<meter min="0" max="100" value="100" low="20" high="80" optimum="81"></meter></div>
+
+    <div>手机电量：</div>
+    <div>低于下限(红色)：<meter min="0" max="100" value="10" low="20" high="80" optimum="80"></meter></div>
+    <div>正常范围(黄色)：<meter min="0" max="100" value="60" low="20" high="80" optimum="80"></meter></div>
+    <div>高于上限(绿色)：<meter min="0" max="100" value="100" low="20" high="80" optimum="80"></meter></div>
+
+    <div>手机电量：</div>
+    <div>低于下限(红色)：<meter min="0" max="100" value="10" low="20" high="80" optimum="20"></meter></div>
+    <div>正常范围(黄色)：<meter min="0" max="100" value="60" low="20" high="80" optimum="20"></meter></div>
+    <div>高于上限(绿色)：<meter min="0" max="100" value="100" low="20" high="80" optimum="20"></meter></div>
+
+    <div>手机电量：</div>
+    <div>低于下限(红色)：<meter min="0" max="100" value="10" low="20" high="80" optimum="10"></meter></div>
+    <div>正常范围(黄色)：<meter min="0" max="100" value="60" low="20" high="80" optimum="10"></meter></div>
+    <div>高于上限(绿色)：<meter min="0" max="100" value="100" low="20" high="80" optimum="10"></meter></div>
+
+    <hr>
+    <hr>
+
+    <div>进度的指示器</div>
+    <progress max="100" value="60"></progress>
+
+</body>
+
+</html>
