@@ -1,0 +1,622 @@
+/* 基础设置 */
+/* 公用版心 */
+/* 让内容居中 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+    /* 版心不设置高度，由内容撑开 */
+    /* height: 30px; */
+    /* background-color: aqua; */
+}
+
+/* 成对 #region 和 #endregion 可以使内容折叠 */
+/* #region topbar */
+
+.topbar {
+    height: 30px;
+    background-color: #ECECEC;
+}
+
+.welcome {
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    /* 去除子元素见换行导致的空格 */
+    font-size: 0;
+}
+
+/* 单独设置子元素字体 */
+.welcome span,
+.welcome a {
+    font-size: 12px;
+}
+
+/* 设置间距 */
+.welcome .hello {
+    margin-right: 28px;
+}
+
+/* 设置间距 */
+/* 设置分割线 */
+.welcome .login {
+    padding-right: 10px;
+    border-right: 1px solid #666;
+}
+
+/* 设置间距 */
+.welcome .register {
+    padding-left: 10px;
+}
+
+/* 垂直居中 */
+.topbar-nav .list {
+    height: 30px;
+    line-height: 30px;
+}
+
+/* 所有 li 左浮动 */
+/* 这样可以不用每个 li 都使用公共的左浮动 */
+.topbar-nav .list li {
+    float: left;
+    /* 边框不能加到这里
+    因为li的行高是整体的高度30px
+    所以边框的高度也会是30px
+    顶满整个高度 */
+    /* padding: 0 15px;
+    border-right: 1px solid #666; */
+}
+
+/* 在所有a元素增加内边框和行高 */
+.topbar-nav .list li a {
+    padding: 0 15px;
+    border-right: 1px solid #666;
+}
+
+/* 去掉第一个a的左边距 */
+.topbar-nav .list li:first-child a {
+    padding-left: 0;
+}
+
+/* 去掉最后一个a的右边距和边框 */
+.topbar-nav .list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+/* #endregion topbar */
+
+
+/* #region header */
+
+.header {
+    height: 120px;
+    /* 暂时设置一个背景色 */
+    /* background-color: skyblue; */
+}
+
+.header .search form {
+    margin-top: 42px;
+    /* input 和 button 的文字有默认样式
+    这里的字体尺寸会被覆盖 */
+    font-size: 0;
+}
+
+.header .search input {
+    width: 508px;
+    height: 34px;
+    border: 1px solid #DD302D;
+}
+
+.header .search button {
+    width: 80px;
+    height: 36px;
+    background-color: #DD302D;
+    /* 输入框和按钮垂直对齐是默认文字基线对齐
+    输入框文字基线正好在垂直正中
+    但按钮不是正中
+    造成按钮和输入框对不齐
+    将按钮改成顶部对齐就可以了
+    也就是和父元素form的顶部对齐 */
+    vertical-align: top;
+
+    /* 按钮大图片小会平铺 */
+    background-image: url("../images/serch_icon.png");
+    /* 图片不重复 */
+    background-repeat: no-repeat;
+    /* 设置图片位置 */
+    background-position: 28px 6px;
+    /* 设置图片位置方式二 */
+    /* background-position: center center; */
+}
+
+/* #endregion header */
+
+
+/* #region main-nav */
+
+.main-nav {
+    height: 48px;
+    border-bottom: 1px solid #DD302D;
+}
+
+.main-nav .all-types {
+    width: 190px;
+    height: 48px;
+    background-color: #DD302D;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 48px;
+    font-size: 16px;
+}
+
+.main-nav .main-nav-list {
+    height: 48px;
+    line-height: 48px;
+}
+
+.main-nav .main-nav-list li {
+    float: left;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+/* #endregion main-nav */
+
+
+/* #region main-content */
+
+.main-content {
+    margin-top: 10px;
+}
+
+.main-content .side-nav {
+    width: 190px;
+    height: 458px;
+    background-color: #F4F4F4;
+
+    /* 父元素相对定位
+    配合子元素绝对定位 */
+    position: relative;
+}
+
+.main-content .side-nav li {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 16px;
+}
+
+.main-content .side-nav li:hover {
+    background-color: #DD302D;
+}
+
+.main-content .side-nav li:hover>a {
+    color: white;
+}
+
+.main-content .side-nav li:hover .second-menu {
+    /* 一级菜单鼠标浮动
+    二级菜单才显示 */
+    display: block;
+}
+
+.main-content .second-menu {
+    /* 加大宽度紧贴一级菜单 */
+    /* width: 700px; */
+    /* 减掉左内边框
+    保持整体宽度仍然是700 */
+    width: 680px;
+    height: 458px;
+    background-color: white;
+
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 190px;
+
+    /* 距离左边宽度 */
+    padding-left: 20px;
+
+    /* 默认不显示 */
+    display: none;
+}
+
+.main-content .second-menu dl {
+    height: 36px;
+    line-height: 36px;
+}
+
+.main-content .second-menu dl:first-child {
+    margin-top: 10px;
+}
+
+.main-content .second-menu dt {
+    float: left;
+    width: 70px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.main-content .second-menu dd {
+    float: left;
+}
+
+.main-content .second-menu dd a {
+    padding: 0 10px;
+    border-left: 1px solid #666666;
+}
+
+
+.main-content .banner {
+    width: 690px;
+    height: 458px;
+    background-color: green;
+    margin: 0 10px;
+}
+
+
+.main-content .side-other {
+    width: 290px;
+    height: 458px;
+    /* background-color: orange; */
+}
+
+.main-content .side-other .message {
+    /* 宽高减去边框 */
+    /* width: 290px; */
+    /* height: 158px; */
+    /* width: 288px; */
+    /* height: 156px; */
+    /* 宽减去上下padding */
+    width: 260px;
+    height: 156px;
+    border: 1px solid #D9D9D9;
+    padding: 0 14px;
+
+}
+
+.main-content .side-other .message .title {
+    /* 减去边框 */
+    /* height: 39px;
+    line-height: 39px; */
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #D9D9D9;
+
+}
+
+.main-content .side-other .message .title span {
+    font-size: 14px;
+}
+
+.main-content .side-other .message .title a {
+    font-size: 12px;
+}
+
+.main-content .side-other .message .message-list li {
+    height: 26px;
+    line-height: 26px;
+}
+
+.main-content .side-other .other-nav {
+    width: 290px;
+    height: 290px;
+    margin-top: 10px;
+    /* background-color: gray; */
+
+    /* 避免margin塌陷 */
+    overflow: hidden;
+}
+
+.main-content .side-other .other-nav .other-nav-list:first-child {
+    /* 注意margin塌陷 */
+    margin-top: 16px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(2) {
+    /* 第二个ul */
+    margin: 17px 0;
+}
+
+.main-content .side-other .other-nav .other-nav-list li {
+    width: 48px;
+    height: 70px;
+    /* background-color: skyblue; */
+    float: left;
+    margin: 0 11px;
+    text-align: center;
+    /* 临时改变鼠标指针
+    后续用a标签嵌套 */
+    cursor: pointer;
+}
+
+.main-content .side-other .other-nav .other-nav-list li:first-child {
+    margin-left: 16px;
+}
+
+.main-content .side-other .other-nav .other-nav-list .picture {
+    /* div必须有宽和高才能显示背景 */
+    width: 48px;
+    height: 48px;
+    /* 使用一张精灵图节省服务器请求次数 */
+    /* 每个位置使用坐标控制显示的位置 */
+    background-image: url("../images/精灵图-侧边功能.png");
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(1) li:nth-child(1) .picture {
+    background-position: 0 0;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(1) li:nth-child(2) .picture {
+    background-position: -48px 0;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(1) li:nth-child(3) .picture {
+    background-position: -96px 0;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(1) li:nth-child(4) .picture {
+    background-position: -144px 0;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(2) li:nth-child(1) .picture {
+    background-position: 0 -48px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(2) li:nth-child(2) .picture {
+    background-position: -48px -48px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(2) li:nth-child(3) .picture {
+    background-position: -96px -48px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(2) li:nth-child(4) .picture {
+    background-position: -144px -48px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(3) li:nth-child(1) .picture {
+    background-position: 0 -96px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(3) li:nth-child(2) .picture {
+    background-position: -48px -96px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(3) li:nth-child(3) .picture {
+    background-position: -96px -96px;
+}
+
+.main-content .side-other .other-nav .other-nav-list:nth-child(3) li:nth-child(4) .picture {
+    background-position: -144px -96px;
+}
+
+
+/* #endregion main-content */
+
+
+/* #region seckill */
+
+.seckill {
+    margin-top: 10px;
+
+}
+
+.seckill img {
+    float: left;
+    margin-right: 11px;
+    /* 修改鼠标样式为小手
+    后续通过JS设置链接地址 */
+    cursor: pointer;
+
+}
+
+.seckill img:last-child {
+    margin-right: 0;
+}
+
+
+/* #endregion seckill */
+
+
+/* #region floor */
+
+.floor {
+    margin-top: 48px;
+}
+
+.floor-nav {
+    height: 30px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #DD302D;
+}
+
+.floor-name {
+    font-size: 20px;
+}
+
+.floor-nav-list li {
+    float: left;
+    font-size: 16px;
+}
+
+.floor-nav-list li a {
+    padding: 0 10px;
+    border-right: 1px solid #666;
+}
+
+.floor-nav-list li:first-child a {
+    padding-left: 0;
+}
+
+.floor-nav-list li:last-child a {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.floor-info .item {
+    float: left;
+}
+
+.floor-info .item1 {
+    /* 宽高减去padding */
+    /* width: 230px;
+    height: 432px; */
+    width: 190px;
+    height: 392px;
+    background-color: #F4F4F4;
+    padding: 20px;
+}
+
+.floor-info .item1 .item1-list {
+    padding-bottom: 30px;
+}
+
+.floor-info .item1 .item1-list li {
+    width: 90px;
+    height: 22px;
+    padding-bottom: 3.5px;
+    border-bottom: 1px solid #D9D9D9;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 奇数项左浮动 */
+.floor-info .item1 .item1-list li:nth-child(2n-1) {
+    float: left;
+}
+
+/* 偶数项左浮动 */
+.floor-info .item1 .item1-list li:nth-child(2n) {
+    float: right;
+}
+
+/* 偶数项左浮动 */
+.floor-info .item1 .item1-list li:nth-child(3),
+.floor-info .item1 .item1-list li:nth-child(4) {
+    margin: 14.4px 0;
+}
+
+.floor-info .item2 {
+    width: 340px;
+    height: 432px;
+    background-color: green;
+}
+
+.floor-info .item3 {
+    width: 206px;
+    height: 432px;
+    background-color: blue;
+    border-right: 1px solid #E2E2E2;
+}
+
+.floor-info .item3 img {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.floor-info .item4 {
+    width: 206px;
+    height: 432px;
+    background-color: aqua;
+    border-right: 1px solid #E2E2E2;
+}
+
+.floor-info .item4 img {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.floor-info .item5 {
+    width: 206px;
+    height: 432px;
+    background-color: brown;
+}
+
+.floor-info .item5 img {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+/* #endregion floor */
+
+
+/* #region footer */
+
+.footer {
+    height: 440px;
+    background-color: #483E3E;
+    margin-top: 48px;
+}
+
+.footer .links-list {
+    float: left;
+    width: 190px;
+    height: 176px;
+    margin-top: 48px;
+    margin-right: 10px;
+}
+
+.footer .links-list:last-child {
+    margin-right: 0;
+}
+
+.footer .links-list a {
+    color: white;
+    font-size: 14px;
+}
+
+.footer .line {
+    height: 1px;
+    background-color: #584D4D;
+    margin-top: 22px;
+}
+
+.footer .bottom-links {
+    /* 居中方法二 */
+    /* 只对行内元素或行内块元素有效 */
+    text-align: center;
+
+    margin-top: 47px;
+}
+
+.footer .bottom-links-list {
+    /* 居中方法一 */
+    /* width: 900px;
+    margin: 0 auto; */
+
+    /* 居中方法二 */
+    /* 设置为行内块元素 */
+    display: inline-block;
+
+}
+
+.footer .bottom-links-list li {
+    float: left;
+}
+
+.footer .bottom-links-list li a {
+    padding: 0 26px;
+    border-right: 1px solid white;
+    color: white;
+}
+
+.footer .bottom-links-list li:first-child a {
+    padding-left: 0;
+}
+
+.footer .bottom-links-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+.footer .bottom-links-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+
+.footer .bottom-links .copyright {
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+
+/* #endregion footer */
