@@ -9,8 +9,85 @@
     /* background-color: aqua; */
 }
 
-/* #region xxxxxx */
+/* #region footer */
+
+.footer {
+    height: 440px;
+    background-color: #483E3E;
+    margin-top: 48px;
+}
+
+.footer .links-list {
+    float: left;
+    width: 190px;
+    height: 176px;
+    margin-top: 48px;
+    margin-right: 10px;
+}
+
+.footer .links-list:last-child {
+    margin-right: 0;
+}
+
+.footer .links-list a {
+    color: white;
+    font-size: 14px;
+}
+
+.footer .line {
+    height: 1px;
+    background-color: #584D4D;
+    margin-top: 22px;
+}
+
+.footer .bottom-links {
+    /* 居中方法二 */
+    /* 只对行内元素或行内块元素有效 */
+    text-align: center;
+
+    margin-top: 47px;
+}
+
+.footer .bottom-links-list {
+    /* 居中方法一 */
+    /* width: 900px;
+    margin: 0 auto; */
+
+    /* 居中方法二 */
+    /* 设置为行内块元素 */
+    display: inline-block;
+
+}
+
+.footer .bottom-links-list li {
+    float: left;
+}
+
+.footer .bottom-links-list li a {
+    padding: 0 26px;
+    border-right: 1px solid white;
+    color: white;
+}
+
+.footer .bottom-links-list li:first-child a {
+    padding-left: 0;
+}
+
+.footer .bottom-links-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+.footer .bottom-links-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
 
 
+.footer .bottom-links .copyright {
+    color: #FFFFFF;
+    margin-top: 10px;
+}
 
-/* #endregion xxxxxx */
+
+/* #endregion footer */
