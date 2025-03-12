@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+            height: 200px;
+            border: 1px solid black;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .box1 {
+            background-color: skyblue;
+        }
+
+        .box2 {
+            background-color: red;
+        }
+        .box3 {
+            background-color: green;
+        }
+        .box4 {
+            background-color: blue;
+        }
+        .box5 {
+            background-color:blueviolet;
+        }
+        .box6 {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box1" contenteditable="true">我是可编辑的div内容</div>
+    <div class="box2" draggable="true" ondragend="go(event)">我是可拖动的div，需要配合js实现真正的拖动</div>
+    <div class="box3" hidden>我是隐藏的div，不占位，和css中的display:none一样</div>
+    <div class="box4" contenteditable="true" spellcheck="true">我是可编辑的div内容，并且带拼写检查，需要浏览器拼写检查设置打开</div>
+    <div class="box5" contextmenu="xxx">contextmenu 右键菜单属性，需要配合js实现</div>
+    <div class="box6" data-a="data1" data-b="data2" data-c="data3">我是带有隐藏数据的div，后续可以通过js批量去除这些数据值，其中命名成data-前缀是为了方便js一次性取出所有这些属性值</div>
+    <div>我是最后一个占位div</div>
+
+    <script>
+        function go(event) {
+            alert(event.x + "|" + event.y)
+        }
+    </script>
+
+</body>
+
+</html>
