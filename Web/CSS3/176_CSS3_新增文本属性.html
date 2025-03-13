@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box1 {
+            font-size: 80px;
+            text-align: center;
+
+            /* 
+            文本阴影 
+            最少指定2个值：水平+垂直阴影
+            负值表示相反方向的阴影
+            正值表示右下角阴影
+            */
+
+            /* 水平+垂直阴影 */
+            text-shadow: 10px 10px;
+
+            /* 水平+垂直阴影+阴影颜色 */
+            text-shadow: 10px 10px gray;
+
+            /* 水平+垂直阴影+模糊程度 */
+            text-shadow: 10px 10px 10px;
+
+            /* 水平+垂直阴影+模糊程度+阴影颜色（用的最多）*/
+            text-shadow: 10px 10px 10px gray;
+
+        }
+
+        .box2 {
+            width: 400px;
+            height: 400px;
+            border: 1px solid green;
+            font-size: 20px;
+
+            /* 文本换行 */
+
+            /* 按原文显示 */
+            white-space: pre;
+            /* 增加滚动条 */
+            overflow:auto;
+
+            /* 按原文显示+换行 */
+            /* white-space: pre-wrap; */
+
+            /* 按原文显示+换行+行首行末空格忽略 */
+            /* white-space: pre-line; */
+
+            /* 
+            不换行，一行显示所有
+            下一节会用 */
+            /* white-space: nowrap; */
+
+        }
+
+        ul {
+            width: 400px;
+            height: 400px;
+            border: 1px solid green;
+            font-size: 20px;
+            list-style: none;
+            /* 去电元素默认padding */
+            padding-left: 0;
+
+            /* 设置内边距 */
+            padding: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+
+            /* 先设置不换行 */
+            white-space: nowrap;
+
+            /* 
+            设置文本溢出直接截断 
+            需要同时设置：
+            overflow: hidden;
+            */
+            text-overflow: clip;
+            overflow: hidden;
+
+            /* 
+            设置文本溢出截断出现省略号 
+            需要同时设置：
+            overflow: hidden;
+            */
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+        }
+
+        .box4 {
+            font-size: 100px;
+            text-align: center;
+
+            /* 文本修饰 */
+            text-decoration-line: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: blueviolet;
+
+            /* 文本修饰 复合属性 */
+            text-decoration: underline wavy red;
+        }
+
+        .box5 {
+            font-size: 100px;
+            text-align: center;
+
+            /* 文本描边 */
+            -webkit-text-stroke-color: red;
+            -webkit-text-stroke-width: 3px;
+
+            /* 文本描边 复合属性 */
+            -webkit-text-stroke: red 3px;
+
+            /* 设置文本颜色为透明实现空心文字 */
+            color: transparent;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="box1">文本阴影</h1>
+    <hr>
+    <div class="box2">
+        文本换行一
+        文本换行二
+        长行长行长行长行长行长行长行长行长行长行长行长行长行长行
+        文本换行三
+    </div>
+
+    <hr>
+
+    <ul>
+        <li>文本溢出一</li>
+        <li>文本溢出二</li>
+        <li>文本溢出三文本溢出三文本溢出三文本溢出三文本溢出三文本溢出三文本溢出三文本溢出三</li>
+        <li>文本溢出四</li>
+    </ul>
+
+
+    <h1 class="box4">文本修饰</h1>
+
+    <hr>
+
+    <h1 class="box5">文本描边</h1>
+
+</body>
+
+</html>
