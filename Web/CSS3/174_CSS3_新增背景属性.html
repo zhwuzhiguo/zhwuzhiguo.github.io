@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            margin: 0 auto;
+            font-size: 40px;
+            padding: 50px;
+            border: 50px dashed green;
+            color: red;
+
+            /* 默认情况下，背景图显示的左上角位置是padding的左上角位置 */
+            /* 上边框的背景图是下边框图片溢出部分显示过来 */
+            /* 左边框的背景图是右边框图片溢出部分显示过来 */
+            background-image: url("./bg1.jpg");
+
+            /* 把背景图设置成不重复看的更清楚 */
+            background-repeat: no-repeat;
+
+            /* 
+            背景图原点(不影响背景颜色属性background-color):
+            padding-box: 内边距左上角作为起点(默认)
+            content-box: 内容左上角作为起点
+            border-box: 边框左上角作为起点
+            */
+            background-origin: padding-box;
+            background-origin: content-box;
+            background-origin: border-box;
+
+
+        }
+
+        .box2 {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            margin: 0 auto;
+            font-size: 40px;
+            padding: 50px;
+            border: 50px dashed green;
+            color: red;
+
+
+            /* 默认情况下，背景图显示的左上角位置是padding的左上角位置 */
+            background-image: url("./bg2.jpg");
+            background-repeat: no-repeat;
+
+            /* 
+            背景裁剪(同时影响背景颜色属性background-color):
+            border-box: 背景图和背景色延伸到边框(默认)
+            padding-box: 背景图和背景色延伸到内边距
+            content-box: 背景图和背景色延伸到内容区
+            */
+            background-clip: border-box;
+            background-clip: padding-box;
+            background-clip: content-box;
+
+
+            /* 
+            背景图原点+背景裁剪 同时使用
+            */
+            background-origin: border-box;
+            background-clip: border-box;
+
+            background-origin: padding-box;
+            background-clip: padding-box;
+
+            background-origin: content-box;
+            background-clip: content-box;
+
+
+            /* 背景图只呈现在文字上 */
+            /* 文字颜色需要设置为透明 */
+            /* 字体调大便于观察 */
+            /* background-clip: text;
+            color: transparent;
+            font-size: 100px;
+            font-weight: bold; */
+
+        }
+
+        .box3 {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            margin: 0 auto;
+            font-size: 40px;
+            padding: 50px;
+            border: 50px dashed green;
+            color: red;
+
+            background-image: url("./bg3.jpg");
+            background-repeat: no-repeat;
+
+            /* 设置成图片显示在内容区 */
+            background-origin: content-box;
+            background-clip: content-box;
+
+            /* 
+            背景图尺寸：
+            */
+            /* 设置成像素值 */
+            background-size: 400px 400px;
+            /* 设置成所在元素宽高的百分比 */
+            background-size: 100% 100%;
+
+            /* 
+            设置成图片充满在父元素中
+            图片等比例缩放
+            其中一个边首先对齐即可
+            总结：
+            图片按比例缩放，正好能完整的放在背景中，另一个方向可能没有填满背景
+            */
+            background-size: contain;
+
+            /* 
+            设置成图片覆盖在父元素中（相对来说是最优方案）
+            图片等比例缩放
+            充满父元素停止
+            即最后一个边对齐停止
+            总结：
+            图片按比例缩放，正好能填满背景，图片的另一个方向可能没有显示完整
+            */
+            background-size: cover;
+
+        }
+
+        .box4 {
+            width: 400px;
+            height: 400px;
+            /* background-color: skyblue; */
+            margin: 0 auto;
+            font-size: 40px;
+            padding: 50px;
+            border: 50px dashed green;
+            color: red;
+
+            /* 
+            复合属性顺序（很少用）：
+            background: 背景颜色 背景图片URL 是否重复 位置(position) / 大小 原点 裁剪方式    
+            原点 和 裁剪方式 如果一样可以写一个         
+            */
+            background: skyblue url("./bg3.jpg") no-repeat 10px 10px / 800px 800px content-box padding-box;
+
+            /* 原点 和 裁剪方式 如果一样可以写一个 */
+            /* background: skyblue url("./bg3.jpg") no-repeat 10px 10px / 800px 800px content-box; */
+
+            /* 也可以只写个别属性 */
+            /* background: skyblue; */
+            /* background: url("./bg3.jpg"); */
+
+        }
+
+        .box5 {
+            width: 400px;
+            height: 400px;
+            /* background-color: skyblue; */
+            margin: 0 auto;
+            font-size: 40px;
+            padding: 50px;
+            border: 50px dashed green;
+            color: red;
+
+            /* 多背景图 */
+            background:
+                url("./bg-lt.png") no-repeat left top,
+                url("./bg-rt.png") no-repeat right top,
+                url("./bg-rb.png") no-repeat right bottom,
+                url("./bg-lb.png") no-repeat left bottom;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">背景图原点</div>
+    <hr>
+    <div class="box2">背景裁剪</div>
+    <hr>
+    <div class="box3">背景图尺寸</div>
+    <hr>
+    <div class="box4">背景图复合属性</div>
+    <hr>
+    <div class="box5">多背景图</div>
+</body>
+
+</html>
