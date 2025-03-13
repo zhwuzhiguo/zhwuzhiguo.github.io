@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            border: 2px solid green;
+            margin: 0 auto;
+            font-size: 40px;
+            color: red;
+
+            /* 文字上下左右居中 */
+            line-height: 400px;
+            text-align: center;
+
+            background-color: orange;
+
+            /* 
+            边框圆角
+            用边框弧度半径指定 
+            */
+
+            /* 像素指定（常用） */
+            border-radius: 50px;
+            border-radius: 200px;
+            /* 百分比指定（常用） */
+            border-radius: 50%;
+
+            /* 变态写法（不常用） */
+            /* border-top-left-radius: 10px;
+            border-top-right-radius: 40px;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 100px; */
+
+            /* 变态写法 椭圆（不常用） */
+            /* border-top-left-radius: 10px 40px;
+            border-top-right-radius: 40px 80px;
+            border-bottom-right-radius: 60px 200px;
+            border-bottom-left-radius: 80px 200px; */
+
+            /* 
+            复合写法(不常用)
+            顺序：
+            [top-left 的第一个值]
+            [top-right 的第一个值]
+            [bottom-right 的第一个值]
+            [bottom-left 的第一个值]
+            /
+            [top-left 的第二个值]
+            [top-right 的第二个值]
+            [bottom-right 的第二个值]
+            [bottom-left 的第二个值]
+             */
+            /* border-radius: 10px 40px 60px 80px / 40px 80px 200px 200px; */
+
+        }
+
+        .box2 {
+            width: 400px;
+            height: 400px;
+            padding: 10px;
+            border: 10px solid green;
+            margin: 0 auto;
+            font-size: 40px;
+            color: red;
+            /* 文字上下左右居中 */
+            line-height: 400px;
+            text-align: center;
+            background-color: orange;
+
+            /* 
+            边框外轮廓 
+            不占位，会压在别的元素上
+            可以形象的理解为盒子发出来的光
+            */
+            outline-width: 20px;
+            outline-color: brown;
+            outline-style: solid;
+            /* 偏移 负值会缩回到边框里面*/
+            outline-offset: 20px;
+
+            /* 复合属性
+            不能写偏移
+            偏移不是它的子属性 */
+            outline: 20px solid brown;
+
+        }
+
+        .box3 {
+            height: 400px;
+            background-color:cadetblue;
+            font-size: 40px;
+            color: red;
+            /* 文字上下左右居中 */
+            line-height: 400px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box1">边框圆角</div>
+    <hr>
+    <div class="box2">边框外轮廓</div>
+    <div class="box3">下面的元素</div>
+
+</body>
+
+</html>
