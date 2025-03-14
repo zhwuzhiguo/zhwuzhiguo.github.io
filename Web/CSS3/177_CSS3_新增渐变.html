@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .box1 {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+        }
+
+        .box11 {
+            /* 默认从上到下渐变 */
+            /* 颜色数量大于俩个 */
+            /* background-image: linear-gradient(red, yellow); */
+            background-image: linear-gradient(red, yellow, green);
+        }
+
+        .box12 {
+            /* 设置渐变方向 */
+            /* 通过关键词设置 */
+            background-image: linear-gradient(to right, red, yellow, green);
+            background-image: linear-gradient(to left, red, yellow, green);
+            background-image: linear-gradient(to right top, red, yellow, green);
+        }
+
+        .box13 {
+            /* 设置渐变方向 */
+            /* 基于从下到上的渐变方向顺时针旋转指定角度 */
+            /* 20deg表示顺时针旋转20度 */
+            background-image: linear-gradient(20deg, red, yellow, green);
+        }
+
+        .box14 {
+            /* 
+            指定渐变区间
+            指定在默认从上到下的渐变方向：
+            0-50px 纯红色
+            50px-100px 从红色到黄色渐变
+            100px-150px 从黄色到绿色渐变
+            150px-剩余部分 纯绿色
+            */
+            background-image: linear-gradient(red 50px, yellow 100px, green 150px);
+            /* 也可以同时设置渐变方向 */
+            background-image: linear-gradient(45deg, red 50px, yellow 100px, green 150px);
+        }
+
+        .box15 {
+            /* 文字背景渐变效果 */
+            background-image: linear-gradient(45deg, red 50px, yellow 100px, green 150px);
+            color: transparent;
+            font-size: 80px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+            background-clip: text;
+        }
+
+
+        .box2 {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+
+        }
+
+        .box21 {
+            /* 默认从中心点向外渐变 */
+            /* 渐变环默认是容器宽高比例的椭圆 */
+            /* 颜色数量大于俩个 */
+            /* background-image: radial-gradient(red, yellow); */
+            background-image: radial-gradient(red, yellow, green);
+        }
+
+        .box22 {
+            /* 通过关键词指定渐变中心点 */
+            background-image: radial-gradient(at left top, red, yellow, green);
+        }
+
+        .box23 {
+            /* 通过像素指定渐变中心点，基于左上角的(x y) */
+            background-image: radial-gradient(at 100px 50px, red, yellow, green);
+        }
+
+        .box24 {
+            /* 通过关键字指定渐变环椭圆比例 */
+            background-image: radial-gradient(circle, red, yellow, green);
+        }
+
+        .box25 {
+            /* 通过x半径和y半径像素值指定渐变环椭圆比例 */
+            /* x半径和y半径还控制最大渐变环半径 */
+            background-image: radial-gradient(100px 50px, red, yellow, green);
+        }
+
+        .box26 {
+            /* 调整渐变区域 */
+            /* 基于中心点x轴半径方向向外指定渐变区间 */
+            background-image: radial-gradient(red 50px, yellow 100px, green 150px);
+        }
+
+        .box27 {
+            /* 综合写法 */
+            background-image: radial-gradient(100px 50px, red 50px, yellow 100px, green 150px);
+            background-image: radial-gradient(100px 50px at left top, red 50px, yellow 100px, green 150px);
+        }
+
+        .box3 {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+        }
+
+        /* 
+        在没有发生渐变的区域重新开始渐变叫重复渐变 
+        下面是基于线性渐变的例子，
+        基于径向渐变同理。
+        */
+
+        .box31 {
+            /* 默认从上到下渐变 */
+            /* 颜色数量大于俩个 */
+            /* background-image: linear-gradient(red, yellow); */
+            /* 重复渐变无效 */
+            background-image:repeating-linear-gradient(red, yellow, green);
+        }
+
+        .box32 {
+            /* 设置渐变方向 */
+            /* 通过关键词设置 */
+            /* 重复渐变无效 */
+            /* background-image: repeating-linear-gradient(to right, red, yellow, green); */
+            /* background-image: repeating-linear-gradient(to left, red, yellow, green); */
+            background-image: repeating-linear-gradient(to right top, red, yellow, green);
+        }
+
+        .box33 {
+            /* 设置渐变方向 */
+            /* 基于从下到上的渐变方向顺时针旋转指定角度 */
+            /* 20deg表示顺时针旋转20度 */
+            /* 重复渐变无效 */
+            background-image: repeating-linear-gradient(20deg, red, yellow, green);
+        }
+
+        .box34 {
+            /* 
+            指定渐变区间
+            指定在默认从上到下的渐变方向：
+            0-50px 纯红色
+            50px-100px 从红色到黄色渐变
+            100px-150px 从黄色到绿色渐变
+            150px-剩余部分 纯绿色
+            */
+            /* 重复渐变有效 */
+            /* background-image: repeating-linear-gradient(red 50px, yellow 100px, green 150px); */
+            /* 也可以同时设置渐变方向 */
+            background-image: repeating-linear-gradient(45deg, red 50px, yellow 100px, green 150px);
+        }
+
+        .box35 {
+            /* 文字背景渐变效果 */
+            /* 重复渐变有效 */
+            background-image: repeating-linear-gradient(45deg, red 50px, yellow 100px, green 150px);
+            color: transparent;
+            font-size: 80px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clearfix">
+        <div class="box1 box11">线性渐变1：默认从上到下渐变</div>
+        <div class="box1 box12">线性渐变2：设置渐变方向，通过关键词设置</div>
+        <div class="box1 box13">线性渐变3：设置渐变方向，基于从下到上的渐变方向顺时针旋转指定角度</div>
+        <div class="box1 box14">线性渐变4：指定渐变区间</div>
+        <div class="box1 box15">线性渐变5：文字背景渐变效果</div>
+    </div>
+
+    <hr>
+
+    <div class="clearfix">
+        <div class="box2 box21">径向渐变：默认从中心点向外渐变，渐变环默认是容器宽高比例的椭圆</div>
+        <div class="box2 box22">径向渐变：通过关键词指定渐变中心点</div>
+        <div class="box2 box23">径向渐变：通过像素指定渐变中心点，基于左上角的(x y)</div>
+        <div class="box2 box24">径向渐变：通过关键字指定渐变环椭圆比例</div>
+        <div class="box2 box25">径向渐变：通过x半径和y半径像素值指定渐变环椭圆比例</div>
+        <div class="box2 box26">径向渐变：调整渐变区域</div>
+        <div class="box2 box27">径向渐变：综合写法</div>
+    </div>
+
+    <hr>
+
+    <div class="clearfix">
+        <div class="box3 box31">重复渐变</div>
+        <div class="box3 box32">重复渐变</div>
+        <div class="box3 box33">重复渐变</div>
+        <div class="box3 box34">重复渐变</div>
+        <div class="box3 box35">重复渐变</div>
+    </div>
+
+</body>
+
+</html>
