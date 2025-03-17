@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: "我的字体";
+            src: url("./font1/方正手迹.ttf");
+        }
+
+        /* 
+        阿里资源网址：
+        https://www.iconfont.cn/webfont
+        仅下载使用到的文字的局部字体库来减少字体库大小。
+        */
+        @font-face {
+            font-family: "钉钉进步体";
+            font-weight: 400;
+            src: url("./font2/uXyMhNrva0Sm.woff2") format("woff2"),
+                url("./font2/uXyMhNrva0Sm.woff") format("woff");
+            font-display: swap;
+        }
+
+        .ft1 {
+            font-size: 100px;
+            font-family: "我的字体";
+        }
+
+        .ft2 {
+            font-size: 100px;
+            font-family: "钉钉进步体";
+        }
+
+
+        /* 字体图标 Unicode */
+        @font-face {
+            font-family: 'iconfont';
+            src: url('./font3/iconfont.woff2?t=1742205096759') format('woff2'),
+                url('./font3/iconfont.woff?t=1742205096759') format('woff'),
+                url('./font3/iconfont.ttf?t=1742205096759') format('truetype');
+        }
+
+        /* 字体图标 Unicode */
+        .iconfont {
+            /* !important 防止属性被覆盖 */
+            font-family: "iconfont" !important;
+            font-size: 100px;
+        }
+    </style>
+
+    <!-- 字体图标 Font class -->
+    <!-- 引入的css覆盖了 .iconfont -->
+    <link rel="stylesheet" href="./font3/iconfont.css">
+
+    <!-- 字体图标 Symbol -->
+    <script src="./font3/iconfont.js"></script>
+    <!-- 字体图标 Symbol -->
+    <style>
+        .icon {
+            width: 20em;
+            height: 20em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 class="ft1">怎么能一夜暴富</h1>
+    <h1 class="ft2">怎么能一夜暴富</h1>
+
+    <!-- 字体图标的好处是即使尺寸变大也不失真不失真 -->
+
+    <div>
+        <!-- 字体图标 Unicode -->
+        <span class="iconfont">&#x101ee;</span>
+        <span class="iconfont">&#x101ed;</span>
+        <span class="iconfont">&#x101fa;</span>
+        <span class="iconfont">&#x101f4;</span>
+        <span class="iconfont">&#x101f5;</span>
+        <span class="iconfont">&#x101f8;</span>
+    </div>
+
+    <div>
+        <!-- 字体图标 Font class 最推荐 -->
+        <span class="iconfont icon-a-1"></span>
+        <span class="iconfont icon-a-2"></span>
+        <span class="iconfont icon-a-3"></span>
+        <span class="iconfont icon-A"></span>
+        <span class="iconfont icon-B"></span>
+        <span class="iconfont icon-C"></span>
+    </div>
+
+    <div>
+        <!-- 字体图标 Symbol 浏览器渲染 SVG 的性能一般 不如 png -->
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-a-1"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-a-2"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-a-3"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-A"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-B"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-C"></use>
+        </svg>
+    </div>
+</body>
+
+</html>
