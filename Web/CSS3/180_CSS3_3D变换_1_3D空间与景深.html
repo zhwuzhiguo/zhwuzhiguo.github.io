@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+
+            /* 3D空间 */
+            /* x轴从左到右 */
+            /* y轴从上到下 */
+            /* z轴从里到外 */
+
+            /* 父元素开启3D空间 */
+            transform-style: preserve-3d;
+
+            /* 父元素设置景深 */
+            /* 景深：观察者距离z=0平面的距离 */
+            /* 设置景深后有了透视效果（近大远小） */
+            perspective: 500px;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+
+            /* 沿x轴顺时针旋转30度 */
+            /* 从x轴的箭头看向原点，顺时针旋转30度 */
+            /* 也就是从右往左看向原点，顺时针旋转30度 */
+            transform: rotateX(30deg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            你好
+        </div>
+    </div>
+
+</body>
+
+</html>

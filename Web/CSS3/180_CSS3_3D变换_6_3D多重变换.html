@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+
+            /* 3D空间 */
+            /* x轴从左到右 */
+            /* y轴从上到下 */
+            /* z轴从里到外 */
+
+            /* 父元素开启3D空间 */
+            transform-style: preserve-3d;
+
+            /* 父元素设置景深 */
+            /* 景深：观察者距离z=0平面的距离 */
+            /* 设置景深后有了透视效果（近大远小） */
+            perspective: 500px;
+
+            /* 默认透视点在父元素的中心 */
+            /* 改变透视点的位置 */
+            /* 一般不锈钢这个属性，会影响用户体验 */
+            /* perspective-origin: 102px 102px; */
+            /* perspective-origin: 400px 400px; */
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            background-color: rgba(0, 191, 255, 0.726);
+
+            /* 变换原点 */
+            /* 和2d一样 */
+            transform-origin: left;
+
+            transform: rotateY(45deg);
+
+            /* 多重变换最好是先平移，在缩放，最好旋转 */
+            /* 用的最多的是旋转 */
+            transform: translateZ(100px) scaleZ(4) rotateY(45deg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            你好
+        </div>
+    </div>
+
+</body>
+
+</html>
