@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+
+            /* 缩放 */
+            /* 值表示缩放比例 */
+            /* 为1表示不缩放 */
+            /* 小于0会反转，不常用 */
+            transform: scaleX(1.5);
+            transform: scaleY(1.5);
+
+            /* 同时指定x和y方向的缩放 */
+            transform: scaleX(0.5) scaleY(0.5);
+            transform: scale(0.5, 0.5);
+
+            /* 指定一个值表示x和y同时缩放这个值 */
+            transform: scale(0.5);
+
+        }
+
+        .span1 {
+            font-size: 40px;
+        }
+
+        .span2 {
+            font-size: 40px;
+            /* 缩放不能应用到行内元素 */
+            /* 修改为行内块元素 */
+            display: inline-block;
+            transform: scale(0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            你好
+        </div>
+    </div>
+
+    <span class="span1">未缩放的文字</span>
+    <br>
+    <span class="span2">缩放了的文字</span>
+
+</body>
+
+</html>

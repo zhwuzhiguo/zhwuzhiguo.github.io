@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+
+            /* 扭曲 */
+            /* 扭曲30度 */
+            transform: skewX(30deg);
+            /* 看不见了 */
+            transform: skewX(90deg);
+
+            /* 扭曲30度 */
+            transform: skewY(30deg);
+            /* 看不见了 */
+            transform: skewY(90deg);
+
+            /* 两个方向同时扭曲 */
+            transform: skew(30deg, 30deg);
+
+            /* 一个值默认x轴扭曲 */
+            transform: skew(30deg);
+
+            /* 负值反方向扭曲 */
+            transform: skew(-30deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            你好
+        </div>
+    </div>
+
+</body>
+
+</html>

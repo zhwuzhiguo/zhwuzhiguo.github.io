@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+
+            /* 位移 */
+            /* 和相对定位一样，不脱离文档流，不影响其他元素 */
+            /* 相对定位指定百分比参考父元素，位移参考当前元素 */
+            /* 浏览器对位移有优化，比定位效率高 */
+            /* 特别注意，位移对行内元素无效 */
+
+            /* 相对于原来的位置向右下方移动 */
+            transform: translateX(50px) translateY(50px);
+
+            /* 相对于原来的位置向右上方移动 */
+            transform: translateX(-50px) translateY(-50px);
+
+            /* 同时指定x轴和y轴 */
+            transform: translate(50px, 50px);
+
+            /* 相对于当前元素原来宽高的百分数移动 */
+            transform: translate(50%, 50%);
+
+            /* 指定一个值表示x方向位移 */
+            transform: translate(10px);
+        }
+
+        .outer2 {
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .inner2 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+
+            /* 配合定位实现居中 */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            你好
+        </div>
+    </div>
+
+    <div class="outer2">
+        <div class="inner2">
+            居中
+        </div>
+    </div>
+</body>
+
+</html>
