@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .outer:hover .inner {
+            width: 1000px;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+
+            /* 
+            复合属性：
+            transition: 持续时间 属性名 延迟时间 过渡速度
+            顺序无所谓：
+            第一个时间：过渡的持续时间
+            第二个时间：过渡的延迟时间
+             */
+            transition: 1s all 0.5s linear;
+
+            /* 不指定延迟时间 */
+            transition: 1s all linear;
+
+            /* 顺序随便 */
+            transition: all linear 1s;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">过渡复合属性</div>
+    </div>
+
+</body>
+
+</html>

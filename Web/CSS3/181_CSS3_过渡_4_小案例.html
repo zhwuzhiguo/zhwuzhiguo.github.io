@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 224px;
+            /* 父容器相对定位 */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .outer:hover .mask {
+            /* 透明度50% */
+            opacity: 0.5;
+        }
+
+        .outer:hover img {
+            /* 2D缩放+旋转 */
+            transform: scale(1.6) rotate(20deg);
+        }
+
+        .mask {
+            width: 400px;
+            height: 224px;
+            background-color: black;
+            color: white;
+
+            /* 子元素绝对定位 */
+            /* 盖在图片上 */
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            /* 文本居中 */
+            text-align: center;
+            line-height: 224px;
+            font-size: 100px;
+
+            /* 完全透明 */
+            opacity: 0;
+
+            /* 鼠标手指 */
+            cursor: pointer;
+
+            /* 设置过度 */
+            transition: 1s all linear;
+        }
+
+        img {
+            /* 设置过度 */
+            transition: 1s all linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <img src="./shanghai.jpg">
+        <div class="mask">上海</div>
+    </div>
+
+</body>
+
+</html>

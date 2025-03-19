@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 900px;
+            border: 1px solid black;
+        }
+
+        .outer:hover .box {
+            width: 1000px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+
+            /* 设置所有能过渡的属性过渡 */
+            transition-property: all;
+            /* 设置所有过渡属性过度持续时间 */
+            transition-duration: 5s;
+            /* 设置所有过渡属性过度延迟时间 不常用 */
+            /* transition-delay: 2s; */
+
+            /* 默认过度速度是开始和结束慢，中间快 */
+            transition-timing-function: ease;
+
+        }
+
+        .box01 {
+            background-color: skyblue;
+            transition-timing-function: ease;
+        }
+
+        .box02 {
+            background-color: orange;
+            transition-timing-function: linear;
+        }
+
+        .box03 {
+            background-color: gray;
+            transition-timing-function: ease-in;
+        }
+
+        .box04 {
+            background-color: tomato;
+            transition-timing-function: ease-out;
+        }
+
+        .box05 {
+            background-color: green;
+            transition-timing-function: ease-in-out;
+        }
+
+        .box06 {
+            background-color: purple;
+            transition-timing-function: step-start;
+        }
+
+        .box07 {
+            background-color: deepskyblue;
+            transition-timing-function: step-end;
+        }
+
+        .box08 {
+            background-color: chocolate;
+            /* 直接步进 */
+            transition-timing-function: steps(10, start);
+            /* 稍等一会步进 */
+            transition-timing-function: steps(10, end);
+        }
+
+        .box09 {
+            background-color: darkolivegreen;
+            transition-timing-function: cubic-bezier(0, 1.71, 1, 1.72);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="box box01">ease 慢快满</div>
+        <div class="box box02">linear 匀速</div>
+        <div class="box box03">ease-in 先慢后快</div>
+        <div class="box box04">ease-out 先快后慢</div>
+        <div class="box box05">ease-in-out 慢快慢 </div>
+        <div class="box box06">step-start 过渡时间一开始直接到终点</div>
+        <div class="box box07">step-end 等待过度时间结束时直接到终点</div>
+        <div class="box box08">steps(10, start/end) 分步过渡</div>
+        <div class="box box09">https://cubic-bezier.com/ 贝塞尔曲线</div>
+
+    </div>
+
+</body>
+
+</html>

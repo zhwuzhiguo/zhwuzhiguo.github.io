@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            opacity: 0.5;
+
+            /* 设置过渡的属性 */
+            /* 可以设置数字值的属性才能过度 */
+            transition-property: width, height, background-color;
+            /* 分别设置过度属性的过度持续时间 */
+            transition-duration: 1s, 2s, 5s;
+
+            /* 设置所有能过渡的属性过渡 */
+            transition-property: all;
+            /* 设置所有过渡属性过度持续时间 */
+            transition-duration: 1s;
+
+
+        }
+
+        .box1:hover {
+            width: 400px;
+            height: 400px;
+            background-color: green;
+            transform: rotate(45deg);
+            box-shadow: 10px 10px 10px gray;
+            opacity: 1;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+
+</body>
+
+</html>
