@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .outer:hover .inner1 {
+            transform: translate(900px);
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* 过渡 */
+        /* 需要触发条件 */
+        /* 过渡不能调整中间过程效果 */
+        .inner1 {
+            background-color: orange;
+            transition: 3s linear;
+
+        }
+
+        /* 动画 */
+        /* 不需要触发条件 */
+        /* 在整个过程中可以增加关键帧调整动画效果 */
+        .inner2 {
+            background-color: green;
+            animation: wangyoudong 3s linear forwards;
+
+        }
+
+        @keyframes wangyoudong {
+            from {}
+
+            to {
+                transform: translate(900px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner inner1"></div>
+        <div class="inner inner2"></div>
+    </div>
+
+</body>
+
+</html>

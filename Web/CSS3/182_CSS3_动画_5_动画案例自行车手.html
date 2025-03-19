@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 130px;
+            height: 130px;
+            background-image: url(./bike.png);
+
+            /* 31步每步换一个图 */
+            animation: bike 1s steps(31) infinite;
+        }
+
+        @keyframes bike {
+            from {}
+
+            to {
+                background-position: 0px -4030px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    自行车动画图：
+    <div></div>
+
+</body>
+
+</html>

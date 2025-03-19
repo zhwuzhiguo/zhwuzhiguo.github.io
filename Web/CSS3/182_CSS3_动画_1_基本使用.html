@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+
+            /* 应用动画 */
+            /* 动画名 */
+            animation-name: wangyoudong;
+            /* 动画持续时间 */
+            animation-duration: 3s;
+            /* 动画启动延迟时间 */
+            animation-delay: 0.5s;
+        }
+
+        /* 定义动画关键帧 简单形式 */
+        @keyframes wangyoudong {
+
+            /* 第一帧 */
+            from {
+                /* 第一帧不写内容表示是初始状态 */
+                /* 位置不动 */
+                transform: translate(0);
+                background-color: green;
+            }
+
+            /* 最后一帧 */
+            to {
+                /* 位置x坐标移动到 900px */
+                transform: translate(900px);
+                background-color: red;
+            }
+        }
+
+        .outer2 {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .inner2 {
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+
+            /* 应用动画 */
+            /* 动画名 */
+            animation-name: wangyoudong2;
+            /* 动画持续时间 */
+            animation-duration: 3s;
+            /* 动画启动延迟时间 */
+            animation-delay: 0.5s;
+        }
+
+        /* 定义动画关键帧 完整形式 */
+        /* 一般之定义第一帧和最后一帧即可 */
+        @keyframes wangyoudong2 {
+
+            /* 第一帧 */
+            0% {
+                /* 第一帧不写内容表示是初始状态 */
+                /* 位置不动 */
+                transform: translate(0);
+                background-color: red;
+            }
+
+            30% {
+
+                background-color: yellow;
+            }
+
+            50% {
+
+                background-color: purple;
+            }
+
+            70% {
+
+                background-color: black;
+            }
+
+            /* 最后一帧 */
+            100% {
+                /* 位置x坐标移动到 900px */
+                /* 旋转360度 */
+                transform: translate(900px) rotate(360deg);
+                /* 变成圆角 */
+                border-radius: 50%;
+                /* 变成蓝色 */
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <div class="outer2">
+        <div class="inner2"></div>
+    </div>
+
+</body>
+
+</html>

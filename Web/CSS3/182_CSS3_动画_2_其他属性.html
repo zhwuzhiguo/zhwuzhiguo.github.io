@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+
+            /* 应用动画 */
+            /* 动画名 */
+            animation-name: wangyoudong;
+            /* 动画持续时间 */
+            animation-duration: 3s;
+            /* 动画启动延迟时间 */
+            animation-delay: 0.5s;
+
+            /* ====其他属性==== */
+
+            /* 动画快慢调节，和过渡一样 */
+            animation-timing-function: linear;
+            /* animation-timing-function: steps(20); */
+
+            /* 动画播放次数 */
+            /* animation-iteration-count: 3; */
+            /* 无限循环 */
+            animation-iteration-count: infinite;
+
+            /* 动画播放方向 */
+            /* 反向播放 */
+            /* animation-direction: reverse; */
+            /* 往返播放 */
+            animation-direction: alternate;
+            /* 反向播放+往返播放 */
+            /* animation-direction: alternate-reverse; */
+
+            /* 动画结束时停在哪里 */
+            /* animation-fill-mode: forwards; */
+
+        }
+
+        .outer:hover .inner {
+            /* 动画暂停 */
+            animation-play-state: paused;
+        }
+
+        /* 定义动画关键帧 简单形式 */
+        @keyframes wangyoudong {
+
+            /* 第一帧 */
+            from {
+                /* 第一帧不写内容表示是初始状态 */
+                /* 位置不动 */
+                transform: translate(0);
+                background-color: green;
+            }
+
+            /* 最后一帧 */
+            to {
+                /* 位置x坐标移动到 900px */
+                /* 旋转360度 */
+                transform: translate(900px) rotate(360deg);
+                /* 变成圆角 */
+                border-radius: 50%;
+                /* 变成蓝色 */
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+</body>
+
+</html>
