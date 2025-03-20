@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            /* width: 1000px; */
+            width: 400px;
+            height: 900px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 默认主轴从左到右 */
+            /* 默认侧轴从上到下 */
+            /* 伸缩项目默认沿主轴方向排列 */
+            display: flex;
+
+            /* =====伸缩盒模型相关属性===== */
+
+            /* 调整主轴方向 */
+            /* 侧轴方向不能修改 */
+            /* 侧轴方向随主轴方向自动调整 */
+
+            /* row: 默认值，主轴从左到右 */
+            /* 侧轴从上到下 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            flex-wrap: nowrap;
+
+
+            /* 主轴对齐方式 */
+            justify-content: flex-start;
+
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+
+            /* 去掉边框避免误差 */
+            /* border: 1px solid black; */
+            /* 设置成边框盒子 */
+            /* 宽高指边框的宽高 */
+            /* box-sizing: border-box; */
+
+            /* 
+            收缩因子
+            默认值：1
+            分母 = 200(盒子1宽度) * 1(盒子1收缩因子) + 300(盒子2宽度) * 1(盒子2收缩因子) + 200(盒子3宽度) * 1(盒子3收缩因子) = 700
+            盒子1收缩比例 = 200(盒子1宽度) * 1(盒子1收缩因子) / 700(分母)
+            盒子2收缩比例 = 300(盒子2宽度) * 1(盒子2收缩因子) / 700(分母)
+            盒子3收缩比例 = 200(盒子3宽度) * 1(盒子3收缩因子) / 700(分母)
+            盒子1收缩 = 盒子1收缩比例 * 300(需要收缩的总宽度)
+            盒子2收缩 = 盒子2收缩比例 * 300(需要收缩的总宽度)
+            盒子3收缩 = 盒子3收缩比例 * 300(需要收缩的总宽度)
+            注意:
+            在浏览器检查的时候和计算值有误差，是盒子边框引起的，去掉盒子边框即可！！
+            收缩的极限:
+            收缩项目要能容纳下内容。
+            */
+            
+            /* 
+            日常使用不写该属性
+            直接使用默认值1 
+            */
+            flex-shrink: 1;
+        }
+
+        .inner2 {
+            width: 300px;
+            font-size: 50px;
+            background-color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner inner1">1x</div>
+        <div class="inner inner2">2x</div>
+        <div class="inner inner3">3x</div>
+    </div>
+</body>
+
+</html>

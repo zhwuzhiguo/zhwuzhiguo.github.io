@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
         .outer {
             width: 1000px;
-            height: 600px;
+            height: 900px;
             background-color: gray;
             margin: 0 auto;
 
@@ -36,14 +37,9 @@
             */
             flex-wrap: wrap;
 
-            /* 
-            复合属性：
-            主轴方向+主轴换行方式 
-            不建议使用，因为不直观
-            */
-            flex-flow: row wrap;
 
-
+            /* 主轴对齐方式 */
+            justify-content: flex-start;
 
         }
 
@@ -55,24 +51,37 @@
             /* 设置成边框盒子 */
             /* 宽高指边框的宽高 */
             box-sizing: border-box;
-
         }
 
+        .inner1 {
+            /* 拉升因子：指定伸缩项目在伸缩容器中拉升空间的比例 */
+            /* 默认值为 0 */
+            /* 拉升因子越大，拉升的空间越大 */
+            /* 表示拉升占据的空间比例 = 拉升因子 / 所有伸缩项目的拉升因子之和 */
+            /* 针对主轴剩余空间进行分配 */
+            /* 1/5 * 300 */
+            flex-grow: 1;
+        }
+
+        .inner2 {
+            width: 300px;
+            /* 2/5 * 300 */
+            flex-grow: 2;
+        }
+
+        .inner3 {
+            /* 2/5 * 300 */
+            flex-grow: 2;
+        }
     </style>
 </head>
+
 <body>
     <div class="outer">
-        <div class="inner">1</div>
-        <div class="inner">2</div>
-        <div class="inner">3</div>
-        <div class="inner">4</div>
-        <div class="inner">5</div>
-        <div class="inner">6</div>
-        <div class="inner">7</div>
-        <div class="inner">8</div>
-        <div class="inner">9</div>
-        <div class="inner">10</div>
-        <div class="inner">11</div>
+        <div class="inner inner1">1x</div>
+        <div class="inner inner2">2x</div>
+        <div class="inner inner3">3x</div>
     </div>
 </body>
+
 </html>

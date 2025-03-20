@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 600px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 默认主轴从左到右 */
+            /* 默认侧轴从上到下 */
+            /* 伸缩项目默认沿主轴方向排列 */
+            display: flex;
+
+            /* =====伸缩盒模型相关属性===== */
+
+            /* 调整主轴方向 */
+            /* 侧轴方向不能修改 */
+            /* 侧轴方向随主轴方向自动调整 */
+
+            /* row: 默认值，主轴从左到右 */
+            /* 侧轴从上到下 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+
+            /* wrap: 换行(用的最多) */
+            /* 
+            换行后的项目侧轴方向：
+            如果剩余空间大会居中对齐 
+            如果剩余空间小会溢出 
+            */
+            flex-wrap: wrap;
+
+
+            /* 主轴对齐方式 */
+
+            /* flex-start: 默认值，项目靠近主轴方向起点排列 */
+            justify-content: flex-start;
+            /* flex-end: 项目靠近主轴方向终点排列 */
+            justify-content: flex-end;
+            /* center: 项目在主轴方向居中排列 */
+            justify-content: center;
+
+            /* space-around: 项目均匀的分布在主轴方向，项目之间的距离是项目和边缘距离的2倍 */
+            justify-content: space-around;
+
+            /* 用的多 */
+            /* space-between: 第一个项目紧靠左，最后一个项目紧靠右，中间的项目均匀排列，且所有项目间距相等 */
+            justify-content: space-between;
+
+            /* space-evenly: 项目均匀的分布在主轴方向，项目之间的距离与项目和边缘距离相等 */
+            justify-content: space-evenly;
+
+
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 设置成边框盒子 */
+            /* 宽高指边框的宽高 */
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+
+        <!-- 第一行顶满换行后的第二行也按这些对齐方式来 -->
+        <!-- <div class="inner">4</div>
+        <div class="inner">5</div>
+        <div class="inner">6</div>
+        <div class="inner">7</div>
+        <div class="inner">8</div> -->
+    </div>
+</body>
+
+</html>

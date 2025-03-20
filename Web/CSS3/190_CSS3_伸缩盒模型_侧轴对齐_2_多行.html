@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 900px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 默认主轴从左到右 */
+            /* 默认侧轴从上到下 */
+            /* 伸缩项目默认沿主轴方向排列 */
+            display: flex;
+
+            /* =====伸缩盒模型相关属性===== */
+
+            /* 调整主轴方向 */
+            /* 侧轴方向不能修改 */
+            /* 侧轴方向随主轴方向自动调整 */
+
+            /* row: 默认值，主轴从左到右 */
+            /* 侧轴从上到下 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+
+            /* wrap: 换行(用的最多) */
+            /* 
+            换行后的项目侧轴方向：
+            如果剩余空间大会居中对齐 
+            如果剩余空间小会溢出 
+            */
+            flex-wrap: wrap;
+
+
+            /* 主轴对齐方式 */
+            justify-content: flex-start;
+
+
+
+            /* 侧轴对齐方式（多行） */
+            /* align-content 属性仅适用于伸缩项目多行的情况 */
+
+            /* flex-start: 侧轴起始位置对齐 */
+            align-content: flex-start;
+
+            /* flex-end: 侧轴结束位置对齐 */
+            align-content: flex-end;
+
+            /* center: 侧轴中间位置对齐 */
+            align-content: center;
+
+            /* space-around: 项目之间的距离是项目和边缘距离的2倍 */
+            align-content: space-around;
+
+            /* space-between: 第一个项目紧靠上，最后一个项目紧靠下，中间的项目均匀排列，且所有项目间距相等 */
+            align-content: space-between;
+
+            /* space-evenly: 项目之间的距离与项目和边缘距离相等 */
+            align-content: space-evenly;
+
+            /* stretch: 默认值，拉升对齐 */
+            /* 前提是项目元素不指定高度的时候才会拉升 */
+            align-content: stretch;
+
+
+        }
+
+        .inner {
+            width: 200px;
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 200px; */
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 设置成边框盒子 */
+            /* 宽高指边框的宽高 */
+            box-sizing: border-box;
+
+        }
+
+        .inner1 {
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 200px; */
+        }
+
+        .inner2 {
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 300px; */
+            font-size: 80px;
+        }
+
+        .inner3 {
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 100px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner inner1">1x</div>
+        <div class="inner inner2">2x</div>
+        <div class="inner inner3">3x</div>
+        <div class="inner inner4">4x</div>
+        <div class="inner inner5">5x</div>
+        <div class="inner inner6">6x</div>
+        <div class="inner inner7">7x</div>
+        <div class="inner inner8">8x</div>
+        <div class="inner inner9">9x</div>
+        <div class="inner inner10">10x</div>
+        <div class="inner inner11">11x</div>
+        <div class="inner inner12">12x</div>
+    </div>
+</body>
+
+</html>

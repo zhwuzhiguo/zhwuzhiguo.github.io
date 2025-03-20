@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 600px;
+            /* 拉伸 */
+            width: 700px;
+            /* 压缩 */
+            width: 500px;
+            height: 900px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 默认主轴从左到右 */
+            /* 默认侧轴从上到下 */
+            /* 伸缩项目默认沿主轴方向排列 */
+            display: flex;
+
+            /* =====伸缩盒模型相关属性===== */
+
+            /* 调整主轴方向 */
+            /* 侧轴方向不能修改 */
+            /* 侧轴方向随主轴方向自动调整 */
+
+            /* row: 默认值，主轴从左到右 */
+            /* 侧轴从上到下 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            flex-wrap: nowrap;
+
+
+            /* 主轴对齐方式 */
+            justify-content: flex-start;
+
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 设置成边框盒子 */
+            /* 宽高指边框的宽高 */
+            box-sizing: border-box;
+
+            /* 可以拉伸 */
+            flex-grow: 1;
+
+            /* 可以压缩 */
+            flex-shrink: 1;
+
+            /* 设置伸缩项目的主轴方向的基准长度 */
+            flex-basis: 100px;
+
+            /* 上面三个属性的复合属性 */
+            /* 拉升因子 + 收缩因子 + 基准长度 */
+            /* 顺序不能变 */
+            flex: 1 1 100px;
+
+            /* 基准长度使用伸缩项目的宽高 */
+            /* 简写形式： */
+            /* flex: auto; */
+            flex: 1 1 auto;
+
+            /* 简写 */
+            flex: auto;
+
+            /* 基准长度使用0 */
+            /* 简写形式： */
+            /* flex: 1; */
+            /* 最常用 */
+            /* 最常用 */
+            /* 最常用 */
+            flex: 1 1 0;
+
+            /* 简写形式： */
+            /* 最常用 */
+            /* 最常用 */
+            /* 最常用 */
+            flex: 1;
+
+            /* 基准长度使用伸缩项目的宽高 */
+            /* 简写形式： */
+            /* flex: none; */
+            flex: 0 0 auto;
+
+            /* 简写 */
+            flex: none;
+
+
+            /* 默认值 */
+            /* 简写形式： */
+            /* flex: 0 auto; */
+            flex: 0 1 auto;
+
+             /* 简写形式： */
+            flex: 0 auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner inner1">1x</div>
+        <div class="inner inner2">2x</div>
+        <div class="inner inner3">3x</div>
+    </div>
+</body>
+
+</html>

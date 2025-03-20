@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer1 {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+
+            /* 方案一 */
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            display: flex;
+
+            /* 调整主轴方向 */
+            /* row: 默认值，主轴从左到右 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            /* nowrap: 默认值，不换行，伸缩项目会自动压缩 */
+            flex-wrap: nowrap;
+
+            /* 主轴对齐方式 */
+            /* center: 项目在主轴方向居中排列 */
+            justify-content: center;
+
+            /* 侧轴对齐方式（单行） */
+            /* center: 侧轴的中间位置对齐 */
+            align-items: center;
+
+        }
+
+        .inner1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        .outer2 {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+
+            /* 方案二 */
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            display: flex;
+
+        }
+
+        .inner2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+
+            /* 方案二 */
+            margin: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer1">
+        <div class="inner1">方案一</div>
+    </div>
+    <hr>
+    <div class="outer2">
+        <div class="inner2">方案二</div>
+    </div>
+</body>
+
+</html>

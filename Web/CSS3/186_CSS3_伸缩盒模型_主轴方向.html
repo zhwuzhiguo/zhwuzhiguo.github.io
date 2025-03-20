@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 600px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 默认主轴从左到右 */
+            /* 默认侧轴从上到下 */
+            /* 伸缩项目默认沿主轴方向排列 */
+            display: flex;
+
+            /* =====伸缩盒模型相关属性===== */
+
+            /* 调整主轴方向 */
+            /* 侧轴方向不能修改 */
+            /* 侧轴方向随主轴方向自动调整 */
+
+            /* row: 默认值，主轴从左到右 */
+            /* 侧轴从上到下 */
+            flex-direction: row;
+
+            /* row-reverse: 主轴从右到左 */
+            /* 侧轴从上到下 */
+            flex-direction: row-reverse;
+
+            /* column: 主轴从上到下 */
+            /* 侧轴从左到右 */
+            flex-direction: column;
+
+            /* column-reverse: 主轴从下到上 */
+            /* 侧轴从左到右 */
+            flex-direction: column-reverse;
+
+
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 设置成边框盒子 */
+            /* 宽高指边框的宽高 */
+            box-sizing: border-box;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+    </div>
+</body>
+</html>

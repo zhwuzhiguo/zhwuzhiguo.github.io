@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 600px;
+            height: 600px;
+            background-color: gray;
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 它的子元素就是伸缩项目(注意只包括一级子元素) */
+            /* 伸缩项目块状化，即使原来是行内元素 */
+            /* 伸缩项目默认是从左到右横向排列的 */
+            display: flex;
+
+
+            /* 设置该元素为伸缩容器(开启了 flex 布局) */
+            /* 同时设置该容器为行内块元素(不独占一行) */
+            /* 几乎不用 */
+            /* 因为可以设置它们的父元素为flex更好 */
+            /* display: inline-flex; */
+            
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 设置成边框盒子 */
+            /* 宽高指边框的宽高 */
+            box-sizing: border-box;
+
+            
+        }
+
+        .inner3 {
+            /* 设置该元素为伸缩容器 */
+            display: flex;
+            
+        }
+
+        .inner3 div {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            border: 1px solid black;
+            box-sizing: border-box;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner inner1">1</div>
+        <div class="inner inner2">2</div>
+        <div class="inner inner3">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+    </div>
+    <div class="outer">
+        <div class="inner inner1">1</div>
+        <div class="inner inner2">2</div>
+        <div class="inner inner3">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+    </div>
+</body>
+</html>

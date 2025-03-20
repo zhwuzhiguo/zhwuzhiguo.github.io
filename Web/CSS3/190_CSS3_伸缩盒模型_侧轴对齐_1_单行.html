@@ -7,7 +7,7 @@
     <style>
         .outer {
             width: 1000px;
-            height: 900px;
+            height: 600px;
             background-color: gray;
             margin: 0 auto;
 
@@ -41,11 +41,32 @@
             /* 主轴对齐方式 */
             justify-content: flex-start;
 
+            /* 侧轴对齐方式（单行） */
+            /* align-items 属性仅适用于伸缩项目单行的情况 */
+
+            /* flex-start: 侧轴的起始位置对齐 */
+            align-items: flex-start;
+
+            /* flex-end: 侧轴的结束位置对齐 */
+            align-items: flex-end;
+
+            /* center: 侧轴的中间位置对齐 */
+            align-items: center;
+
+            /* baseline: 侧轴的基线位置对齐(x字符的下沿对齐) */
+            align-items: baseline;
+
+            /* stretch: 默认值，侧轴拉升对齐 */
+            /* 前提是项目元素不指定高度的时候才会拉升 */
+            /* 指定高度的情况下和 flex-start 效果一样 */
+            align-items: stretch;
+
         }
 
         .inner {
             width: 200px;
-            height: 200px;
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 200px; */
             background-color: skyblue;
             border: 1px solid black;
             /* 设置成边框盒子 */
@@ -54,15 +75,20 @@
 
         }
 
-        .inner2 {
-            /* 设置伸缩项目的主轴方向的基准长度 */
-            /* 如果主轴是横向，width  被替代 */
-            /* 如果主轴是纵向，height 被替代 */
-            /* 默认值 auto 和原本的 width/height 一致 */
-            /* 很少使用 */
-            /* 浏览器使用该值计算主轴方向的剩余空间 */
-            flex-basis: 300px;
+        .inner1 {
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 200px; */
+        }
 
+        .inner2 {
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 300px; */
+            font-size: 80px;
+        }
+
+        .inner3 {
+            /* 注释掉高度，配合侧轴拉升对齐 */
+            /* height: 100px; */
         }
     </style>
 </head>
