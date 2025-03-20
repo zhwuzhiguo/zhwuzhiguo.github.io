@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 重置样式 */
+        * {
+            font-family: Arial;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        /* 设置宽高100% */
+        /* html的宽高基准是视口 */
+        /* body的基准是父元素html */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            /* 伸缩盒子 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: skyblue;
+            height: 100px;
+        }
+
+        /* 内容充满剩余视口 */
+        .content {
+            background-color: orange;
+
+            /* 拉升因子 */
+            /* 只有它设置拉升因子大于0直接垂直拉升 */
+            flex-grow: 1;
+
+            /* 内部居中 */
+            /* 伸缩盒子 */
+            display: flex;
+        }
+
+        .item {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+
+            /* 内部居中 */
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        header
+    </div>
+    <div class="content">
+        <div class="item">我要居中</div>
+    </div>
+</body>
+
+</html>
