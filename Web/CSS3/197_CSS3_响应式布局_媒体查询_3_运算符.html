@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        h1 {
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: gray;
+            font-size: 100px;
+        }
+
+        /* 与运算符 */
+        /* 屏幕显示 并且 视口宽度在[700-900]范围内 */
+        @media screen and (min-width:700px) and (max-width:900px) {
+            h1 {
+                color: red;
+            }
+        }
+
+        /* 或运算符 */
+        @media screen and ((min-width:900px) or (max-width:700px)) {
+            h1 {
+                color: green;
+            }
+        }
+
+        /* 或运算符逗号 */
+        @media (min-width:1000px), (max-width:600px) {
+            h1 {
+                color: darkorange;
+            }
+        }
+
+        /* 非运算符 */
+        @media not screen {
+            h1 {
+                color: blue;
+            }
+        }
+
+        /* 非运算符 */
+        @media not screen {
+            h1 {
+                color: blue;
+            }
+        }
+
+        /* 肯定运算符 */
+        /* 用来兼容ie等不识别部分媒体特性的情况下不应用该样式 */
+        @media only screen and (height: 600px) {
+            h1 {
+                color: darkmagenta;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>你好</h1>
+</body>
+
+</html>

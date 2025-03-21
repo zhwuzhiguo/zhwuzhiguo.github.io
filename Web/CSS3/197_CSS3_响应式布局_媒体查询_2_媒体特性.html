@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        h1 {
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: gray;
+            font-size: 100px;
+        }
+
+        /* 视口宽度等于800px应用样式 */
+        @media (width:800px) {
+            h1 {
+                color: green;
+            }
+        }
+
+        /* 视口宽度小于等于700px应用样式 */
+        @media (max-width:700px) {
+            h1 {
+                color: red;
+            }
+        }
+
+        /* 视口宽度大于等于900px应用样式 */
+        @media (min-width:900px) {
+            h1 {
+                color: blue;
+            }
+        }
+
+        /* 视口高度等于800px应用样式 */
+        @media (height:400px) {
+            h1 {
+                color: yellow;
+            }
+        }
+
+        /* 竖屏 */
+        @media (orientation: portrait) {
+            h1 {
+                background-color: chartreuse;
+            }
+        }
+
+        /* 横屏 */
+        @media (orientation: landscape) {
+            h1 {
+                background-color: cadetblue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>你好</h1>
+</body>
+
+</html>

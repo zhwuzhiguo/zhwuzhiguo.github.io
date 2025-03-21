@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1 {
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            line-height: 200px;
+            text-align: center;
+            background-color: orange;
+            color: green;
+        }
+
+        /* 只有打印预览或打印时应用的样式 */
+        /* 样式优先级不变 */
+        /* 需要写在正常样式的下面才能生效 */
+        /* 当打印的时候从上往下渲染的时候覆盖正常样式 */
+        @media print {
+            h1 {
+                background-color: black;
+                color: white;
+            }
+        }
+
+        /* 屏幕显示的时候应用的样式 */
+        /* 最常用 */
+        /* 最常用 */
+        /* 最常用 */
+        @media screen {
+            h1 {
+                color: red;
+            }
+        }
+
+        /* 一致应用的样式 */
+        @media all {
+            h1 {
+                border: 10px solid blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>新年快乐</h1>
+</body>
+
+</html>

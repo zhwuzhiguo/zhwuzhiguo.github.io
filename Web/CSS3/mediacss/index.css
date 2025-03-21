@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    background-color: gray;
+    font-size: 100px;
+}
