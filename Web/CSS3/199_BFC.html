@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 
+        1. BFC 是 Block Formatting Context （块级格式上下文），可以理解成元素的一个“特异功能”。
+        2. 该 “特异功能”，在默认的情况下处于关闭状态；当元素满足了某些条件后，该“特异功能”被激活。
+        3. 所谓激活“特异功能”，专业点说就是：该元素创建了 BFC （又称：开启了 BFC ）。 
+        */
+
+        /* 
+        开启BFC能解决问题：
+        1. 元素开启 BFC 后，其子元素不会再产生 margin 塌陷问题。
+        2. 元素开启 BFC 后，自己不会被其他浮动元素所覆盖。
+        3. 元素开启 BFC 后，就算其子元素浮动，元素自身高度也不会塌陷。 
+        */
+
+        body {
+            /* 父元素是伸缩项目：子元素margin塌陷解决 */
+            /* 需要把父元素body设置成伸缩盒子 */
+            /* display: flex; */
+        }
+
+        .outer {
+            width: 400px;
+            background-color: gray;
+
+            /* ====1. 元素开启 BFC 后，其子元素不会再产生 margin 塌陷问题。=== */
+            
+            /* ====父元素开启BFC的方式：=== */
+
+            /* 父元素开启浮动：子元素margin塌陷解决 */
+            /* float:left; */
+
+            /* 父元素开启定位：子元素margin塌陷解决 */
+            /* position: absolute; */
+
+            /* 父元素设置成行内块元素：子元素margin塌陷解决 */
+            /* display: inline-block; */
+
+            /* 父元素是表格或设置成表格：子元素margin塌陷解决 */
+            /* display: table; */
+
+            /* 父元素overflow不是visible：子元素margin塌陷解决 */
+            /* overflow: visible; */
+            /* overflow: hidden; */
+            /* overflow: auto; */
+
+            /* 父元素是伸缩项目：子元素margin塌陷解决 */
+            /* 需要把父元素body设置成伸缩盒子 */
+
+            /* 父元素多列容器：子元素margin塌陷解决 */
+            /* column-count: 1; */
+
+            /* 父元素display是flow-root：子元素margin塌陷解决 */
+            display: flow-root;
+
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+
+        .inner1 {
+            background-color: red;
+        }
+
+        .inner2 {
+            background-color: green;
+        }
+
+        .inner3 {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner inner1">1x</div>
+        <div class="inner inner2">2x</div>
+        <div class="inner inner3">3x</div>
+    </div>
+</body>
+
+</html>

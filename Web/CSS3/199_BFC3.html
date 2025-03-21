@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 400px;
+            background-color: gray;
+
+            /* 3. 元素开启 BFC 后，就算其子元素浮动，元素自身高度也不会塌陷。 */
+            display: flow-root;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .inner1 {
+            background-color: orange;
+            
+        }
+
+        .inner2 {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner inner1">1</div>
+        <div class="inner inner2">2</div>
+    </div>
+</body>
+
+</html>
