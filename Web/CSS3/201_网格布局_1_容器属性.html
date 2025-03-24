@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+        Grid 布局将容器划分成行和列从而产生单元格，
+        然后指定项目所在的单元格，
+        可以看作是二维布局。
+
+        采用网格布局的区域称为容器。
+        容器内部采用网格定位的子元素称为项目。
+
+        容器里面的水平区域称为行（row）。
+        容器里面的垂直区域称为列（column）。
+        行和列的交叉区域称为单元格（cell）。
+
+        划分网格的线称为网格线（grid line）。
+        水平网格线划分出行，
+        垂直网格线划分出列。
+
+        正常情况下：
+        n 行有 n + 1 根水平网格线。
+        m 列有 m + 1 根垂直网格线。
+
+        Grid 布局的属性分成两类：
+        一类定义在容器上面称为容器属性。
+        一类定义在项目上面称为项目属性。
+        */
+        .container {
+            border: 1px solid black;
+
+            /* 指定容器采用网格布局（默认块级元素） */
+            display: grid;
+
+            /* 指定容器采用网格布局（指定行内元素） */
+            /* display: inline-grid; */
+
+
+            /* 划分行和列 */
+            /* 指定每列宽度 */
+            /* 指定每行高度 */
+            /* grid-template-columns: 100px 100px 100px; */
+            /* grid-template-rows: 100px 100px 100px; */
+
+            /* 通过百分比划分行和列 */
+            /* grid-template-columns: 33.33% 33.33% 33.33%; */
+            /* grid-template-rows: 33.33% 33.33% 33.33%; */
+
+            /* 使用repeat()函数指定行列宽度(简化重复的值) */
+            /* grid-template-columns: repeat(3, 100px); */
+            /* grid-template-rows: repeat(3, 100px); */
+            /* grid-template-columns: repeat(3, 33.33%); */
+            /* grid-template-rows: repeat(3, 33.33%); */
+
+            /* repeat()重复某种模式也是可以的 */
+            /* 不指定项目宽度 */
+            /* grid-template-columns: repeat(2, 200px 50px); */
+
+
+            /* 自动填充100px宽度的列直到父容器满了换行为止 */
+            /* grid-template-columns: repeat(auto-fill, 100px); */
+
+
+            /* 
+            为了方便表示比例关系，
+            网格布局提供了fr关键字（fraction 意为片段）。
+            如果两列的宽度分别为1fr和2fr，
+            就表示后者是前者的两倍。
+            项目不指定宽度自动拉伸。
+            */
+            /* grid-template-columns: 1fr 2fr; */
+
+            /* fr可以与绝对长度的单位结合使用 */
+            /* grid-template-columns: 100px 1fr 2fr; */
+
+            /* 
+            minmax()函数产生一个长度范围，
+            表示长度就在这个范围之中。
+            它接受两个参数，
+            分别为最小值和最大值。
+            */
+            /* grid-template-columns: 1fr 1fr minmax(100px, 1fr); */
+
+            /* auto关键字表示由浏览器自己决定长度 */
+            /* grid-template-columns: 100px auto 100px; */
+
+            /* 
+            网格线的名称
+            可以使用方括号，
+            指定每一根网格线的名字，
+            方便以后的引用。
+            */
+            /* grid-template-columns: [c1] 100px [c2] 100px [c3] auto [c4]; */
+            /* grid-template-rows: [r1] 100px [r2] 100px [r3] auto [r4]; */
+
+            /* 
+            布局实例 
+            grid-template-columns属性对于网页布局非常有用。            
+            */
+            /* 两栏式布局只需要一行代码。 */
+            /* grid-template-columns: 70% 30%; */
+            /* 传统的十二网格布局 */
+            /* grid-template-columns: repeat(12, 1fr); */
+
+
+            /* 设置行与行列与列之间的间距 */
+            /* grid-template-columns: 100px 100px 100px; */
+            /* grid-template-rows: 100px 100px 100px; */
+
+            /* grid-row-gap: 20px; */
+            /* grid-column-gap: 20px; */
+            /* 复合属性 */
+            /* grid-gap: 20px 20px; */
+            /* 俩个值相同可省略第二个值 */
+            /* grid-gap: 20px; */
+
+            /* 最新标准上面三个属性名的grid-前缀已经删除 */
+            /* row-gap: 20px; */
+            /* column-gap: 20px; */
+            /* 复合属性 */
+            /* gap: 20px 20px; */
+            /* 俩个值相同可省略第二个值 */
+            /* gap: 20px; */
+
+            /* 
+            网格布局允许指定区域（area），
+            一个区域由单个或多个单元格组成。
+            */
+            /* grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-template-areas:
+                'a b c'
+                'd e f'
+                'g h i'; */
+
+            /* 多个单元格合并成一个区域的写法 */
+            /* grid-template-areas:
+                'a a a'
+                'b b b'
+                'c c c'; */
+
+            /* 不利用的区域用 . 表示 */
+            /* grid-template-areas:
+                'a . c'
+                'd . f'
+                'g . i'; */
+
+            /* 实例 */
+            /* grid-template-areas:
+                "header header header"
+                "main main sidebar"
+                "footer footer footer"; */
+
+            /* 
+            注意：
+            区域的命名会影响到网格线。
+            每个区域的起始网格线会自动命名为区域名-start，
+            终止网格线自动命名为区域名-end。 
+            比如：
+            区域名为header，
+            起始位置的水平网格线和垂直网格线叫做header-start，
+            终止位置的水平网格线和垂直网格线叫做header-end。
+            */
+
+            /* 容器的子元素在每一个网格中默认的放置顺序是先行后列 */
+            /* grid-auto-flow: row; */
+            /* 指定按先列后行放置 */
+            /* grid-auto-flow: column; */
+
+            /* 容器的某些项目指定位置以后，其余项目放置尽可能紧密填满，尽量不出现空格 */
+            /* grid-auto-flow: row dense; */
+            /* grid-auto-flow: column dense; */
+
+
+            /* 设置单元格内容的水平垂直位置 */
+            /* grid-template-columns: 100px 100px 100px; */
+            /* grid-template-rows: 100px 100px 100px; */
+
+            /* 
+            设置单元格内容的水平位置：
+            start：对齐单元格的起始边缘。
+            end：对齐单元格的结束边缘。
+            center：单元格内部居中。
+            stretch：拉伸，占满单元格的整个宽度（默认值）。
+             */
+            /* justify-items: center; */
+
+            /* 
+            设置单元格内容的垂直位置：
+            start：对齐单元格的起始边缘。
+            end：对齐单元格的结束边缘。
+            center：单元格内部居中。
+            stretch：拉伸，占满单元格的整个宽度（默认值）。
+             */
+            /* align-items: center; */
+
+            /* 复合属性 */
+            /* place-items: center center; */
+            /* 简写 */
+            /* place-items: center; */
+
+
+            /* 
+             设置整个内容区域的水平垂直位置：
+             start - 对齐容器的起始边框。
+             end - 对齐容器的结束边框。
+             center - 容器内部居中。
+             stretch - 项目大小没有指定时，拉伸占据整个网格容器。
+             space-around - 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。
+             space-between - 项目与项目的间隔相等，项目与容器边框之间没有间隔。
+             space-evenly - 项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。
+             */
+            /* grid-template-columns: 100px 100px 100px; */
+            /* grid-template-rows: 100px 100px 100px; */
+
+            /* 整个内容区域在容器里面的水平位置 */
+            /* justify-content: space-between; */
+
+            /* 整个内容区域在容器里面的垂直位置 */
+            /* align-content: space-between; */
+
+            /* 复合属性 */
+            /* place-content: space-between space-between; */
+            /* 简写 */
+            /* place-content: space-between; */
+
+
+            /* 
+            指定自动生成的网格宽和高 
+            一些项目的指定位置，在现有网格的外部，浏览器会自动生成多余的网格，以便放置项目。
+            如果不指定这两个属性，浏览器完全根据单元格内容的大小，决定新增网格的列宽和行高。
+            */
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-auto-columns: 100px; 
+            grid-auto-rows: 100px; 
+
+
+        }
+
+        .item {
+            /* width: 100px; */
+            /* height: 100px; */
+            background-color: gray;
+            /* line-height: 100px; */
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .item1 {
+            background-color: red;
+
+        }
+
+        .item2 {
+            background-color: green;
+        }
+
+        .item3 {
+            background-color: blue;
+        }
+
+        .item4 {
+            background-color: yellow;
+        }
+
+        .item5 {
+            background-color: orange;
+        }
+
+        .item6 {
+            background-color: purple;
+        }
+
+        .item7 {
+            background-color: chartreuse;
+        }
+
+        .item8 {
+            background-color: brown;
+        }
+
+        .item9 {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+    </div>
+
+</body>
+
+</html>
