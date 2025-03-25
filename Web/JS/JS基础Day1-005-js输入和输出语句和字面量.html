@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+
+    <script>
+        // 输出语法1：
+        document.write("我是输出。。")
+        document.write("<h1>我是输出h1</h1>")
+
+        // 输出语法2：
+        alert("弹窗输出！")
+
+        // 输出语法3：
+        // 控制台输出
+        console.log("日志输出。。")
+        console.info("信息输出。。")
+        console.warn("警告输出。。")
+        console.error("错误输出。。")
+
+        // 输入弹窗：
+        let name = prompt("请输入姓名：")
+        alert(name)
+
+        // JS代码执行顺序：
+        // 按HTML文档流顺序执行JS代码。
+        // alert() prompt() 会跳过页面渲染先执行。
+
+        // 字面量
+        let a = 100     // 数字字面量
+        let s = "abc"   // 字符串字面量
+        let arr = []    // 数组字面量
+        let obj = {}    // 对象字面量
+
+    </script>
+
+</body>
+
+</html>

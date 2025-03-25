@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <!-- 行内JS -->
+    <button id="bt1" onclick="this.innerText='行内JS设置'">按钮1</button>
+
+    <script>
+        // JavaScript 位置：
+        // 内部: 最好在body最下方，可以操作body内的元素。
+        // 外部: 实现代码分离。
+        // 行内: 直接写在元素上。
+        alert("内部JS...");
+        document.getElementById("bt1").innerText = "内部JS设置";
+    </script>
+
+    <script src="./JS基础Day1-003-JavaScript书写位置/my.js">
+        // 外部JS引用内不能写JS代码
+        // 浏览器会忽略
+        // alert("外部JS引用内不能写JS代码!!");
+    </script>
+</body>
+
+</html>

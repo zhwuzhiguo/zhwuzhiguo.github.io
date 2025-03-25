@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="pink">按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+
+    <script>
+        // JavaScript 组成:
+        // ECMAScript: JavaScript 语言规范
+        // Web APIs: DOM BOM
+
+        // 体验
+        let btns = document.querySelectorAll("button");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                document.querySelector(".pink").className = "";
+                this.className = "pink";
+            })
+        }
+    </script>
+</body>
+
+</html>
