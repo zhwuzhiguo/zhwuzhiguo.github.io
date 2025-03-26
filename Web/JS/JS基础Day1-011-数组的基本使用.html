@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 定义数组
+            let arr1 = []
+            let arr2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            // 数组内容的数据类型可以不同
+            let arr3 = [0, 1, 2, 3, "a", "b", "c"]
+
+            // 直接打印数组
+            console.log(arr1)
+            console.log(arr2)
+            console.log(arr3)
+
+            // 数组长度
+            console.log(arr1.length)
+            console.log(arr2.length)
+            console.log(arr3.length)
+
+            // 通过下标访问数组元素
+            console.log(arr1[0])
+            console.log(arr2[3])
+            console.log(arr3[4])
+
+            // 遍历数组
+            for (let i = 0; i < arr2.length; i++) {
+                console.log(arr2[i])
+            }
+
+            // 遍历数组
+            for (let i = 0; i < arr3.length; i++) {
+                console.log(arr3[i])
+            }
+        }
+
+    </script>
+</body>
+
+</html>

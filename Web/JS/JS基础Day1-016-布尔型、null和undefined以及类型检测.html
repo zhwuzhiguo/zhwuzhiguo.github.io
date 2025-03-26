@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 布尔类型
+            // true false
+            let a = true
+            let b = false
+            console.log(a)
+            console.log(b)
+            console.log(3 > 4)
+
+            // undefined 声明未定义（未赋值）
+            // 没有赋值就没法确定数据类型，也就是未定义
+            let num
+            console.log(num)
+
+            // null 空类型（赋值了值是空）
+            // 官方解释：把null作为尚未创建的对象。
+            // 变量还没有指向创建的对象，先给个null。
+            let obj = null
+            console.log(obj)
+
+            // undefined 和 null 在计算上的区别
+            console.log(undefined + 1)  // NaN 未知类型没法和数字相加所以是NaN
+            console.log(null + 1)       // 1 null表示没有和1相加还是1，相当于null是0。
+
+            // 检测数据类型
+            // typeof x 作为运算符
+            // typeof(x) 作为函数
+            let temp1 = 123
+            let temp2 = 'aaa'
+            let temp3 = true
+            let temp4
+            let temp5 = null
+            let temp6 = []
+
+            console.log(typeof temp1)   // number
+            console.log(typeof (temp1))  // number
+            console.log(typeof temp2)   // string
+            console.log(typeof (temp2))  // string
+            console.log(typeof temp3)   // boolean
+            console.log(typeof (temp3))  // boolean
+            console.log(typeof temp4)   // undefined
+            console.log(typeof (temp4))  // undefined
+            console.log(typeof temp5)   // object null是对象
+            console.log(typeof (temp5))  // object null是对象
+            console.log(typeof temp6)   // object 数组是对象
+            console.log(typeof (temp6))  // object 数组是对象
+
+            let type = typeof 123
+            console.log(type)           // 输出 number
+            console.log(typeof type)    // 类型 string
+
+        }
+
+    </script>
+</body>
+
+</html>

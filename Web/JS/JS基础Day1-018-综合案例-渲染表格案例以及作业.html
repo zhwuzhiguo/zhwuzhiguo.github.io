@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            /* 合并边框 */
+            border-collapse: collapse;
+            height: 80px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        th {
+            padding: 5px 30px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>订单确认</h2>
+    <!-- <table>
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>总价</th>
+            <th>收货地址</th>
+        </tr>
+        <tr>
+            <td>手机</td>
+            <td>1999元</td>
+            <td>10</td>
+            <td>19990元</td>
+            <td>北京海淀</td>
+        </tr>
+    </table> -->
+
+    <script>
+        let price = +prompt('单价：')
+        let count = +prompt('数量：')
+        let address = prompt('地址：')
+        let total = price * count;
+
+        document.write(`
+        <table>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>总价</th>
+                <th>收货地址</th>
+            </tr>
+            <tr>
+                <td>手机</td>
+                <td>${price}元</td>
+                <td>${count}</td>
+                <td>${total}元</td>
+                <td>${address}</td>
+            </tr>
+        </table>
+        `)   
+
+    </script>
+</body>
+
+</html>

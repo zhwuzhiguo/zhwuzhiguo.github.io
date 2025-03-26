@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 变量声明规则：
+        // 1、变量名不能是关键字。
+        // 2、变量名只能是:
+        //   a. 字母
+        //   b. 数字
+        //   c. 下划线
+        //   d. $
+        //   且数字不能开头。
+        // 3、变量名区分大小写。
+
+        // 变量名规范：
+        // 小驼峰命名法
+
+        function test() {
+            let userName = "admin"
+            let userAge = 20
+            let userAddr1 = "北京"
+            let userAddr2 = "上海"
+            let user$Memo = "备注信息"
+            console.log("userName:", userName)
+            console.log("userAge:", userAge)
+            console.log("userAddr1:", userAddr1)
+            console.log("userAddr2:", userAddr2)
+            console.log("user$Memo:", user$Memo)
+
+
+        }
+
+    </script>
+</body>
+
+</html>

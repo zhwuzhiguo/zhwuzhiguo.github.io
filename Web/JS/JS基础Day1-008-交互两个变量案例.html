@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行变量交互</button>
+
+    <script>
+
+        function test() {
+            let a = 111
+            let b = 222
+            console.log("a:", a)
+            console.log("b:", b)
+
+            let temp = a
+            a = b
+            b = temp
+            console.log("a:", a)
+            console.log("b:", b)
+        }
+
+    </script>
+</body>
+
+</html>

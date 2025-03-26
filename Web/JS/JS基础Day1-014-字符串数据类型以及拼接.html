@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // JS中字符串一般用单引号
+            // HTML中属性值一般用双引号
+            // 这样不容易冲突
+            let str = ''
+            let str1 = '张三'
+            let str2 = "李四"
+            let str3 = `王五`
+            console.log(str)
+            console.log(str1)
+            console.log(str2)
+            console.log(str3)
+
+            // chrome开发者工具中：
+            // 打印的数字是蓝色
+            // 打印的字符串是黑色
+            console.log(123)
+            console.log('123')
+
+            // 引号嵌套
+            console.log('字符串中包含引号的时候使用："外双内单"')
+            console.log("字符串中包含引号的时候使用：'外双内单'")
+            console.log('字符串中包含引号的时候使用：\'转义字符\'')
+
+            // 字符串拼接
+            console.log('我是' + '刘德华')
+            // 字符串和数字拼接
+            // 数字自动转为字符串然后拼接
+            console.log('我今年' + 18 + '岁')
+
+        }
+
+    </script>
+</body>
+
+</html>

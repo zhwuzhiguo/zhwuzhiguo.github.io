@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+        // JS数据类型
+        
+        // 基本数据类型
+        // 1. number 数字（整数，小数，正数，负数）
+        // 2. string 字符串
+        // 3. boolean 布尔值
+        // 4. undefined 声明未定义（未赋值）
+        // 5. null 空类型（赋值了值是空）
+        
+        // 引用数据类型
+        // object
+
+        // NaN (not a number) 代表一个计算错误。
+        // 它是一个不正确的或者一个未定义的数学操作所得到的结果。
+        // NaN 是粘性的。
+        // 任何对NaN的操作都会返回NaN。
+
+        function test() {
+            // JS是弱数据类型语言
+            // 变量只有赋值后才能确定是什么数据类型
+            let a = 123
+            console.log(a)
+
+            a = 3.14
+            console.log(a)
+            
+            a = "abc"
+            console.log(a)
+            
+            a = true
+            console.log(a)
+            
+            a = undefined
+            console.log(a)
+            
+            a = null
+            console.log(a)
+
+            // 算术运算符
+            // 乘除求余 优先级高于 加减
+            let num1 = 10
+            let num2 = 3
+            console.log(num1 + num2)
+            console.log(num1 - num2)
+            console.log(num1 * num2)
+            console.log(num1 / num2)
+            console.log(num1 % num2)
+
+
+            // NaN 代表一个计算错误
+            let ret = "abc" - 10
+            console.log("ret:", ret) // ret: NaN
+            ret = NaN + 1
+            console.log("ret:", ret) // ret: NaN
+
+        }
+
+    </script>
+</body>
+
+</html>

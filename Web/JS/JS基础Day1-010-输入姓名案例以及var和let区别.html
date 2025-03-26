@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            let userName = prompt("姓名：")
+            let userAge = prompt("年龄：")
+            let userGender = prompt("性别：")
+            
+            document.writeln(userName)
+            document.writeln(userAge)
+            document.writeln(userGender)
+
+            // var 可以多次声明
+            // let 不可以多次声明
+            // var 的问题很多，比如变量提升、全局变量、没有块级作用域等等
+            // 不要再使用，用let替代。
+        }
+
+    </script>
+</body>
+
+</html>

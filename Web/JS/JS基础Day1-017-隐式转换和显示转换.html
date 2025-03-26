@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 隐式转换
+
+            // 加法数字自动转为字符串然后拼接
+            console.log('aaa' + 1) // aaa1
+
+            // 减法字符串自动转换为数字然后计算
+            console.log('222' - 1) // 221
+
+            // 正号转换字符串为数字
+            console.log(+'123') // 123
+
+
+            // 显示转换
+            // 转数字
+            console.log(Number('123')) // 123
+            console.log(Number('12aa')) // NaN
+            // 转整数（取前面的整数部分）
+            console.log(parseInt('12aa')) // 12
+            console.log(parseInt('12px') + 2) // 14
+            console.log(parseInt('12.12aa')) // 12
+            console.log(parseInt('12.99aa')) // 12 截断而非四舍五入
+            // 转浮点数（取前面的小数部分）
+            console.log(parseFloat('12aa')) // 12
+            console.log(parseFloat('12px') + 2) // 14
+            console.log(parseFloat('12.12aa')) // 12.12
+            console.log(parseFloat('12.99aa')) // 12.99
+
+            // 案例
+            // 隐式转换
+            let num1 = +prompt('数字一：')
+            let num2 = +prompt('数字二：')
+            alert(`俩个数相加的和是：${num1 + num2}`)
+
+        }
+
+    </script>
+</body>
+
+</html>
