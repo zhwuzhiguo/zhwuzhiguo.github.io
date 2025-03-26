@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            // 比较运算符运算符：
+            // > >=
+            // < <=
+            // == 值是否相等
+            // != 值是否不等
+            // === 值和类型是否全相等（开发中推荐使用）
+            // !== 值和类型是否不全相等
+            
+            let a = 100
+            let b = 100
+            let c = '100'
+            console.log(a > b)
+            console.log(a >= b)
+            console.log(a < b)
+            console.log(a <= b)
+            console.log(100 >= '99')  // true  字符串隐式转换为数字再比较
+            console.log(100 >= '999') // false 字符串隐式转换为数字再比较
+
+            console.log(a == b) // true
+            console.log(a != b) // false
+            console.log(a == c) // true  字符串隐式转换为数字再比较
+            console.log(a != c) // false 字符串隐式转换为数字再比较
+
+            console.log(a === b) // true
+            console.log(a !== b) // false
+            console.log(a === c) // false
+            console.log(a !== c) // true
+
+
+            // NaN 不等于任何值包括它自己
+            console.log(NaN == 0) // false
+            console.log(NaN == NaN) // false
+            console.log(NaN === NaN) // false
+
+
+            // 字符串比较
+            // 按ASCII比较
+            console.log('B' > 'A')
+            console.log('A' == 'A')
+            console.log('A' === 'A')
+
+
+            // 小数参与计算一般转换成整数再做
+            // 规避精度问题
+            console.log(0.1 + 0.2) // 0.30000000000000004
+            console.log((0.1 * 10 + 0.2 * 10) / 10) // 0.3
+
+        }
+
+    </script>
+</body>
+
+</html>

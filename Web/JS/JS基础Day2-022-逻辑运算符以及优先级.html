@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            // 逻辑运算符：
+            // &&
+            // ||
+            // !
+            console.log(100 > 50 && 100 > 90)
+            console.log(100 > 50 || 100 > 200)
+            console.log(!(100 > 200))
+
+            let year = prompt('输入年份：')
+            if (year % 4 === 0 && year % 100 !== 0) {
+                alert('闰年')
+            } else {
+                alert('非闰年')
+            }
+
+            /*
+            总结:
+            运算符优先级：
+            小括号 > 一元运算符 > 算术运算符 > 关系运算符 > 相等运算符 > 逻辑运算符 > 赋值运算符 > 逗号运算符
+            注意: 逻辑运算符内部 && > ||
+            */
+
+        }
+
+    </script>
+</body>
+
+</html>

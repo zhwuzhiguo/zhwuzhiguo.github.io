@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            // 自增自减运算符：
+            // ++
+            // --
+            let a = 100
+
+            a = 100
+            console.log(a++) // 先使用再自增 100
+            a = 100
+            console.log(++a) // 先自增再使用 101
+
+            a = 100
+            console.log(a--) // 先使用再自减 100
+            a = 100
+            console.log(--a) // 先自减再使用 99
+
+            // 实例
+            let i = 1
+            console.log(i++ + ++i + i) // 7
+
+        }
+
+    </script>
+</body>
+
+</html>
