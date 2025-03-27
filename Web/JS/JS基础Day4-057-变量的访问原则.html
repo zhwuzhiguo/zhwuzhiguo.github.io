@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+        }
+
+        function fun() {
+            // 不使用let就变成了全局变量
+            // 绝对不允许
+            num = 123
+            console.log('局部：' + num)
+        }
+
+        fun()
+
+        console.log('全局：' + num)
+
+
+        // 嵌套函数
+        let a = 1
+        function fun1() {
+            let a = 2
+            function fun2() {
+                console.log('a:', a)
+            }
+
+            fun2()
+        }
+
+        fun1()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // Boolean
+        // ''、0、undefined、null、NaN、false 转换为布尔型后都是 false，其余为 true。
+        function test() {
+            console.log("'' to boolean: ", Boolean(''))
+            console.log("0 to boolean: ", Boolean(0))
+            console.log("undefined to boolean: ", Boolean(undefined))
+            console.log("null to boolean: ", Boolean(null))
+            console.log("NaN to boolean: ", Boolean(NaN))
+            console.log("false to boolean: ", Boolean(false))
+
+            console.log("其他转换 boolean 都为 true..")
+
+
+            console.log("示例：")
+            console.log(10 && 20) // 20
+            console.log(0 || 20)  // 20
+
+            console.log("隐式转换：")
+            // 包含字符串的加法数字转字符串
+            console.log('' + 1)  // '1'
+            // 包含字符串的减法字符串转数字
+            // 空字符串转为0
+            console.log('' - 1)  // -1
+            // null 转为数字 0
+            console.log(null + 1)  // ·
+            // undefined 和数字运算无法计算结果 NaN
+            console.log(undefined + 1)  // NaN
+
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

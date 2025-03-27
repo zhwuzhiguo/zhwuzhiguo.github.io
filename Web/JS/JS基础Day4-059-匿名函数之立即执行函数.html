@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>执行</button>
+
+    <script>
+
+        // 匿名函数是没有命名的函数
+        // 2种使用方式：
+        // 1、函数表达式
+        // 2、立即执行函数(常用)
+
+
+        // 1、函数表达式
+        let btn = document.querySelector('button')
+        btn.onclick = function () {
+            test()
+        }
+
+
+        function test() {
+
+            // 1、函数表达式
+            let fn = function (a, b) {
+                return a + b
+            }
+
+            // 函数表达式先声明后调用
+            console.log(fn(1, 2));
+
+
+            // 2、立即执行函数
+            // 立即执行函数的上一条语句后需要有分号！！！
+            // 立即执行函数的好处是内部定义一些变量不会污染外部变量
+            (function () {
+                console.log('aaa')
+            })();
+
+            // 2、立即执行函数
+            // 立即执行函数的上一条语句后需要有分号！！！
+            // 立即执行函数的好处是内部定义一些变量不会污染外部变量
+            (function (a, b) {
+                console.log(a + b)
+            })(100, 200);
+
+
+
+            // 2、立即执行函数
+            // 另一种写法：小括号放在最外面
+            (function () {
+                console.log('aaa')
+            }());
+
+
+            // 2、立即执行函数
+            // 立即执行函数也可以有函数名
+            (function myfun () {
+                console.log('aaa')
+            }());
+
+
+            console.log('2、立即执行函数的上一条语句后需要有分号！！！')
+
+        }
+
+    </script>
+</body>
+
+</html>

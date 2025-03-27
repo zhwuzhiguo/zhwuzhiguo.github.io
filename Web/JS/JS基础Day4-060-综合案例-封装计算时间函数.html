@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            let seconds = +prompt('请输入秒数：')
+            let results = getHHMMSS(seconds)
+            let h = results[0]
+            let m = results[1]
+            let s = results[2]
+            document.write(`时间：${h}时${m}分${s}秒`)
+
+        }
+
+        // 获取时分秒
+        function getHHMMSS(seconds) {
+            let h = parseInt(seconds / 60 / 60 % 24)
+            let m = parseInt(seconds / 60 % 60)
+            let s = parseInt(seconds % 60)
+            h = h < 10 ? '0' + h : h
+            m = m < 10 ? '0' + m : m
+            s = s < 10 ? '0' + s : s
+            return [h, m, s]
+        }
+
+    </script>
+</body>
+
+</html>

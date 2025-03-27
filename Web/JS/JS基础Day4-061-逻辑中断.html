@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 逻辑中断
+        // aa && bb : aa为false时bb不执行
+        // aa || bb : aa为true 时bb不执行
+
+        function test() {
+            console.log(getSum())
+
+        }
+
+        // 函数定义
+        function getSum(start, end) {
+            // 实参不传 undefined 表示 false
+            // start = 1
+            // end = 100
+            start = start || 1
+            end = end || 100
+
+            let sum = 0
+            for (let i = start; i <= end; i++) {
+                sum += i
+            }
+
+            return sum
+        }
+
+    </script>
+</body>
+
+</html>

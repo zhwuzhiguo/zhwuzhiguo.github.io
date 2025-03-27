@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>执行</button>
+
+    <script>
+
+        // 匿名函数是没有命名的函数
+        // 2种使用方式：
+        // 1、函数表达式
+        // 2、立即执行函数
+
+
+        // 1、函数表达式
+        let btn = document.querySelector('button')
+        btn.onclick = function () {
+            test()
+        }
+
+
+        function test() {
+
+            // 1、函数表达式
+            let fn = function add(a, b) {
+                return a + b
+            }
+
+            // 函数表达式先声明后调用
+            console.log(fn(1, 2))
+
+        }
+
+    </script>
+</body>
+
+</html>

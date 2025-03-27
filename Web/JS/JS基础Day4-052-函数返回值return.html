@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            console.log(getArraySum([1, 2, 3]))
+            console.log(getArraySum())
+
+        }
+
+        // 函数定义
+        // 参数默认值空数组避免不传参数的时候函数内部发生语法错误
+        function getArraySum(array = []) {
+            let sum = 0
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i]
+            }
+
+            // 函数返回值
+            // 没有 return 的函数返回 undefined
+            return sum
+        }
+
+    </script>
+</body>
+
+</html>
