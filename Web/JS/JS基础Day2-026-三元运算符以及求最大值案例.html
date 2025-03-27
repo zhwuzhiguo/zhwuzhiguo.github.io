@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 判断闰年
+            let year = +prompt('输入年份：')
+            let ret = (year % 4 === 0 && year % 1000 !== 0 || year % 400 === 0)
+            // 三元运算符
+            let message = ret ? `${year} 是闰年` : `${year} 不是闰年`
+            alert(message)
+
+        }
+
+    </script>
+</body>
+
+</html>

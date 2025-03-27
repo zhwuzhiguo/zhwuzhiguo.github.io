@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            let num = 5
+            while (num > 0) {
+                console.log(num--)
+            }
+
+            num = 0
+            do {
+                // do while 循环至少执行一次
+                // 不常用
+                console.log(num--)
+                
+            } while (num > 0);
+
+        }
+
+    </script>
+</body>
+
+</html>

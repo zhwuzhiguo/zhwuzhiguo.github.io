@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 判断闰年
+            let num = prompt('输入数：')
+            // 三元运算符
+            // num < 10 隐式转义 num字符串转数字再比较
+            // 0 + num  隐式转义 0转字符串再和字符串num拼接
+            let formatNum = num < 10 ? 0 + num : num
+            alert(formatNum)
+
+        }
+
+    </script>
+</body>
+
+</html>
