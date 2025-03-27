@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 定义数组
+            let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            console.log(array)
+
+            // 在数组末尾追加
+            // 返回数组的最新长度
+            console.log(array.push(111))
+            console.log(array.push(222,333,444))
+            console.log(array)
+
+            // 在数组头部添加
+            // 返回数组的最新长度
+            console.log(array.unshift('aaa'))
+            console.log(array.unshift('bbb','ccc','ddd'))
+            console.log(array)
+
+            printArray(array)
+
+        }
+
+        function printArray(array) {
+            for (let i = 0; i < array.length; i++) {
+                console.log(array[i])
+            }
+        }
+
+    </script>
+</body>
+
+</html>

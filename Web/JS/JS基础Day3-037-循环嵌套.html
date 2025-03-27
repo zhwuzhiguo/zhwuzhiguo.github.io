@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            for (let i = 1; i <= 9; i++) {
+
+                let line = ''
+                for (let j = 1; j <= 9; j++) {
+                    let value = i * j
+                    if (value < 10) {
+                        value = '0' + value
+                    }
+                    line += value + ' '
+                }
+
+                console.log(line)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 定义数组
+            let array = [5, 1, 2, 3, 4, 100, 0, 7, 8, 9]
+            console.log(array)
+
+            let max = array[0]
+            let min = array[0]
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] > max) {
+                    max = array[i]
+                }
+                if (array[i] < min) {
+                    min = array[i]
+                }
+            }
+
+            console.log('max:', max)
+            console.log('min:', min)
+
+        }
+
+    </script>
+</body>
+
+</html>

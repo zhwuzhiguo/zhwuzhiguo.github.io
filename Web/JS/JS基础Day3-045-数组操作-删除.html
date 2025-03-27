@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 定义数组
+            let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            console.log(array)
+
+            // 删除指定索引元素
+            // 删除数组中的一个区间
+            // 起始位置+删除数量
+            // 返回删除的子数组
+            console.log(array.splice(2, 6)) // [2, 3, 4, 5, 6, 7]
+
+            // 删除数组最后一个元素
+            // 返回删除的元素
+            console.log(array.pop()) // 9
+
+            // 删除数组第一个元素
+            // 返回删除的元素
+            console.log(array.shift()) // 0
+
+            // 打印元素
+            console.log(array) // [1, 8]
+
+
+            // 定义数组
+            let array2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            console.log(array2)
+
+            // 获取数组中的一个区间
+            // 起始位置+结束位置 
+            // 不包括结束位置
+            // 返回子数组
+            // 原始数组不变
+            console.log(array2.slice(2, 6)) // [2, 3, 4, 5]
+
+        }
+
+    </script>
+</body>
+
+</html>

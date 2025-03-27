@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 定义数组
+            let array1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            let array2 = []
+            
+            for (let i = 0; i < array1.length; i++) {
+                if (array1[i] % 2 === 0){
+                    array2.push(array1[i])
+                }
+            }
+            
+            console.log(array1)
+            console.log(array2)
+
+        }
+
+    </script>
+</body>
+
+</html>
