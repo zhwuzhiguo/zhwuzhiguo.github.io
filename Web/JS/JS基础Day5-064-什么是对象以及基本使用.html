@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 对象
+        // {
+        //     属性名: 属性值
+        //     方法名: 函数
+        // }
+
+        function test() {
+
+            // 声明对象
+            let obj1 = {}
+            let obj2 = new Object()
+
+            // 声明定义对象
+            // 对象由属性和方法组成
+            let obj3 = {
+                id: 123,
+                name: 'jack',
+                age: 20,
+
+                show: function () {
+                    console.log('show:')
+                    console.log('id:', this.id)
+                    console.log('name:', this.name)
+                    console.log('age:', this.age)
+                }
+            }
+
+            console.log('obj1:', obj1)
+            console.log('obj2:', obj2)
+            console.log('obj3:', obj3)
+            console.log('obj3.id:', obj3.id)
+            console.log('obj3.name:', obj3.name)
+            console.log('obj3.age:', obj3.age)
+            obj3.show()
+        }
+
+    </script>
+</body>
+
+</html>

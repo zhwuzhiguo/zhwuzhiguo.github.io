@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            console.log(Math.PI)            // 3.141592653589793
+            console.log(Math.random())      // 随机数[0-1)的小数 0.7527044565740695
+
+            console.log(Math.ceil(3.146))   // 向上取整 4
+            console.log(Math.floor(3.146))  // 向下取整 3
+            
+            console.log(Math.round(10.49))      // 四舍五入 10
+            console.log(Math.round(10.50))      // 四舍五入 11
+            console.log(Math.round(10.51))      // 四舍五入 11
+            console.log(Math.round(-10.49))     // 四舍五入 -10
+            console.log(Math.round(-10.50))     // 四舍五入 -10
+            console.log(Math.round(-10.51))     // 四舍五入 -11
+
+            console.log(Math.max(1, 2, 3, 8, 0, 4, 5, 6))   // 最大值 8
+            console.log(Math.min(1, 2, 3, 8, 0, 4, 5, 6))   // 最小值 0
+            console.log(Math.pow(2, 3))     // 幂运算 8
+            console.log(Math.abs(-5))       // 绝对值 5
+
+
+        }
+
+    </script>
+</body>
+
+</html>

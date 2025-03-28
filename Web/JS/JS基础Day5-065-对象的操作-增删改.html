@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            let obj = {
+                id: 123,
+                name: 'jack',
+                age: 20
+            }
+
+            // 对象增加属性
+            obj.memo = '备注信息'
+            // 对象修改属性
+            obj.name = 'jackson'
+            console.log(obj)
+
+            // 对象删除属性
+            delete obj.memo
+            console.log(obj)
+        }
+
+    </script>
+</body>
+
+</html>

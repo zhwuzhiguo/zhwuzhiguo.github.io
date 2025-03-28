@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 数据类型：
+        // 1、值类型(基本数据类型)：
+        //   栈存放值
+        // 2、引用类型(对象、数组等)：
+        //   栈存放堆地址
+        //   堆存放值
+        function test() {
+            let num1 = 10
+            let num2 = num1
+            num2 = 20
+            console.log(num1) // 10
+            console.log(num2) // 20
+
+            let obj1 = {
+                id: 123,
+                name: 'jack'
+            }
+
+            let obj2 = obj1
+            obj2.name = 'jim'
+
+            console.log(obj1) // {id: 123, name: 'jim'}
+            console.log(obj2) // {id: 123, name: 'jim'}
+
+        }
+
+    </script>
+</body>
+
+</html>

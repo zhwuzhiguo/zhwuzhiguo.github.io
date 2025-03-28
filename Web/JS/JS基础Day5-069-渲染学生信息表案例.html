@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            width: 400px;
+            background-color: goldenrod;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: gray;
+            color: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <br>
+    <br>
+
+    <h2>学生表</h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+        </tr>
+        <script>
+            let students = [
+                {
+                    id: 1,
+                    name: 'jack1',
+                    age: 20
+                },
+                {
+                    id: 2,
+                    name: 'jack2',
+                    age: 20
+                },
+                {
+                    id: 3,
+                    name: 'jack3',
+                    age: 20
+                }
+            ]
+
+            for (let i = 0; i < students.length; i++) {
+                let student = students[i]
+                document.write(`
+                <tr>
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.age}</td>
+                </tr>
+                `)
+            }
+        </script>
+    </table>
+
+
+</body>
+
+</html>

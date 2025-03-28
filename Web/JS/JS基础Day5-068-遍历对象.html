@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            // 使用 for ... in 遍历数组
+            // 不推荐
+            let array = ['Jack', 'Jim', 'Han']
+            for (let key in array) {
+                console.log(key)
+                console.log(array[key])
+                // key 是字符串类型
+                console.log(typeof key)
+            }
+
+            let obj = {
+                id: 123,
+                name: 'jack',
+                age: 20
+            }
+
+            // 使用 for ... in 遍历对象
+            // 推荐
+            for (let key in obj) {
+                console.log(key)
+                console.log(obj[key])
+                // key 是字符串类型
+                console.log(typeof key)
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

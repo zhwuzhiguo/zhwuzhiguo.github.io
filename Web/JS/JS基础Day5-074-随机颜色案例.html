@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: #0099FF;
+            color: rgb(255, 99, 0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div>颜色</div>
+
+    <script>
+
+        function test() {
+            let div = document.querySelector('div')
+            backgroundColor = getHEXColor()
+            color = getRGBColor()
+            console.log(backgroundColor)
+            console.log(color)
+            div.style.backgroundColor = backgroundColor
+            div.style.color = color
+        }
+
+        function getHEXColor() {
+            let COLORS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+            
+            // let hex1 = COLORS[Math.floor(Math.random() * COLORS.length)]
+            // let hex2 = COLORS[Math.floor(Math.random() * COLORS.length)]
+            // let hex3 = COLORS[Math.floor(Math.random() * COLORS.length)]
+            // let hex4 = COLORS[Math.floor(Math.random() * COLORS.length)]
+            // let hex5 = COLORS[Math.floor(Math.random() * COLORS.length)]
+            // let hex6 = COLORS[Math.floor(Math.random() * COLORS.length)]
+            // let color = `#${hex1}${hex2}${hex3}${hex4}${hex5}${hex6}`
+            // return color
+
+            // 循环实现
+            let color = '#'
+            for(let i = 0; i < 6; i++) {
+                color += COLORS[Math.floor(Math.random() * COLORS.length)]
+            }
+
+            return color
+        }
+
+        function getRGBColor() {
+            let r = Math.floor(Math.random() * 256)
+            let g = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+            let color = `rgb(${r}, ${g}, ${b})`
+            return color
+        }
+
+    </script>
+</body>
+
+</html>

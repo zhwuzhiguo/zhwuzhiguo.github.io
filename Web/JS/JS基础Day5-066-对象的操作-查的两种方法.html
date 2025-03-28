@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+
+            let obj = {
+                id: 123,
+                name: 'jack',
+                age: 20,
+
+                // 属性名也可以用字符串表示
+                // 方便处理属性名有特殊字符的情况
+                'memo': 'obj memo',
+                'memo-other': 'obj memo other'
+            }
+
+            // 查询方法一
+            console.log(obj.id)
+            console.log(obj.name)
+            console.log(obj.age)
+            console.log(obj.memo)
+            // 含有特殊字符不行
+            // console.log(obj.memo-other)
+
+
+            // 查询方法二
+            // 用的也很多
+            console.log(obj['id'])
+            console.log(obj['name'])
+            console.log(obj['age'])
+            console.log(obj['memo'])
+            console.log(obj['memo-other'])
+
+
+        }
+
+    </script>
+</body>
+
+</html>

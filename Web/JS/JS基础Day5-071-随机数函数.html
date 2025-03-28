@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            // 随机数[0-1)的小数
+            // 左闭右开区间
+            let num = Math.random()
+            console.log(num)
+
+            // 生成[0-10]之间的随机数
+            console.log(Math.floor(num * (10 + 1)))
+
+
+            let colors = ['red', 'green', 'blue']
+            let index = Math.floor(Math.random() * colors.length);
+            console.log(colors[index])
+
+            // [0-10]
+            console.log('[0-10]')
+            console.log(Math.floor(Math.random() * (10 + 1)));
+            // [5-10]
+            console.log('[5-10]')
+            console.log(Math.floor(Math.random() * (10 - 5 + 1) + 5));
+            console.log(getRandom(5, 10))
+
+        }
+
+        // 生成[N-M]随机整数
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1) + N)
+        }
+
+    </script>
+</body>
+
+</html>
