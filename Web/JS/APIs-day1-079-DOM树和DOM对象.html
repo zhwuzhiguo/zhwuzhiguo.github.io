@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div>文档对象</div>
+
+    <script>
+
+        // DOM: 文档对象模型
+        // BOM: 浏览器对象模型
+
+        // DOM树: 将 HTML 文档以树状结构表现出来。
+        // DOM对象: 浏览器根据 HTML 标签生成的 JS对象。
+        // 1、标签的所有属性都可以在这个对象上面找到。
+        // 2、修改标签对象的属性能自动映射到标签上。
+
+        function test() {
+            // 获取 DOM对象
+            const div = document.querySelector('div')
+            // 打印 DOM对象
+            console.dir(div)
+
+            // document 是 DOM 里最大的对象
+            console.dir(document)
+
+            
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            // const 声明的变量不能改变
+            // 优先使用 const
+            // 后续发现需要修改在用 let
+            const PI = 3.14
+            console.log(PI)
+
+            // 引用类型 尽量 声明为 const
+            const array = [1, 2, 3]
+            // 引用不能改变
+            // array = [4, 5, 6]
+            // 值可以改变
+            array[1] = 222
+            console.log(array)
+
+            
+        }
+
+    </script>
+</body>
+
+</html>
