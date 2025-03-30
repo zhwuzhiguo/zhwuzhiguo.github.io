@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <button onclick="get()">获取</button>
+
+    <!-- 自定义属性约定以 data- 开头 -->
+    <div data-id="1" data-name="name1">1</div>
+    <div data-id="2" data-name="name2">2</div>
+    <div data-id="3" data-name="name3">3</div>
+    <div data-id="4" data-name="name4">4</div>
+    <div data-id="5" data-name="name5">5</div>
+
+    <script>
+
+        function test() {
+            // 获取设置自定义属性
+            // 通过 dataset 操作自定义属性
+            const one = document.querySelector('div')
+            console.log(one.dataset)
+            console.log(one.dataset.id)
+            console.log(one.dataset.name)
+
+            one.dataset.id = 111
+            one.dataset.name = 'name111'
+            // 新增一个自定义属性
+            one.dataset.age = 20
+
+        }
+
+        function get() {
+            // 获取设置自定义属性
+            const one = document.querySelector('div')
+            console.log(one.dataset)
+            console.log(one.dataset.id)
+            console.log(one.dataset.name)
+            console.log(one.dataset.age)
+
+        }
+
+    </script>
+</body>
+
+</html>

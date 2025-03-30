@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <input id="uname" type="text" value="电脑">
+
+    <input class="item" type="checkbox">
+    <input class="item" type="checkbox">
+
+    <script>
+
+        function test() {
+            // 获取设置表单的值
+            const uname = document.querySelector('#uname')
+            console.log(uname.value)
+            uname.value = '我的电脑'
+            uname.type = 'password'
+
+            const items = document.querySelectorAll('.item')
+            for (let i = 0; i < items.length; i++) {
+                items[i].checked = true
+                items[i].disabled = true
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

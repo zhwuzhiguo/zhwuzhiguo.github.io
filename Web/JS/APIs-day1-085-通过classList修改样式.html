@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .box2 {
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="add()">添加样式类</button>
+    <button onclick="remove()">移除样式类</button>
+    <button onclick="toggle()">切换样式类</button>
+    <br>
+    <br>
+    <div class="box">修改样式</div>
+
+    <script>
+
+        function add() {
+
+            // 操作元素样式
+            // 终极解决方案
+            const box = document.querySelector('.box')
+            box.classList.add('box1')
+            box.classList.add('box2')
+
+        }
+
+        function remove() {
+
+            // 操作元素样式
+            // 终极解决方案
+            const box = document.querySelector('.box')
+            box.classList.remove('box2')
+
+        }
+
+        function toggle() {
+
+            // 操作元素样式
+            // 终极解决方案
+            const box = document.querySelector('.box')
+            box.classList.toggle('box2')
+
+        }
+
+    </script>
+</body>
+
+</html>

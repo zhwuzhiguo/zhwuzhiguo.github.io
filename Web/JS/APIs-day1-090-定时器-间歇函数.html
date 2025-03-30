@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="start()">开始</button>
+    <button onclick="stop()">停止</button>
+
+    <div>显示时间</div>
+
+    <script>
+
+        // 定时器序号
+        let num
+
+        function start() {
+
+            // 间歇函数
+            // 开启定时器
+            // 返回定时器序号
+            // setInterval(函数, 间隔时间)
+            // 关闭定时器
+            // clearInterval(num)
+            num = setInterval(function () {
+                const div = document.querySelector('div')
+                div.style.color = 'red'
+                div.style.fontSize = '40px'
+                div.innerHTML = new Date()
+
+            }, 1000);
+
+        }
+
+        function stop() {
+            // 关闭定时器
+            clearInterval(num)
+        }
+
+    </script>
+</body>
+
+</html>

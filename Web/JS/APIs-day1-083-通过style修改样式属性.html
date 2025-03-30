@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div class="box">修改样式</div>
+
+    <script>
+
+        function test() {
+
+            // 操作元素样式
+            const box = document.querySelector('.box')
+            box.style.width = '200px'
+            box.style.height = '200px'
+            box.style.backgroundColor = 'green'
+
+            // body 元素只有一个
+            // body 元素是 document 的一个属性
+            document.body.style.backgroundImage = 'url(./images/image.png)'
+            document.body.style.background = 'url(./images/image.png) no-repeat'
+
+        }
+
+    </script>
+</body>
+
+</html>

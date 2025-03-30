@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="start()">开始</button>
+
+    <div>倒计时</div>
+
+    <script>
+
+        function start() {
+            const btn = document.querySelector('button')
+            const div = document.querySelector('div')
+            btn.disabled = true
+            div.style.color = 'red'
+            div.style.fontSize = '40px'
+
+            let time = 5
+            div.innerHTML = time
+
+            // 开启定时器
+            const num = setInterval(function () {
+                div.innerHTML = --time
+                if (time === 0) {
+                    // 关闭定时器
+                    clearInterval(num)
+                    btn.disabled = false
+                }
+
+            }, 1000)
+
+        }
+
+    </script>
+</body>
+
+</html>
