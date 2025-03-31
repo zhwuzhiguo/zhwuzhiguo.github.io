@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+
+        // 事件捕获：document -> html -> body -> element
+        // 事件冒泡：element -> body -> html -> document （常用逻辑）
+
+        // addEventListener(事件类型, 处理函数, option)
+        // option: 是否使用捕获机制
+        // true 捕获阶段触发（从外到内触发事件处理函数）
+        // false 默认，冒泡阶段触发（从内到外触发事件处理函数）
+
+        const father = document.querySelector('.father')
+        const son = document.querySelector('.son')
+
+        // // 事件捕获：document -> html -> body -> element
+        // document.addEventListener('click', function (e) {
+        //     alert('document click')
+        // }, true)
+        // father.addEventListener('click', function (e) {
+        //     alert('father click')
+        // }, true)
+        // son.addEventListener('click', function (e) {
+        //     alert('son click')
+        // }, true)
+
+        // // 事件冒泡：element -> body -> html -> document
+        // document.addEventListener('click', function (e) {
+        //     alert('document click')
+        // })
+        // father.addEventListener('click', function (e) {
+        //     alert('father click')
+        // })
+        // son.addEventListener('click', function (e) {
+        //     alert('son click')
+        // })
+
+
+        // 阻止冒泡
+        // 避免事件向上级元素传播
+        document.addEventListener('click', function (e) {
+            alert('document click')
+        })
+        father.addEventListener('click', function (e) {
+            alert('father click1')
+            // 阻止冒泡
+            // 同理也能阻止捕获
+            e.stopPropagation()
+            // 同时阻止该元素上的其他处理函数
+            // e.stopImmediatePropagation()       
+        })
+        father.addEventListener('click', function (e) {
+            alert('father click2')
+        })
+        son.addEventListener('click', function (e) {
+            alert('son click')
+        })
+
+
+        
+
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

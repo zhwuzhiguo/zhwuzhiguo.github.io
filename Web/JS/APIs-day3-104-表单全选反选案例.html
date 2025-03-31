@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        .checkitem:checked {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div>
+        <input id="checkall" type="checkbox">全选
+    </div>
+    <hr>
+    <div>
+        <input class="checkitem" type="checkbox">篮球<br>
+        <input class="checkitem" type="checkbox">足球<br>
+        <input class="checkitem" type="checkbox">乒乓球<br>
+    </div>
+
+    <script>
+
+
+        function test() {
+            const checkall = document.querySelector('#checkall')
+            const checkitems = document.querySelectorAll('.checkitem')
+            checkall.addEventListener('click', function (e) {
+                for (let i = 0; i < checkitems.length; i++) {
+                    checkitems[i].checked = this.checked
+                }
+            })
+
+            // // 方法一
+            // for (let i = 0; i < checkitems.length; i++) {
+            //     checkitems[i].addEventListener('click', function (e) {
+            //         let checked = false
+            //         let unchecked = false
+            //         for (let j = 0; j < checkitems.length; j++) {
+            //             if (checkitems[j].checked) {
+            //                 checked = true
+            //             } else {
+            //                 unchecked = true
+            //             }
+            //         }
+
+            //         if (!unchecked) {
+            //             checkall.checked = true
+            //         } else {
+            //             checkall.checked = false
+            //         }
+
+            //     })
+            // }
+
+            // 方法二
+            for (let i = 0; i < checkitems.length; i++) {
+                checkitems[i].addEventListener('click', function (e) {
+                    checkall.checked = document.querySelectorAll('.checkitem:checked').length === checkitems.length
+                })
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

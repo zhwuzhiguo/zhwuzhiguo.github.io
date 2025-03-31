@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <button onclick="bind()">绑定事件</button>
+    <button onclick="unbind()">解绑事件</button>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <hr>
+
+    mouseover / mouseout 有冒泡效果 <br>
+    mouseenter / mouseleave 没有冒泡效果（推荐使用） <br>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+
+        const box1 = document.querySelector('.box1')
+        const box2 = document.querySelector('.box2')
+
+        function bind() {
+            box1.onclick = function (e) {
+                alert('box1 click')
+            }
+
+            box2.addEventListener('click', fun)
+        }
+
+        function unbind() {
+            box1.onclick = null
+
+            // 匿名函数不支持移除
+            box2.removeEventListener('click', fun)
+        }
+
+        function fun(e) {
+            alert('box2 click')
+        }
+
+        ///////////////////////////////////////////
+        const father = document.querySelector('.father')
+        const son = document.querySelector('.son')
+
+        // father.addEventListener('mouseover', function (e) {
+        //     console.log('father mouseover')
+        // })
+        // father.addEventListener('mouseout', function (e) {
+        //     console.log('father mouseout')
+        // })
+
+        // // 事件会冒泡给father
+        // son.addEventListener('mouseover', function (e) {
+        //     console.log('son mouseover')
+        //     // e.stopPropagation()
+        // })
+        // // 事件会冒泡给father
+        // son.addEventListener('mouseout', function (e) {
+        //     console.log('son mouseout')
+        //     // e.stopPropagation()
+        // })
+
+        father.addEventListener('mouseenter', function (e) {
+            console.log('father mouseenter')
+        })
+        father.addEventListener('mouseleave', function (e) {
+            console.log('father mouseleave')
+        })
+
+        // 事件不会冒泡给father
+        son.addEventListener('mouseenter', function (e) {
+            console.log('son mouseenter')
+        })
+        // 事件不会冒泡给father
+        son.addEventListener('mouseleave', function (e) {
+            console.log('son mouseleave')
+        })
+
+
+
+    </script>
+</body>
+
+</html>
