@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div class="box">内容</div>
+
+    <script>
+
+        // 环境对象指当前函数内部特殊的变量 this
+        // this 代表当前函数运行时所处的环境
+        // 函数调用方式不同 this 也不同
+        // 判断 this 的粗略规则：谁调用就是谁
+
+        function test() {
+            // 直接调用函数
+            // 其实相当于 window.add(1, 2)
+            // 所以 this 就是 window
+            // add(1,2)
+            window.add(1, 2)
+
+            const box = document.querySelector('.box')
+            box.addEventListener('click', function (e) {
+                // 这里的 this 是 div
+                console.log(this);
+                console.log(this.innerHTML);
+                // 这里的 this 是 e.srcElement
+                console.log(e.srcElement);
+                console.log(e.srcElement.innerHTML);
+
+                // 这里可以用 this
+                // 不用写死元素
+                this.style.color = 'red'
+            })
+
+            // 设置回调函数
+            box.addEventListener('click', callback)
+        }
+
+        function add(a, b) {
+            // 这里的 this 是 Window
+            console.log(this);
+            return a + b
+        }
+
+
+        // 回调函数
+        function callback(e) {
+            // 这里的 this 是 div
+            console.log('回调函数')
+            console.log(this);
+        }
+
+    </script>
+</body>
+
+</html>

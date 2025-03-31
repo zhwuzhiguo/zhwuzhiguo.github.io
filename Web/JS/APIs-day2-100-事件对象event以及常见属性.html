@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div class="box"></div>
+    <br>
+    <br>
+    <input class="txt" type="text">
+
+
+    <script>
+
+        function test() {
+            const box = document.querySelector('.box')
+            const txt = document.querySelector('.txt')
+            
+ 
+            // 事件对象：
+            // 时间响应函数的第一个参数就是事件对象
+            // 一般命名为 event ev e
+            box.addEventListener('click', function (e) {
+                console.log('鼠标点击事件')
+                console.log(e);
+                console.log(e.type);
+                console.log(e.screenX, e.screenY); // 光标相对于屏幕左上角的位置
+                console.log(e.clientX, e.clientY); // 光标相对于浏览器窗口左上角的位置
+                console.log(e.offsetX, e.offsetY); // 光标相对于当前DOM元素左上角的位置
+            })
+
+
+            txt.addEventListener('keydown', function (e) {
+                console.log('键盘按下事件')
+                console.log(e);
+                console.log(e.type);
+                console.log(e.key);
+                if (e.key === 'Enter') {
+                    console.log('回车键')
+                }
+                if (e.key === 'a') {
+                    console.log('a键')
+                }
+                if (e.key === 'A') {
+                    console.log('A键')
+                }
+
+            })
+
+            // 常用
+            // 避免长按键盘多次出发事件
+            txt.addEventListener('keyup', function (e) {
+                console.log('键盘抬起事件')
+                console.log(e);
+                console.log(e.type);
+                console.log(e.key);
+                if (e.key === 'Enter') {
+                    console.log('回车键')
+                }
+                if (e.key === 'a') {
+                    console.log('a键')
+                }
+                if (e.key === 'A') {
+                    console.log('A键')
+                }
+            })
+
+            txt.addEventListener('input', function (e) {
+                console.log('表单输入事件:', txt.value)
+                console.log(e);
+                console.log(e.type);
+                console.log(e.inputType);
+                console.log(e.data);
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>

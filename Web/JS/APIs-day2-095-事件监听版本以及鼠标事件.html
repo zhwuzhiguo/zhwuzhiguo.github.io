@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div class="box">事件监听</div>
+    <br>
+    <br>
+    <input class="txt" type="text">
+
+
+    <script>
+
+        function test() {
+            const box = document.querySelector('.box')
+            const txt = document.querySelector('.txt')
+            
+            // 老方法
+            // 多次设置覆盖之前的
+            box.onclick = function () {
+                alert('点击事件A！')
+            }
+            box.onclick = function () {
+                alert('点击事件B！')
+            }
+
+
+            // 新方法
+            // 多次设置追加不覆盖
+            // 推荐使用
+            box.addEventListener('click', function () {
+                alert('点击事件C！')
+            })
+            box.addEventListener('click', function () {
+                alert('点击事件D！')
+            })
+
+            
+            // 事件类型：
+            // click 鼠标点击
+            // mouseenter 鼠标经过事件
+            // mouseleave 鼠标离开事件
+            // focus 表单获得焦点事件
+            // blur 表单失去焦点事件
+            // keydown 键盘按下事件
+            // keyup 键盘抬起事件
+            // input 表单输入事件
+
+            box.addEventListener('mouseenter', function () {
+                console.log('鼠标经过事件')
+            })
+            box.addEventListener('mouseleave', function () {
+                console.log('鼠标离开事件')
+            })
+
+            txt.addEventListener('focus', function () {
+                console.log('表单获得焦点事件')
+            })
+            txt.addEventListener('blur', function () {
+                console.log('表单失去焦点事件')
+            })
+
+            txt.addEventListener('keydown', function () {
+                console.log('键盘按下事件')
+            })
+            txt.addEventListener('keyup', function () {
+                console.log('键盘抬起事件')
+            })
+
+            txt.addEventListener('input', function () {
+                console.log('表单输入事件:', txt.value)
+            })
+
+            // 也可以直接调用元素的事件函数
+            box.click()
+
+            
+        }
+
+    </script>
+</body>
+
+</html>

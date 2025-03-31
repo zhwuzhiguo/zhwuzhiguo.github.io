@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .tab {
+            display: flex;
+            justify-content: flex-start;
+            background-color: orange;
+        }
+
+        .tabitem {
+            font-size: 40px;
+            /* border: 1px solid gray; */
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .tabitem-active {
+            color: brown;
+        }
+
+        .content-item {
+            height: 200px;
+            display: none;
+            line-height: 200px;
+            text-align: center;
+            font-size: 50px;
+            color: white;
+        }
+
+        .content-item1 {
+            background-color: red;
+        }
+
+        .content-item2{
+            background-color: green;
+        }
+
+        .content-item3 {
+            background-color: blue;
+        }
+
+        .content-item-active {
+            display: block;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tab">
+        <div class="tabitem tabitem1 tabitem-active">项目一</div>
+        <div class="tabitem tabitem2">项目二</div>
+        <div class="tabitem tabitem3">项目三</div>
+    </div>
+    <div class="content">
+        <div class="content-item content-item1 content-item-active">项目内容</div>
+        <div class="content-item content-item2">项目内容</div>
+        <div class="content-item content-item3">项目内容</div>
+    </div>
+    <div class="footer">footer</div>
+
+    <script>
+        const tabitems = document.querySelectorAll('.tabitem')
+        for (let i = 0; i < tabitems.length; i++) {
+            tabitems[i].addEventListener('click', function (e) {
+                // tab
+                document.querySelector('.tabitem-active').classList.remove('tabitem-active')
+                this.classList.add('tabitem-active')
+                // content
+                document.querySelector('.content-item-active').classList.remove('content-item-active')
+                document.querySelector(`.content-item:nth-child(${i + 1})`).classList.add('content-item-active')
+            })
+        }
+
+    </script>
+</body>
+
+</html>
