@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: orange;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+        }
+
+        .son1 {
+            background-color: red;
+        }
+
+        .son2 {
+            background-color: green;
+        }
+
+        .son3 {
+            background-color: blue;
+        }
+
+        p {
+            background-color: cadetblue;
+        }
+
+        .border {
+            border: 2px solid skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="son son1">son1</div>
+        <div class="son son2">son2</div>
+        <div class="son son3">son3</div>
+        <p>段落</p>
+    </div>
+
+    <script>
+
+        // 事件委托
+        // 利用事件冒泡原理将子元素事件委托给父元素处理
+        const father = document.querySelector('.father')
+        father.addEventListener('click', function (e) {
+            // e.target 获取子元素
+            e.target.classList.toggle('border')
+            // srcElement 也可以
+            // e.srcElement.classList.toggle('border')
+
+            // e.target.tagName 获取子元素标签名
+            if (e.target.tagName === 'P') {
+                alert(e.target.innerHTML)
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <input type="submit" value="提交">
+    </form>
+    <a href="https://www.baidu.com">打开百度</a>
+    <script>
+        const form = document.querySelector('form')
+        form.addEventListener('submit', function (e) {
+            // 阻止事件默认提交
+            e.preventDefault()
+
+            // 阻止事件冒泡不行
+            // e.stopPropagation()
+            // e.stopImmediatePropagation()
+        })
+
+        const a = document.querySelector('a')
+        a.addEventListener('click', function (e) {
+            // 阻止事件默认提交
+            e.preventDefault()
+        })
+    </script>
+</body>
+</html>

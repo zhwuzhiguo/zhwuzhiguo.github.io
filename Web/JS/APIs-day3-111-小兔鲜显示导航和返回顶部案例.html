@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 1000px;
+        }
+
+
+        .box1 {
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 10px solid green;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .box3 {
+            height: 100px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+    </div>
+
+    <script>
+
+        const box2 = document.querySelector('.box2')
+        const box3 = document.querySelector('.box3')
+
+        // 页面滚动事件
+        window.addEventListener('scroll', function (e) {
+            console.log('document.documentElement.scrollTop: ', document.documentElement.scrollTop);
+            console.log('box2.offsetTop: ', box2.offsetTop);
+            
+            // 当box2向上滚动到窗口窗口边缘的时候box3显示
+            const n = document.documentElement.scrollTop
+            if (n > box2.offsetTop) {
+                box3.style.display = 'block'
+            } else {
+                box3.style.display = 'none'
+            }
+        })       
+
+    </script>
+</body>
+
+</html>

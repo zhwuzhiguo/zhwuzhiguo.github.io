@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html {
+            /* 设置页面滚动为滑动效果 */
+            scroll-behavior: smooth;
+        }
+        .box{
+            height: 1000px;
+        }
+        .box1{            
+            background-color: red;
+        }
+        .box2{            
+            background-color: green;
+        }
+        .box3{            
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="toolbar">
+        <button data-name="box1">滚动到box1</button>
+        <button data-name="box2">滚动到box2</button>
+        <button data-name="box3">滚动到box3</button>
+    </div>
+    
+
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+    <div class="box box3">box3</div>
+
+    <script>
+        const toolbar = document.querySelector('.toolbar') 
+        toolbar.addEventListener('click', function (e) {
+            const box = document.querySelector('.' + e.target.dataset.name) 
+            document.documentElement.scrollTop = box.offsetTop
+        })
+
+    </script>
+</body>
+
+</html>

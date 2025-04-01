@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0;
+
+        }
+
+        .container {
+            background-color: gray;
+            margin: 20px;
+            /* position: relative; */
+        }
+
+        .aaa {
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 10px solid green;
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="aaa">aaa</div>
+        <div class="box">box</div>
+    </div>
+
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 窗口尺寸变化事件
+        window.addEventListener('resize', function (e) {
+            console.log('resize...')
+            // html元素的宽和高
+            console.log(document.documentElement.clientWidth);
+            console.log(document.documentElement.clientHeight);
+
+        })
+
+        function test() {
+            const div = document.querySelector('.box')
+
+            console.log("client:")
+
+            // 元素位置
+            // 元素(包括padding)相对于本元素(包括border)的位置
+            console.log(div.clientLeft);
+            console.log(div.clientTop);
+            // 元素宽和高
+            // 包括padding
+            // 不包括border
+            console.log(div.clientWidth);
+            console.log(div.clientHeight);
+
+
+            console.log("offset:")
+
+            // 元素位置
+            // 相对于最近父级定位元素的位置
+            // 父级元素没有定位元素就是相对于window的位置
+            console.log(div.offsetLeft);
+            console.log(div.offsetTop);
+
+            // 元素宽和高
+            // 包括padding
+            // 包括border
+            // 获取的是可视尺寸
+            // 如果盒子是隐藏的则结果为0
+            console.log(div.offsetWidth);
+            console.log(div.offsetHeight);
+        }
+
+
+    </script>
+</body>
+
+</html>
