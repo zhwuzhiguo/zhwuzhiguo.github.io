@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <div></div>
+
+    <script>
+
+        function test() {
+            // 时间戳
+            // 1970年01月01日到现在的毫秒数
+            const date = new Date()
+            console.log(date.getTime())
+            console.log(+new Date())
+            console.log(+new Date('2025-04-01 08:08:00'))
+            console.log(Date.now())
+
+
+            // 输出星期
+            const weeks = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+            console.log(weeks[date.getDay()])
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

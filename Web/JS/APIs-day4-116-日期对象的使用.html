@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <div></div>
+
+    <script>
+
+        function test() {
+            // 当前时间
+            const date1 = new Date()
+            console.log(date1)
+            console.log(date1.toLocaleString())
+            console.log(date1.toLocaleDateString())
+            console.log(date1.toLocaleTimeString())
+
+            // 指定时间
+            const date2 = new Date('2025-04-01 08:08:00')
+            console.log(date2)
+
+            const date = new Date()
+            // 四位年份
+            console.log(date.getFullYear())
+            // 月（0-11）
+            console.log(date.getMonth())
+            // 日
+            console.log(date.getDate())
+            // 获取星期（0-6）
+            console.log(date.getDay())
+            // 获取小时（0-23）
+            console.log(date.getHours())
+            // 获取分（0-59）
+            console.log(date.getMinutes())
+            // 获取秒（0-59）
+            console.log(date.getSeconds())
+
+
+
+            setInterval(function () {
+                const date = new Date()
+                const dateString = getDateString(date)
+                document.write(`<div>${dateString}</div>`)
+            }, 1000)
+
+        }
+
+        function getDateString(date) {
+            let year = date.getFullYear()
+            let month = date.getMonth() + 1
+            let day = date.getDate()
+            let hour = date.getHours()
+            let minute = date.getMinutes()
+            let second = date.getSeconds()
+            let millisecond = date.getMilliseconds()
+
+            month = month < 10 ? '0' + month : month
+            day = day < 10 ? '0' + day : day
+            hour = hour < 10 ? '0' + hour : hour
+            minute = minute < 10 ? '0' + minute : minute
+            second = second < 10 ? '0' + second : second
+            millisecond = millisecond < 10 ? '00' + millisecond :
+                millisecond < 100 ? '0' + millisecond : millisecond
+
+            return year + '-'
+                + month + '-'
+                + day + ' '
+                + hour + ':'
+                + minute + ':'
+                + second + '.'
+                + millisecond
+        }
+
+    </script>
+</body>
+
+</html>

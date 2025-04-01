@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+            color: white;
+        }
+        span {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <div>
+        <span class="d">d</span>天
+        <span class="h">h</span>:<span class="m">m</span>:<span class="s">s</span>
+    </div>
+
+    <script>
+
+        function test() {
+            // 新年倒计时
+            const newYear = new Date('2026-01-01 00:00:00')
+            const now = new Date()
+            const seconds = (newYear.getTime() - now.getTime()) / 1000
+
+            let d = parseInt(seconds / 60 / 60 / 24)
+            let h = parseInt(seconds / 60 / 60 % 24)
+            let m = parseInt(seconds / 60 % 60)
+            let s = parseInt(seconds % 60)
+
+            h = h < 10 ? '0' + h : h
+            m = m < 10 ? '0' + m : m
+            s = s < 10 ? '0' + s : s
+
+            const domDay = document.querySelector('.d')
+            const domHour = document.querySelector('.h')
+            const domMinute = document.querySelector('.m')
+            const domSecond = document.querySelector('.s')
+            domDay.innerHTML = d
+            domHour.innerHTML = h
+            domMinute.innerHTML = m
+            domSecond.innerHTML = s
+
+        }
+
+
+    </script>
+</body>
+
+</html>
