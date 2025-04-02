@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .son1 {
+            background-color: red;
+        }
+
+        .son2 {
+            background-color: green;
+        }
+
+        .son3 {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="getParentNode()">查找父节点</button>
+    <button onclick="getChildNodes()">查找子节点</button>
+    <button onclick="getSiblingNode()">查找兄弟节点</button>
+
+
+    <div class="father">
+        <div class="son son1">son1</div>
+        <div class="son son2">son2</div>
+        <div class="son son3">son3</div>
+    </div>
+
+    <script>
+        // DOM节点：
+        // 1、元素节点：
+        // html body div
+        // 2、属性节点：
+        // id class href
+        // 3、文本节点：
+        // 文本内容，div内文本
+
+        // 主要讨论对元素节点的增删改查。
+        // 查找节点：
+        // 通过节点关系查找节点(父节点、子节点、兄弟节点)
+
+        // 查找父节点
+        function getParentNode() {
+            const son1 = document.querySelector('.son1')
+            const father = son1.parentNode
+            console.log(son1)
+            console.log(father)
+        }
+
+        // 查找子节点
+        function getChildNodes() {
+            const father = document.querySelector('.father')
+            // 包括换行文本节点和标签节点
+            const childNodes = father.childNodes
+            // 只包括标签节点（常用）
+            const children = father.children
+            console.log(childNodes)
+            console.log(children)
+        }
+
+        // 查找兄弟节点
+        function getSiblingNode() {
+            const son2 = document.querySelector('.son2')
+            const son1 = son2.previousElementSibling
+            const son3 = son2.nextElementSibling
+            console.log(son1)
+            console.log(son2)
+            console.log(son3)
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

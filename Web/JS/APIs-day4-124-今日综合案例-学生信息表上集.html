@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            text-align: center;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        姓名：<input type="text" class="uname" name="uname">
+        年龄：<input type="text" class="uage" name="uage">
+        性别：
+        <select class="usex" name="usex">
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+        <input type="submit" value="添加">
+    </form>
+
+    <table border="1">
+        <caption>学生信息表</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="sum">总人数:0</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        const students = []
+        const form = document.querySelector('form')
+        const name = document.querySelector('.uname')
+        const age = document.querySelector('.uage')
+        const sex = document.querySelector('.usex')
+        const formItems = document.querySelectorAll('[name]')
+
+        form.addEventListener('submit', function (e) {
+            // 阻止默认提交
+            e.preventDefault()
+
+            // 表单验证
+            for (let i = 0; i < formItems.length; i++) {
+                if (formItems[i].value === '') {
+                    return alert(`${formItems[i].name}输入内容不能为空`)
+                }
+            }
+
+            const student = {
+                name: name.value,
+                age: age.value,
+                sex: sex.value
+            }
+
+            students.push(student)
+            console.log(students)
+            render()
+
+            // 重置表单
+            form.reset()
+        })
+
+        const tbody = document.querySelector('tbody')
+        const tdsum = document.querySelector('.sum')
+        function render() {
+            // 清空tbody
+            tbody.innerHTML = ''
+
+            for (let i = 0; i < students.length; i++) {
+                const tr = document.createElement('tr')
+                tr.innerHTML = `
+                <td>${students[i].name}</td>
+                <td>${students[i].age}</td>
+                <td>${students[i].sex}</td>
+                <td><a href="javascript:" data-id="${i}">删除</a></td>`
+                // 添加行
+                tbody.appendChild(tr)
+            }
+
+            tdsum.innerHTML = `总人数:${students.length}`
+        }
+
+        // 事件委托
+        // 委托给父元素处理
+        tbody.addEventListener('click', function (e) {
+            console.log('tbody click...')
+            if (e.target.dataset.id) {
+                students.splice(e.target.dataset.id, 1)
+                render()
+            }
+        })
+    </script>
+
+</body>
+
+</html>

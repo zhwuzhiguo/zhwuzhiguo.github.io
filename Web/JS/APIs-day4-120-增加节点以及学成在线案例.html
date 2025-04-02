@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color:gray;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .son1 {
+            background-color: red;
+        }
+
+        .son2 {
+            background-color: green;
+        }
+
+        .son3 {
+            background-color: orange;
+        }
+
+        .append {
+            height: 40px;
+            line-height: 40px;
+            background-color: pink;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="addNode()">添加节点</button>
+    <button onclick="addNodeExample()">添加节点示例</button>
+
+    <div class="father">
+        <!-- <div class="son son1">son1</div>
+        <div class="son son2">son2</div>
+        <div class="son son3">son3</div> -->
+
+        <!-- <div>
+            <div class="son">示例</div>
+        </div> -->
+    </div>
+
+    <script>
+
+        // 添加节点
+        function addNode() {
+            const father = document.querySelector('.father')
+
+            // 插入到某元素前面
+            const insertSon = document.createElement('div')
+            // insertSon.setAttribute('class', 'son son1')
+            insertSon.classList.add('son')
+            insertSon.classList.add('son1')
+            insertSon.innerHTML = 'insertSon'
+            father.insertBefore(insertSon, father.children[0])
+
+            // 最加到最后
+            const appendSon = document.createElement('div')
+            // appendSon.setAttribute('class', 'son son3')
+            appendSon.classList.add('son')
+            appendSon.classList.add('son3')
+            appendSon.innerHTML = 'appendSon'
+            father.appendChild(appendSon)
+
+        }
+
+        // 添加节点示例
+        function addNodeExample() {
+            const father = document.querySelector('.father')
+            for (let i = 0; i < 10; i++) {
+                const append = document.createElement('div')
+                append.style.width = '300px'
+                append.classList.add('son')
+                append.innerHTML = `<div class="append">示例${i}</div>`
+                father.appendChild(append)
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

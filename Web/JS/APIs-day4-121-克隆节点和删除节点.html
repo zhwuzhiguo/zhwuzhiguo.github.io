@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            margin: 10px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .son1 {
+            background-color: red;
+        }
+
+        .son2 {
+            background-color: green;
+        }
+
+        .son3 {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="cloneNode111()">克隆节点</button>
+    <button onclick="removeNode()">删除节点</button>
+
+    <div class="father">
+        <div class="son son1">son1</div>
+        <div class="son son2">son2</div>
+        <div class="son son3">son3</div>
+    </div>
+
+    <script>
+
+        // 克隆节点
+        function cloneNode111() {
+            const father = document.querySelector('.father')
+            // 克隆不包含子节点
+            // 元素内的文本也不包含
+            const father1 = father.cloneNode()
+            // 克隆包含子节点
+            const father2 = father.cloneNode(true)
+
+            document.body.appendChild(father1)
+            document.body.appendChild(father2)
+
+
+            // 元素内的文本也不包含
+            const son = father.children[0].cloneNode()
+            father.append(son)
+
+
+        }
+
+        // 删除节点
+        function removeNode() {
+            const father = document.querySelector('.father')
+            if (father && father.children.length > 0) {
+                father.removeChild(father.children[0])
+            }
+
+            // 中间还会删除script元素
+            document.body.removeChild(document.body.children[document.body.children.length - 1])
+
+        }
+
+    </script>
+
+</body>
+
+</html>
