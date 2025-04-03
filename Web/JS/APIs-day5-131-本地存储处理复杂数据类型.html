@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test1()">设置本地存储</button>
+    <button onclick="test2()">读取本地存储</button>
+    <button onclick="test3()">移除本地存储</button>
+
+    <script>
+
+        // 本地存储
+        // 存储复杂数据类型
+
+        function test1() {
+            const obj = {
+                id: 123,
+                name: '张三',
+                age: 20
+            }
+
+            // 将对象转换为JSON字符串再存储
+            const objJSON = JSON.stringify(obj)
+            console.log(objJSON)
+            localStorage.setItem('obj', objJSON)
+        }
+
+        function test2() {
+            const objJSON = localStorage.getItem('obj')
+            console.log(objJSON)
+            const obj = JSON.parse(objJSON)
+            console.log(obj)
+        }
+
+        function test3() {
+            localStorage.removeItem('obj')
+        }
+
+
+    </script>
+</body>
+
+</html>

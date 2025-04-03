@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 字符串拼接新思路
+        // 效率更高
+        // 开发常用的写法
+        // 利用 map() 和 join() 数组方法实现字符串拼接
+
+        function test() {
+            const array = ['red', 'green', 'blue']
+
+            // map 遍历数组所有元素
+            // 并处理每个元素返回新元素
+            // 最后组成新数组返回
+            const newArray = array.map(function (element, index) {
+                console.log(element)
+                console.log(index)
+                return element + '颜色'
+            })
+
+            console.log(array)
+            console.log(newArray)
+
+            // join 将数组中所有元素转换为一个字符串
+            // 参数是分隔符
+            // 无参数默认逗号分隔
+            console.log(newArray.join())
+            console.log(newArray.join(''))
+            console.log(newArray.join('AAA'))
+
+
+
+            // =================其他数组遍历方法
+
+            // forEach 不返回值
+            array.forEach(function (element) {
+                console.log(element)
+            })
+
+            // for 遍历数组
+            for (const key in array) {
+                console.log(key)
+                console.log(typeof (key)) // string
+                console.log(array[key])
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test1()">设置本地存储</button>
+    <button onclick="test2()">读取本地存储</button>
+    <button onclick="test3()">移除本地存储</button>
+
+    <script>
+
+        // 本地存储
+        // H5 提出了本地存储解决方案
+        // 刷新网页数据不丢失
+        // 大约 5M 左右
+        // Chrome浏览器开发者工具Application页查看
+        // 本地存储只能存储字符串
+
+        // localStorage 
+        // 永久性的存储在本地
+        // 除非手动删除否则也值存在
+        // 以键值对的形式存储
+        // 不跨域可以共享
+
+        // sessionStorage
+        // 会话期间存储
+        // 浏览器关闭清楚
+        // 使用方法和localStorage类似
+
+
+        function test1() {
+            localStorage.setItem('id', '123')
+            localStorage.setItem('name', '张三')
+            localStorage.setItem('age', '20')
+
+            sessionStorage.setItem('id', '123')
+            sessionStorage.setItem('name', '张三')
+            sessionStorage.setItem('age', '20')
+        }
+
+        function test2() {
+            console.log('id:', localStorage.getItem('id'))
+            console.log('name:', localStorage.getItem('name'))
+            console.log('age:', localStorage.getItem('age'))
+
+            console.log('id:', sessionStorage.getItem('id'))
+            console.log('name:', sessionStorage.getItem('name'))
+            console.log('age:', sessionStorage.getItem('age'))
+        }
+
+        function test3() {
+            localStorage.removeItem('id')
+            // 清楚全部
+            localStorage.clear()
+
+            sessionStorage.removeItem('id')
+            // 清楚全部
+            sessionStorage.clear()
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        function test() {
+            alert(`
+            Window对象：
+            BOM(浏览器对象模型)
+            定时器-延时函数
+            JS执行机制
+            location对象
+            navigator对象
+            history对象
+            `)
+
+            // window对象是顶级对象
+            // 包括：
+            // window.navigator
+            // window.location
+            // window.document
+            // window.history
+            // window.screen
+
+        }
+
+        // 全局变量和函数
+        var num = 100
+        function fun() {
+            console.log('fun..')
+        }
+
+        // 全局函数和变量也是挂在window上的
+        window.fun()
+        console.log(window.num)
+
+        // 定时器
+        // 只执行一次
+        const timer = setTimeout(function name(params) {
+            alert('时间到了')
+        }, 2000)
+
+        // 清楚定时器
+        // clearTimeout(timer)
+
+    </script>
+</body>
+
+</html>

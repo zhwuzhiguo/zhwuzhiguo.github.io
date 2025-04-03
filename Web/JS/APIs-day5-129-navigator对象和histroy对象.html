@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test1()">后退back</button>
+    <button onclick="test2()">前进forward</button>
+    <button onclick="test3()">后退go(-1)</button>
+    <button onclick="test4()">前进go(1)</button>
+
+    <script>
+
+        // window对象是顶级对象
+        // 包括：
+        // navigator
+        // 浏览器自身的相关信息
+        // history
+        // 浏览器访问的历史记录
+
+        console.log(window)
+        console.log(navigator)
+        console.log(history)
+
+        // 判断客户端
+        console.log(navigator.userAgent)
+
+        // // 前进后退
+        // history.back()
+        // history.forward()
+        // // 前进一个页面
+        // history.go(1)
+        // // 后退一个页面
+        // history.go(-1)
+
+        function test1() {
+            history.back()
+        }
+
+        function test2() {
+            history.forward()
+        }
+
+        function test3() {
+            history.go(-1)
+        }
+
+        function test4() {
+            history.go(1)
+        }
+
+    </script>
+</body>
+
+</html>

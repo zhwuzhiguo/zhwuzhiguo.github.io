@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        console.log(1);
+        console.log(2);
+        
+        // 定时器
+        // 虽然定时器时间是0，
+        // 但定时器任务是放在任务队列里的，
+        // 主线程执行完执行栈上的操作，
+        // 才会从任务队列获取任务执行。
+        // 所以 timer.. 最后输出。
+        const timer = setTimeout(function name(params) {
+            console.log('timer..');
+        }, 0)
+
+        console.log(3);
+        console.log(4);
+
+        // 输出：
+        // 1
+        // 2
+        // 3
+        // 4
+        // timer..
+
+    </script>
+</body>
+
+</html>
+
+
