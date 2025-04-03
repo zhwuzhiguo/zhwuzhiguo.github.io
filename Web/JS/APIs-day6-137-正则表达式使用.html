@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <input type="text"><span></span>
+
+    <script>
+
+        // 正则表达式：
+        // 匹配
+        // 替换
+        // 提取
+
+        // 定义
+        // const 变量名 = /表达式/
+        const reg = /中国/
+
+        // 匹配 返回布尔
+        console.log(reg.test('我们是中国的中国好公民'))
+        // 匹配 返回数组
+        console.log(reg.exec('我们是中国的中国好公民'))
+
+        // 元字符
+        // 特殊含义的字符
+        // 包括：
+        // 1、边界符
+        // ^ 开始
+        // $ 结束
+
+        // 2、量词：模式出现次数
+        // * 重复零次或多次
+        // + 重复一次或多次
+        // ? 重复零次或一次
+        // {n} 重复n次
+        // {n,} 重复大于等于n次
+        // {n,m} 重复n到m次
+
+        // 3、字符类
+        // [abc] 匹配字符集合，字符串是中括号中的字符组成
+        // [a-z] 匹配字符集合，字符串是中括号中的字符组成(a到z的所有小写字符)
+        // [A-Z] 匹配字符集合，字符串是中括号中的字符组成(a到z的所有大写字符)
+        // [0-9] 匹配字符集合，字符串是中括号中的字符组成(0到9的所有数字字符)
+        // [^...] ^表示取反，不匹配字符集合
+        // . 除了换行符外的任何字符
+        // 预定义：某些常见模式的简写方式
+        // \d 匹配 0-9 字符，等价于[0-9]
+        // \D 匹配 0-9 以外的字符，相当于取反，等价于[^0-9]
+        // \w 匹配字母数字下划线，等价于[a-zA-Z0-9_]
+        // \W 匹配字母数字下划线以外的字符，相当于取反，等价于[^a-zA-Z0-9_]
+        // \s 匹配空格（包括回车、换行、制表、空格等），等价于[ \t\r\n\v\f]
+        // \S 匹配非空格字符，等价于[^ \t\r\n\v\f]
+
+
+        // 修饰符 
+        // 格式：
+        // /表达式/修饰符
+        // i 不区分大小写
+        // g 匹配满足所有正则表达式的结果
+
+
+
+        // 1、边界符
+        console.log('1、边界符')
+        console.log(/^a$/.test('a'))        // true
+        console.log(/^a$/.test('aa'))       // false
+        console.log(/^a$/.test('fa'))       // false
+        console.log(/^a$/.test('ae'))       // false
+
+        // 2、量词：模式出现次数
+        console.log('2、量词：模式出现次数')
+        console.log(/^a*$/.test(''))            // true
+        console.log(/^a*$/.test('aaa'))         // true
+        console.log(/^a*$/.test('bbb'))         // false
+
+        console.log(/^a+$/.test('a'))           // true
+        console.log(/^a+$/.test('aaa'))         // true
+        console.log(/^a+$/.test(''))            // false
+
+        console.log(/^a?$/.test(''))            // true
+        console.log(/^a?$/.test('a'))           // true
+        console.log(/^a?$/.test('aa'))          // false
+
+        console.log(/^a{3}$/.test('aaa'))       // true
+
+        console.log(/^a{3,}$/.test('aaa'))      // true
+        console.log(/^a{3,}$/.test('aaaa'))     // true
+        console.log(/^a{3,}$/.test('aa'))       // false
+
+        console.log(/^a{3,5}$/.test('aaa'))     // true
+        console.log(/^a{3,5}$/.test('aaaa'))    // true
+        console.log(/^a{3,5}$/.test('aaaaa'))   // true
+        console.log(/^a{3,5}$/.test('aaaaaa'))  // false
+
+        // 3、字符类
+        // [abc] 匹配字符集合，字符串是中括号中的字符组成
+        // [a-z] 匹配字符集合，字符串是中括号中的字符组成(a到z的所有小写字符)
+        // [A-Z] 匹配字符集合，字符串是中括号中的字符组成(a到z的所有大写字符)
+        // [0-9] 匹配字符集合，字符串是中括号中的字符组成(0到9的所有数字字符)
+        console.log('3、字符类')
+        console.log('[abc] 匹配字符集合，字符串只要包含中括号中的任一字符就为真')
+        console.log(/^[abc]$/.test('a'))            // true
+        console.log(/^[abc]$/.test('b'))            // true
+        console.log(/^[abc]$/.test('c'))            // true
+        console.log(/^[abc]$/.test('aa'))           // false
+        console.log(/^[a-z]$/.test('a'))            // true
+        console.log(/^[a-z]$/.test('x'))            // true
+        console.log(/^[a-z]$/.test('aa'))           // true
+        console.log(/^[a-z]*$/.test('aabbccxx'))    // true
+        console.log(/^[A-Z]*$/.test('AABBCCXX'))    // true
+        console.log(/^[0-9]*$/.test('1234567890'))  // true
+        // 组合起来
+        console.log(/^[a-zA-Z0-9]*$/.test('abcABC123xZ0'))  // true
+        // 取反 
+        // 除了字母和数字的字符
+        console.log(/^[^a-zA-Z0-9]*$/.test('!?.'))      // true
+        console.log(/^[^a-zA-Z0-9]*$/.test('!?.0'))     // false
+
+        // . 除了换行符外的任何字符
+        console.log(/.*$/.test('abcABC123!?.'))     // true
+
+        // 预定义：某些常见模式的简写方式
+        // \d 匹配 0-9 字符，等价于[0-9]
+        // \D 匹配 0-9 以外的字符，相当于取反，等价于[^0-9]
+        // \w 匹配字母数字下划线，等价于[a-zA-Z0-9_]
+        // \W 匹配字母数字下划线以外的字符，相当于取反，等价于[^a-zA-Z0-9_]
+        // \s 匹配空格（包括回车、换行、制表、空格等），等价于[ \t\r\n\v\f]
+        // \S 匹配非空格字符，等价于[^ \t\r\n\v\f]
+
+        // 验证日期
+        console.log(/^\d{4}-\d{1,2}-\d{1,2}$/.test('2025-04-03'))   // true
+        console.log(/^\d{4}-\d{1,2}-\d{1,2}$/.test('2025-4-3'))     // true
+
+
+        // 修饰符 
+        // 格式：
+        // /表达式/修饰符
+        // i 不区分大小写
+        // g 匹配满足所有正则表达式的结果
+        console.log('修饰符')
+        console.log(/^java$/i.test('java'))            // true
+        console.log(/^java$/i.test('JaVa'))            // true
+
+        // 替换
+        console.log('0abc123ABC'.replace(/[abc]/i, '-'))    // 不区分大小写替换第一个: 0-bc123ABC
+        console.log('0abc123ABC'.replace(/[abc]/ig, '-'))   // 不区分大小写替换全部: 0---123---
+
+
+
+
+        // 输入验证示例
+        const input = document.querySelector('input')
+        const span = document.querySelector('span')
+        const regObj = /^[a-zA-Z0-9]{6,8}$/
+        input.addEventListener('blur', function (e) {
+            if (regObj.test(this.value)) {
+                span.innerHTML = '输入正确'
+                span.style.color = 'green'
+            } else {
+                span.innerHTML = '输入错误'
+                span.style.color = 'red'
+            }
+        })
+
+        function test() {
+
+
+        }
+
+    </script>
+</body>
+
+</html>
