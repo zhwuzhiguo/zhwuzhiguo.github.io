@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box1,
+        .box2 {
+            display: flex;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box box11">111</div>
+        <div class="box box12">112</div>
+        <div class="box box13">113</div>
+    </div>
+
+    <div class="box2">
+        <div class="box box11">211</div>
+        <div class="box box12">212</div>
+        <div class="box box13">213</div>
+    </div>
+
+    <button onclick="test()">通过元素的querySelector()方法获取其子元素</button>
+
+    <script>
+
+        function test() {
+            const box2 = document.querySelector('.box2');
+            box2.querySelector('.box11').style.backgroundColor = 'red';
+            box2.querySelector('.box12').style.backgroundColor = 'red';
+            box2.querySelector('.box13').style.backgroundColor = 'red';
+        }
+
+    </script>
+</body>
+
+</html>

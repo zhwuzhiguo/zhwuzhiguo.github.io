@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <br>
+    <br>
+    <div class="box"></div>
+
+
+
+    <script>
+
+        function test() {
+            const box = document.querySelector('.box')
+            const rect = box.getBoundingClientRect()
+            console.log(rect);
+            console.log(box.offsetLeft, box.offsetTop);
+
+            box.addEventListener('mousemove', function (e) {
+                console.log('mousemove：')
+                // 光标相对于浏览器窗口左上角的位置 - 盒子的位置
+                console.log(e.pageX - box.offsetLeft, e.pageY - box.offsetTop);
+                // 光标相对于当前DOM元素左上角的位置(用这个属性应该也行)
+                console.log(e.offsetX, e.offsetY);
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>
