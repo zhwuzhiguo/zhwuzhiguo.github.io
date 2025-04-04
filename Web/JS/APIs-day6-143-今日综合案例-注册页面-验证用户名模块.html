@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text">
+
+    <script>
+
+        // 1. 获取 input 元素
+        const input = document.querySelector('input')
+
+        // 2. 监听 input 元素的 change 事件
+        // 3. 当 input 元素的值发生变化并且焦点离开时才触发
+        input.addEventListener('change', function () {
+            console.log('change...');
+        })
+
+    </script>
+</body>
+
+</html>

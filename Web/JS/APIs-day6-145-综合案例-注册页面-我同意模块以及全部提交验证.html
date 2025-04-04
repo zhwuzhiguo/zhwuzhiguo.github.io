@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+    <input type="checkbox" id="id1">
+
+    <script>
+
+        const id1 = document.querySelector('#id1')
+        id1.addEventListener('click', function () {
+            id1.classList.toggle('active')
+            console.log(id1.classList.contains('active'))
+        })
+
+        function test() {
+            
+        }
+
+    </script>
+</body>
+
+</html>

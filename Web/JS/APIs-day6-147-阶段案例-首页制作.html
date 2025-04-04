@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <a id="a1" href="https://www.baidu.com">跳到百度</a>
+    <a id="a2" href="">点击2</a>
+    <a id="a3" href="javascript:alert('行内弹窗')">点击3</a>
+
+    <script>
+        const a1 = document.getElementById('a1');
+        const a2 = document.getElementById('a2');
+
+        a1.addEventListener('click', function (e) {
+            // 先执行点击事件在跳转百度
+            alert('a1被点击了');
+        });
+
+        a2.addEventListener('click', function (e) {
+            // 只执行点击事件
+            alert('a2被点击了');
+        });
+        a3.addEventListener('click', function (e) {
+            // 先执行点击事件
+            // 后执行href上的js弹窗
+            alert('a3被点击了');
+        });
+
+    </script>
+</body>
+
+</html>
