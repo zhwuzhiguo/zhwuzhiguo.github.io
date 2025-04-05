@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 数组解构
+        // 数组解构是将数组中的元素值快速批量赋值给一系列变量的简洁语法
+
+        // 语法
+        console.log('语法')
+        const array = [90, 10, 50]
+        const [max, min, avg] = array
+        console.log(max) // 90
+        console.log(min) // 10
+        console.log(avg) // 50
+
+        // 交换变量
+        console.log('交换变量')
+        let a = 1
+        let b = 2;
+        // 前面语句需要加分号
+        [b, a] = [a, b]
+        console.log(a) // 2
+        console.log(b) // 1
+
+
+        // 变量少于数组元素
+        console.log('变量少于数组元素')
+        const [a1, a2] = [1, 2, 3, 4]
+        console.log(a1) // 1
+        console.log(a2) // 2
+
+        // 变量多于数组元素
+        console.log('变量多于数组元素')
+        const [b1, b2, b3] = [1, 2]
+        console.log(b1) // 1
+        console.log(b2) // 2
+        console.log(b3) // undefined
+
+
+        // 变量少于数组元素-使用剩余参数接收数据
+        console.log('变量少于数组元素-使用剩余参数接收数据')
+        const [c1, c2, ...arr] = [1, 2, 3, 4]
+        console.log(c1) // 1
+        console.log(c2) // 2
+        console.log(arr) // [3, 4] 真数组
+
+        // 变量多于数组元素-设置默认值
+        console.log('变量多于数组元素-设置默认值')
+        const [d1 = 10, d2 = 10, d3 = 10] = [1, 2]
+        console.log(d1) // 1
+        console.log(d2) // 2
+        console.log(d3) // 10
+
+
+        // 按需解构某些元素
+        console.log('按需解构某些元素')
+        const [e1, , e3] = [1, 2, 3, 4]
+        console.log(e1) // 1
+        console.log(e3) // 2
+
+
+        // 支持多为数组
+        console.log('支持多为数组')
+        const [f1, f2, [f3, f4]] = [1, 2, [3, 4]]
+        console.log(f1) // 1
+        console.log(f2) // 2
+        console.log(f3) // 3
+        console.log(f4) // 4
+
+
+        function test() {
+            alert('ES6+..')
+        }
+
+    </script>
+</body>
+
+</html>

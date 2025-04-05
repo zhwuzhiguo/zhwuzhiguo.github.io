@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // forEach 遍历数组
+        // 1. forEach() 方法用于遍历数组
+        // 2. forEach() 方法对数组的每个元素执行一次提供的函数
+        // 3. forEach() 方法不会返回值
+        // 4. forEach() 方法不能中途跳出循环
+        // 5. forEach() 方法不能被 break、continue 或 return 语句中断
+
+        console.log('forEach 遍历数组')
+
+        const array = [
+            { name: '张三', age: 18, address: { city: '北京', country: '中国' } },
+            { name: '李四', age: 20, address: { city: '上海', country: '中国' } },
+            { name: '王五', age: 22, address: { city: '广州', country: '中国' } }
+        ]
+
+        array.forEach(function (item, index) {
+            console.log(index, item)
+        })
+
+        array.forEach((item, index) => {
+            console.log(index, item)
+        })
+
+        array.forEach(item => {
+            console.log(item)
+        })
+
+        // 使用对象解构
+        array.forEach(({ name, age, address: { city, country } }) => {
+            console.log(name, age, city, country)
+        })
+
+        console.log('filter 过滤数组')
+
+        // filter 过滤数组
+        // map 遍历数组并返回新数组
+        // forEach 遍历数组不返回新数组
+        const array2 = [
+            { name: '张三', age: 18, address: { city: '北京', country: '中国' } },
+            { name: '李四', age: 20, address: { city: '上海', country: '中国' } },
+            { name: '王五', age: 22, address: { city: '广州', country: '中国' } }
+        ]
+
+        const newArray1 = array2.filter(function (item, index) {
+            console.log(index, item)
+            // 过滤条件
+            // 返回 true 或 false
+            // true 代表保留该元素
+            // false 代表删除该元素
+            return item.age >= 20
+        })
+
+        const newArray2 = array2.filter((item, index) => {
+            console.log(index, item)
+            return item.age >= 20
+        })
+
+
+        const newArray3 = array2.filter(item => {
+            console.log(item)
+            return item.age >= 20
+        })
+
+        const newArray4 = array2.filter(({ name, age, address: { city, country } }) => {
+            console.log(name, age, city, country)
+            return age >= 20 && city === '上海'
+        })
+
+        // 箭头函数简写
+        const newArray5 = array2.filter(item => item.age >= 20 && item.address.city === '上海')
+
+        console.log(newArray1)
+        console.log(newArray2)
+        console.log(newArray3)
+        console.log(newArray4)
+        console.log(newArray5)
+
+        function test() {
+            alert('ES6+..')
+        }
+
+    </script>
+</body>
+
+</html>

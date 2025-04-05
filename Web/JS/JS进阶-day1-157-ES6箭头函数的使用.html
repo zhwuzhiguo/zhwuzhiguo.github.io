@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <button id="btn">测试按钮</button>
+
+    <script>
+
+        // 箭头函数用来替代匿名函数
+        // 1. 语法简洁
+        // 2. 没有自己的 this
+        // 3. 没有 arguments
+
+        // 普通函数
+        function fn1(a, b) {
+            return a + b
+        }
+
+        // 箭头函数
+        const fn2 = () => {
+            console.log('无参箭头函数')
+        }
+
+        // 箭头函数
+        const fn3 = (a) => {
+            console.log('一个参数箭头函数')
+        }
+
+        // 箭头函数
+        const fn4 = a => {
+            console.log('一个参数箭头函数简写')
+        }
+
+        // 箭头函数
+        const fn5 = (a, b) => {
+            console.log('多个参数箭头函数')
+        }
+
+        // 箭头函数
+        const add1 = (a, b) => {
+            return a + b
+        }
+
+        // 箭头函数
+        // 函数体只有一行语句
+        // 可以省略大括号和 return 关键字
+        const add2 = (a, b) => a + b
+
+        // 箭头函数
+        // 函数体只有一行语句
+        // 可以省略大括号和 return 关键字
+        // 直接返回对象
+        // 需要用 () 包裹对象
+        // 否则会被当做函数体
+        const getObject = (name, age) => ({ name: name, age: age })
+
+
+
+        // 箭头函数没有 arguments
+        // 不能使用 arguments
+        // 但是可以使用剩余参数
+        const getSum = (...args) => {
+            let sum = 0
+            for (let i = 0; i < args.length; i++) {
+                sum += args[i]
+            }
+
+            return sum
+        }
+
+
+        // 箭头函数没有自己的 this
+        // this 指向外部函数的 this
+        // 也就是外部函数的作用域
+        console.log('箭头函数外部的this: ', this) // window
+        const testThis = () => {
+            console.log('箭头函数内部的this: ', this) // window
+        }
+
+        testThis()
+
+
+        console.log('对象内部普通函数和箭头函数的this:')
+        const obj = {
+            name: '张三',
+            age: 18,
+            // 普通函数
+            getInfo1: function () {
+                console.log('普通函数内部的this: ', this) // obj
+                console.log(this.name, this.age)
+            },
+            // 箭头函数
+            getInfo2: () => {
+                console.log('箭头函数内部的this: ', this) // window
+                console.log(this.name, this.age) // undefined
+            }
+        }
+        obj.getInfo1()
+        obj.getInfo2()
+
+        // 对象内部普通函数内的箭头函数
+        console.log('对象内部普通函数内的箭头函数this:')
+        const obj2 = {
+            name: '张三',
+            age: 18,
+            // 普通函数
+            getInfo1: function () {
+                console.log('普通函数内部的this: ', this) // obj
+                console.log(this.name, this.age)
+                // 箭头函数
+                const getInfo2 = () => {
+                    console.log('箭头函数内部的this: ', this) // obj
+                    console.log(this.name, this.age)
+                }
+                getInfo2()
+            }
+        }
+        obj2.getInfo1()
+
+
+        // DOM 事件处理函数
+        // 不太推荐使用箭头函数
+        // 特别是需要用到 this 的时候
+        // 因为箭头函数没有自己的 this
+        // this 指向 window
+
+        // 按钮点击事件使用普通函数和箭头函数的this的区别
+        const btn = document.querySelector('#btn')
+        // 普通函数
+        btn.addEventListener('click', function () {
+            console.log('普通函数内部的this: ', this) // btn
+        })
+        // 箭头函数
+        btn.addEventListener('click', () => {
+            console.log('箭头函数内部的this: ', this) // window
+        })
+
+
+        function test() {
+            fn1(1, 2)
+            fn2()
+            fn3(1)
+            fn4(1)
+            fn5(1, 2)
+
+            console.log(add1(1, 2))
+            console.log(add2(1, 2))
+            console.log(getObject('张三', 18))
+
+            console.log(getSum(1, 2, 3))
+        }
+
+    </script>
+</body>
+
+</html>

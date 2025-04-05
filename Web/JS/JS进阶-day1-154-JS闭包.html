@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="test()">执行</button>
+
+    <script>
+
+        // 闭包 = 内层函数 + 外层函数的变量（内层函数访问）
+
+        // 闭包简单形式
+        function outer() {
+            let a = 1
+            function inner() {
+                console.log(a)
+            }
+
+            inner()
+        }
+
+        // 调用
+        outer()
+
+
+        // 常见闭包形式 
+        // 外部可以访问使用函数内部的变量
+        function outer2() {
+            let a = 1
+            function inner() {
+                console.log(a)
+            }
+
+            return inner
+        }
+
+        // 调用
+        const fun = outer2()
+        fun()
+
+
+        // 闭包应用
+        // 实现数据私有
+        function createCounter() {
+            let count = 0
+            return {
+                increment: function () {
+                    count++
+                    console.log(count)
+                },
+                decrement: function () {
+                    count--
+                    console.log(count)
+                }
+            }
+        }
+
+        // 调用访问私有数据 count
+        console.log('调用访问私有数据 count:') // 1
+        createCounter().increment() // 1
+        createCounter().increment() // 1
+        createCounter().decrement() // -1
+        createCounter().decrement() // -1
+
+        // 上面代码每次调用都会创建一个新的闭包
+        // 下面代码只创建一个闭包
+        // cc 指向函数的返回值 
+        // 返回值的俩个函数引用函数内部变量 count
+        // 只要 cc 不被销毁 count 就不会被销毁
+        const cc = createCounter()
+        cc.increment() // 1
+        cc.increment() // 2
+        cc.decrement() // 1
+        cc.decrement() // 0
+
+        // 闭包的缺点
+        // 函数调用结束后函数内的局部变量不释放，可能导致内存泄漏。
+
+
+        function test() {
+
+        }
+
+    </script>
+</body>
+
+</html>

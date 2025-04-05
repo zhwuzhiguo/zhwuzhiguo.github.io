@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 函数动态参数
+        // arguments
+        // arguments 是一个 伪 数组
+        // arguments.callee 代表当前函数
+        // arguments.length 代表参数个数
+        // arguments[0] 代表第一个参数
+        // arguments[1] 代表第二个参数
+        // ...
+        function getSum() {
+            console.log(arguments)
+            console.log(arguments.callee)
+            console.log(arguments.length)
+
+            let sum = 0
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+            }
+
+            return sum
+        }
+
+        console.log('getSum: ', getSum(1, 2, 3))
+
+
+        // 剩余参数
+        // 剩余参数是一个 真 数组
+        // 剩余参数必须是最后一个参数
+        function getSum2(base, ...args) {
+            console.log(args)
+            console.log(args.length)
+
+            let sum = 0
+            for (let i = 0; i < args.length; i++) {
+                sum += args[i]
+            }
+
+            return base + sum
+        }
+
+        console.log('getSum2: ', getSum(10, 1, 2, 3))
+
+        
+        // 展开运算符
+        // ...array
+        console.log('展开运算符:')
+        const arr = [1, 2, 3]
+        console.log(...arr) // 1 2 3
+        console.log(Math.max(...arr)) // 3 求数组最大值
+        console.log(Math.min(...arr)) // 1 求数组最小值
+        console.log(getSum(...arr))
+        console.log(getSum2(10, ...arr))
+
+        // 不能直接传数组
+        console.log('getSum2(10, arr):');
+        console.log(getSum2(10, arr)) // 1001,2,3
+
+
+        // 展开运算符合并数组
+        console.log('展开运算符合并数组:');
+        const arr1 = [1, 2, 3]
+        const arr2 = [4, 5, 6]
+        const arr3 = [...arr1, ...arr2]
+        console.log(arr3) // [1, 2, 3, 4, 5, 6]
+
+
+
+    </script>
+</body>
+
+</html>
