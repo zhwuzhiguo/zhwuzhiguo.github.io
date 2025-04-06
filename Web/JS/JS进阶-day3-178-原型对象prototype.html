@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 构造函数利用原型对象实现方法共享
+        // 每个构造函数都有一个 prototype 属性指向原型对象
+        // 原型对象上定义的方法是所有对象共享的
+        // 构造函数和原型对象中的 this 都指向实例化的对象
+
+        // 公共属性写在构造函数里
+        function Star(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        // 公共方法写在原型上
+        Star.prototype.sing = function () {
+            console.log(this.name, 'sing...')
+        }
+
+        // 打印原型
+        console.log(Star.prototype)
+
+        const star1 = new Star('刘德华', 50)
+        const star2 = new Star('张学友', 60)
+        star1.sing()
+        star2.sing()
+
+        // 方法是同一个
+        console.log(star1.sing === star2.sing) // true
+
+
+    </script>
+</body>
+
+</html>

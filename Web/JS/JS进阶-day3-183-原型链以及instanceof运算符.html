@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 基于原型对象的继承使得不同构造函数的原型对象关联在一起
+        // 并且这种关联关系是一种链状结构
+        // 原型对象的链状结构关系称为原型链
+
+        // 对象的属性和方法就是通过原型链一级一级的向上查找的。
+
+        // 原型继承
+        // 通过原型对象继承
+        function Person() {
+            this.name = 'jack'
+            this.age = 20
+        }
+
+        Person.prototype.say = function () {
+            console.log(this.name, 'say..')
+        }
+
+        function Man() {
+        }
+
+        // 原型对象设置为一个父类实例
+        // 原型对象的构造函数设置子类的构造函数
+        // 这样Man的原型对象就有了name和age属性
+        Man.prototype = new Person()
+        Man.prototype.constructor = Man
+
+
+        function Boy() {
+        }
+
+        // 原型对象设置为一个父类实例
+        // 原型对象的构造函数设置子类的构造函数
+        Boy.prototype = new Man()
+        Boy.prototype.constructor = Boy
+
+
+
+        // 创建子对象
+        const boy = new Boy()
+        boy.name = '男孩'
+        boy.age = 50
+        boy.say()
+
+        // 原型链
+        console.log(boy);
+        console.log(boy.__proto__)
+
+
+        // 可以使用 instanceof 运算符检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
+        console.log('instanceof:')
+        console.log(boy instanceof Boy)
+        console.log(boy instanceof Man)
+        console.log(boy instanceof Person)
+        console.log(boy instanceof Object)
+        console.log(boy instanceof Array)
+
+        // Object原型对象是任何对象的原型链的最顶端
+        console.log(Array instanceof Object)
+
+
+    </script>
+</body>
+
+</html>

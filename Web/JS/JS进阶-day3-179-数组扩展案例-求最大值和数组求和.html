@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 给数组扩展方法
+        Array.prototype.sum = function () {
+            // let sum = 0
+            // this.forEach(item=>{
+            //     sum += item
+            // })
+
+            // return sum
+
+            return this.reduce((prev, item) => prev + item, 0)
+        }
+
+        Array.prototype.max = function () {
+            return Math.max(...this)
+        }
+
+        Array.prototype.min = function () {
+            return Math.min(...this)
+        }
+
+        const array = [1, 2, 3, 4, 5]
+        console.log('array.sum():', array.sum())
+        console.log('array.max():', array.max())
+        console.log('array.min():', array.min())
+
+
+    </script>
+</body>
+
+</html>

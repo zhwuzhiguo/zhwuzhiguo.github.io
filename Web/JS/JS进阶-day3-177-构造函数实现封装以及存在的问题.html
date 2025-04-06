@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 构造函数
+        // 实现封装性
+        function Star(name, age) {
+            this.name = name
+            this.age = age
+            this.sing = function () {
+                console.log(this.name, 'sing...')
+            }
+        }
+
+        // 调用构造函数创建对象
+        const star1 = new Star('刘德华', 50)
+        const star2 = new Star('刘德华', 50)
+        console.log(star1 === star2) // false
+        // 方法也是独立的
+        // 浪费内存
+        console.log(star1.sing === star2.sing) // false
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 原型继承
+        // 通过原型对象继承
+        function Person() {
+            this.name = 'jack'
+            this.age = 20
+        }
+
+        Person.prototype.say = function () {
+            console.log(this.name, 'say..')
+        }
+
+        function Man() {
+        }
+
+        // 原型对象设置为一个父类实例
+        // 原型对象的构造函数设置子类的构造函数
+        // 这样Man的原型对象就有了name和age属性
+        Man.prototype = new Person()
+        Man.prototype.constructor = Man
+
+        // 创建子类对象
+        const man = new Man()
+        man.name = '男人'
+        man.age = 50
+        man.say()
+        console.log(man)
+
+    </script>
+</body>
+
+</html>
