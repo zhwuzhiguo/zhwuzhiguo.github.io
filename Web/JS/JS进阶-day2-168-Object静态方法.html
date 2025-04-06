@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 包装类型:
+        // String
+        // Number
+        // Boolean
+
+        // 引用类型:
+        // Object
+        // Array
+        // RegExp
+        // Date
+
+        // 内置构造函数:
+        // Object
+        // Array
+        // String
+        // Number
+
+        const obj = {
+            name: 'jack',
+            age: 20,
+            say: function () {
+                console.log(this.name, 'say...')
+            }
+        }
+
+        // 1. Object.keys() 方法返回给定对象的属性名数组
+        const array1 = Object.keys(obj)
+        console.log(array1) // ['name', 'age', 'say']
+
+        // 2. Object.values() 方法返回给定对象的属性值数组
+        const array2 = Object.values(obj)
+        console.log(array2) // ['jack', 20, ƒ]
+
+        // 对象拷贝
+        // Object.assign() 方法用于将所有可枚举的属性值从一个或多个源对象复制到目标对象
+        // 语法: Object.assign(target, ...sources)
+        // 返回目标对象
+        Object.assign(obj, {
+            gender: 'man',
+            sing: function () {
+                console.log(this.name, 'sing...')
+            }
+        })
+
+        console.log(obj) // {name: 'jack', age: 20, gender: 'man', say: ƒ, sing: ƒ}
+        obj.say()  // jack say...
+        obj.sing() // jack sing...
+
+
+    </script>
+</body>
+
+</html>

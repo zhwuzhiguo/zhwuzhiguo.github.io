@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+            this.say = function () {
+                console.log(this.name)
+                console.log(this.age)
+            }
+        }
+
+        // 构造函数执行过程：
+        // 1、使用 new 调用函数就会创建一个空对象
+        // 2、这个对象会被赋值给 this
+        // 3、执行构造函数内的代码
+        // 4、返回该对象
+        const person = new Person('张三', 18)
+        console.log(person)
+
+    </script>
+</body>
+
+</html>

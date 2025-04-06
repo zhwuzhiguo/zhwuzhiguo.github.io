@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+
+        // Array
+        let array = [1, 2, 3, 4, 5, 10, 6, 7, 8, 9]
+
+        console.log('join:')
+        console.log(array.join())
+        console.log(array.join(''))
+        console.log(array.join('|'))
+
+        console.log('map:', array.map((item, index) => {
+            return item * 2
+        }))
+
+        console.log('filter:', array.filter((item, index) => {
+            return item > 5
+        }))
+
+        console.log('every:', array.every((item, index) => {
+            return item > 5
+        }))
+
+        console.log('some:', array.some((item, index) => {
+            return item > 5
+        }))
+
+
+        console.log('find:', array.find((item, index) => {
+            return item > 5
+        }))
+
+        console.log('findIndex:', array.findIndex((item, index) => {
+            return item > 5
+        }))
+
+        console.log('sort:', array.sort((a, b) => {
+            return a - b
+        }))
+
+        console.log('sort:', array)
+
+        console.log('reverse:', array.reverse())
+        console.log('reverse:', array)
+
+
+        // 用指定值填充数组指定索引区间的元素
+        // array.fill(value, start, end)
+        // value: 填充的值
+        // start: 填充的起始索引
+        // end: 填充的结束索引(不包含)
+        console.log('fill:', array.fill(0))
+        console.log('fill:', array.fill(1, 2, 5))
+        console.log('fill:', array.fill(2, 6))
+        console.log('fill:', array)
+
+
+        // 重置数组
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log('array:', array)
+
+        // 从数组中获取子数组
+        // array.slice(start, end)
+        // start: 起始索引(包含)
+        // end: 结束索引(不包含)
+        array.slice(2, 5)
+        console.log('slice:', array.slice(2, 5))
+        console.log('slice:', array.slice(2))
+
+        // 从数组中删除项目
+        // 语法: array.splice(start, deleteCount)
+        console.log('splice:', array.splice(2, 3))
+        console.log('splice:', array.splice(2))
+        console.log('splice:', array)
+
+        // 重置数组
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log('array:', array)
+
+        // 合并数组
+        // 语法: array.concat(value1, value2, ...)
+        const array1 = [1, 2, 3]
+        const array2 = [4, 5, 6]
+        const array3 = [7, 8, 9]
+        const array4 = array.concat(array1, array2, array3)
+        console.log('concat:', array)
+        console.log('concat:', array4)
+
+
+        // 伪数组转换为真数组
+        // 语法: Array.from(arrayLike, mapFn)
+        // arrayLike: 伪数组
+        // mapFn: 映射函数
+
+        // 伪数组：NodeList
+        const lis = document.querySelectorAll('ul li')
+        console.log('lis:', lis)
+        // 伪数组不能使用数组的方法
+        // lis.pop()
+
+        // 转换为真数组
+        const liss1 = Array.from(lis)
+        console.log('liss1:', liss1)
+        liss1.pop()
+        console.log('liss1:', liss1)
+
+        // 转换为真数组
+        const liss2 = Array.from(lis, (item, index) => {
+            return item.innerText
+        })
+        console.log('liss2:', liss2)
+        liss2.pop()
+        console.log('liss2:', liss2)
+
+    </script>
+</body>
+
+</html>

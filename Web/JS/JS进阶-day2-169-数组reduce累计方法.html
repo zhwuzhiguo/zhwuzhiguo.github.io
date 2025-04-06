@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Array
+        const array1 = [1, 2, 3, 4, 5]
+        const array2 = new Array(1, 2, 3, 4, 5)
+        console.log(array1)
+        console.log(array2)
+
+        // reduce() 方法对数组中的每个元素执行一次函数处理并将结果汇总为单个值返回
+        // 语法: 
+        // array.reduce(function(上次值, 当前值){}, 初始值])
+        const array3 = [1, 2, 3, 4, 5]
+
+        // 不设置初始值
+        // 首次执行函数时：
+        // 上次值为数组的第一个元素
+        // 当前值为数组的第二个元素
+        const sum1 = array3.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        })
+        console.log('sum1:', sum1)
+
+        // 设置初始值
+        // 首次执行函数时：
+        // 上次值为初始值
+        // 当前值为数组的第一个元素
+        const sum2 = array3.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 10)
+        console.log('sum2:', sum2)
+
+        // 简写
+        const sum3 = array3.reduce((accumulator, currentValue) => accumulator + currentValue, 10)
+        console.log('sum3:', sum3)
+
+        // 实例
+        const array4 = [
+            { name: 'jack', age: 20 },
+            { name: 'rose', age: 18 },
+            { name: 'lucy', age: 22 }
+        ]
+
+        // 数组元素时对象是必须设置初始值
+        // 否则首次执行函数时：
+        // 上次值为数组的第一个元素是对象，无法进行相加
+        const totalAge = array4.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue.age
+        }, 0)
+        console.log('totalAge:', totalAge)
+
+
+    </script>
+</body>
+
+</html>

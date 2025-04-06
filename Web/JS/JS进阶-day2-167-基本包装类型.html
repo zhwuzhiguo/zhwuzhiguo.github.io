@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 基本包装类型
+        // String
+        // Number
+        // Boolean
+
+        // 等价
+        // JS 底层把简单数据类型包装为包装类型
+        const str1 = 'jack'
+        const str2 = new String('jack')
+
+        // 等价
+        // JS 底层把简单数据类型包装为包装类型
+        const num1 = 10
+        const num2 = new Number(10)
+
+        console.log(str1)
+        console.log(str2)
+        console.log(num1)
+        console.log(num2)
+
+        // 可以调用对象的方法
+        console.log(str1.toUpperCase())
+        console.log(str2.toUpperCase())
+        console.log(num1.toString())
+        console.log(num2.toString())
+
+
+        // 补充：
+        // 四舍五入保留几位小数
+        const price = 3.1415926
+        console.log(price.toFixed())  // 3
+        console.log(price.toFixed(2)) // 3.14
+        console.log(price.toFixed(3)) // 3.142
+
+        // 整数保留2为小数
+        const num = 10
+        console.log(num.toFixed(2)) // 10.00
+
+        // 补充：
+        // 数字转字符串
+        const value = 3.14
+        console.log(String(value))
+        console.log(value.toString())
+
+    </script>
+</body>
+
+</html>

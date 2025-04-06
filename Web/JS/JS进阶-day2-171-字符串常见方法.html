@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function add(x, y) {
+            return x + y
+        }
+
+        // 函数调用多传参数忽略
+        // 函数调用少传参数没有传递的参数为 undefined
+        const sum1 = add(1, 2) // 3
+        const sum2 = add(1, 2, 3) // 3
+        const sum3 = add(1) // 3
+
+        console.log('sum1:', sum1)
+        console.log('sum2:', sum2)
+        console.log('sum3:', sum3)
+
+        // 字符串方法
+        const str = '0123456|abcdefg|ABCDEFG'
+        console.log(str.length)
+        console.log(str.split('|'))
+        console.log(str.charAt(2))
+        console.log(str.substring(2, 6))
+        console.log(str.substring(2))
+        console.log(str.startsWith('012'))
+        console.log(str.endsWith('EFG'))
+        console.log(str.includes('abc'))
+        console.log(str.includes('abc', 8))
+        console.log(str.includes('abc', 9))
+        console.log(str.toUpperCase())
+        console.log(str.toLowerCase())
+        console.log(str.indexOf('abc'))
+
+        console.log('replace:')
+        console.log(str.replace('abc', '***'))
+        console.log(str.replace(/[a-z]/, '*'))
+        console.log(str.replace(/[a-z]/ig, '*'))
+
+        console.log('match1:')
+        str.match('abc').forEach(item=>{
+            console.log(item)
+        })
+        console.log('match2:')
+        str.match(/[a-z]/).forEach(item=>{
+            console.log(item)
+        })
+        console.log('match3:')
+        str.match(/[a-z]/ig).forEach(item=>{
+            console.log(item)
+        })
+
+        console.log('matchAll1:')
+        str.matchAll('abc').forEach(item=>{
+            console.log(item)
+        })
+        console.log('matchAll2:')
+        str.matchAll(/[a-z]/g).forEach(item=>{
+            console.log(item)
+        })
+        console.log('matchAll3:')
+        str.matchAll(/[a-z]/ig).forEach(item=>{
+            console.log(item)
+        })
+
+    </script>
+</body>
+
+</html>
