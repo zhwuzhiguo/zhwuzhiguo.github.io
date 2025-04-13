@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 1000px;
+
+
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <video src="https://vod.300hu.com/vod/product/1495890632/21852/1087_5000_1_065dc3d7e_f.mp4" controls
+            preload="auto"></video>
+    </div>
+
+    <script>
+        const video = document.querySelector('video')
+        // 播放进度变化事件
+        video.ontimeupdate = _.throttle(() => {
+            console.log(video.currentTime)
+            localStorage.setItem('currentTime', video.currentTime)
+        }, 1000)
+
+        // 页面打开是触发
+        video.onloadeddata = () => {
+            const currentTime = localStorage.getItem('currentTime')
+            video.currentTime = currentTime || 0
+            console.log(currentTime)
+        }
+
+
+    </script>
+
+</body>
+
+</html>

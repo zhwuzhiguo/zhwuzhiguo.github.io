@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            line-height: 200px;
+            text-align: center;
+            font-size: 40px;
+            color: green;
+
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <script>
+        // 防抖
+        // 单位时间内频繁触发事件
+        // 只执行最后一次
+        const box = document.querySelector('div')
+        let i = 1
+        function mouseMove() {
+            box.innerHTML = i++
+
+        }
+
+        // 默认没有防抖
+        // 数字频繁增加
+        // box.addEventListener('mousemove', mouseMove)
+
+        // 利用 lodash 库实现防抖
+        // 500ms 后才执行
+        // box.addEventListener('mousemove', _.debounce(mouseMove, 500))
+
+        // 手写防抖函数
+        // 使用定时器实现
+        function debounce(fn, timeout) {
+            let timer
+            return function () {
+                if (timer) {
+                    clearTimeout(timer)
+                }
+
+                timer = setTimeout(fn, timeout);
+            }
+
+        }
+
+        box.addEventListener('mousemove', debounce(mouseMove, 500))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            id:123,
+            name:'jack',
+            info: {
+                city: '北京'
+            }
+        }
+
+        // 直接赋值
+        // 指向同一个对象
+        // 第一层属性也是同一个属性
+        const o = obj
+        o.name = 'jim'
+        console.log('obj', obj)
+        console.log('o', o)
+
+        // 浅拷贝
+        // 展开运算符
+        // 第一层的值类型是真正的拷贝不受影响
+        // 但引用类型还是同一个对象
+        const obj1 = {...obj}
+        obj1.name = 'jack1'
+        obj1.info.city='北京1'
+        console.log('obj', obj)
+        console.log('obj1', obj1)
+
+        // 浅拷贝
+        // 第一层的值类型是真正的拷贝不受影响
+        // 但引用类型还是同一个对象
+        const obj2 = {}
+        Object.assign(obj2, obj)
+        obj2.name = 'jack2'
+        obj1.info.city='北京2'
+        console.log('obj', obj)
+        console.log('obj1', obj2)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送短信</button>
+    <script>
+
+        // 使用 bind() 不调用函数
+        // 但能改变函数中的 this 的值
+        // fun.bind(thisArg, arg1, arg2, ...)
+        // 返回由指定的 this 值和初始化参数改造的原函数拷贝(新函数)
+        // bind 最常用
+        function add(a, b) {
+            console.log(this);
+            console.log(this.name);
+            console.log(this.age);
+            return a + b
+        }
+
+        const obj = {
+            name: 'jakc',
+            age: 20
+        }
+
+        // 改变 this 值但不立刻调用
+        const fun = add.bind(obj, 1, 2)
+        console.log(fun)
+        console.log(fun === add) // false
+
+        // 调用新函数
+        fun()
+
+        // 示例
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', function (e) {
+            this.disabled = true
+            // 使用普通函数
+            // setTimeout(function () {
+            //     // 普通函数的 this 不是 btn
+            //     // this.disabled = false
+            //     btn.disabled = false
+            // }, 2000)
+
+            // 或者使用箭头函数
+            // setTimeout( () => {
+            //     this.disabled = false
+            // }, 2000)
+
+            // 使用 bind 只改变 this 值
+            // 不立即调用
+            // setTimeout(function () {
+            //     this.disabled = false
+            // }.bind(btn), 2000)
+
+            // 或者 bind(this)
+            // bind(this) 中的 this 在函数外
+            // 所以就是 btn
+            setTimeout(function () {
+                this.disabled = false
+            }.bind(this), 2000)
+        })
+
+    </script>
+</body>
+
+</html>

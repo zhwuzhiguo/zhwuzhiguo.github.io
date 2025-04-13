@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 异常处理
+
+        function add(x, y) {
+            if (x === undefined
+                || y === undefined) {
+                // 抛出异常
+                throw new Error("参数错误");
+            }
+
+            return x + y
+        }
+
+        function fun() {
+            // 捕获异常
+            try {
+                add()
+            } catch (error) {
+                // 设置断点
+                // 浏览器会自动停在此处
+                debugger
+
+                // 处理异常
+                console.error('error:', error.message)
+                // 直接返回
+                return
+
+            } finally {
+                // 不管是否发生异常都执行
+                console.error('finally...')
+            }
+
+            // 之前有 return 不执行
+            console.log('fun finished...')
+        }
+
+        fun()
+        console.log('finished...')
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 使用 call() 调用函数
+        // 同时指定被调用函数中的 this 的值
+        // fun.call(thisArg, arg1, arg2, ...)
+        // 返回值就是函数的返回值
+        function add(a, b) {
+            console.log(this);
+            console.log(this.name);
+            console.log(this.age);
+            return a + b
+
+        }
+
+        const obj = {
+            name: 'jakc',
+            age: 20
+        }
+
+        console.log(add.call(obj, 1, 2))
+        console.log(add(1, 2))
+
+    </script>
+</body>
+
+</html>

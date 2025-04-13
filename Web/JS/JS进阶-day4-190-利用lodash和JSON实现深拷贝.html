@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+
+<body>
+    <script>
+
+        const obj = {
+            id: 123,
+            name: 'jack',
+            hobby: ['A', 'B', 'C'],
+            info: {
+                city: 'beijing'
+            }
+        }
+
+        // 使用 lodash 库 实现深拷贝
+        console.log('使用 lodash 库 实现深拷贝');
+        const obj1 = _.cloneDeep(obj)
+        console.log('obj:', obj);
+        console.log('obj1:', obj1);
+
+        obj1.hobby[0] = 'AA'
+        obj1.info.city = 'shanghai'
+        console.log('obj:', obj);
+        console.log('obj1:', obj1);
+
+
+        // 使用 json 实现深拷贝
+        console.log('使用 json 实现深拷贝');
+        const json = JSON.stringify(obj)
+        const obj2 = JSON.parse(json)
+        console.log('json:', json);
+        
+        
+        obj2.hobby[0] = 'AA'
+        obj2.info.city = 'shanghai'
+        console.log('obj:', obj);
+        console.log('obj2:', obj2);
+
+
+    </script>
+</body>
+
+</html>

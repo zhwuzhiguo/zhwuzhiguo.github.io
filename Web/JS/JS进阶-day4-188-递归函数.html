@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>111</div>
+    <script>
+        // 通过递归实现深拷贝
+
+        // 递归示例
+        function getTime() {
+            document.querySelector('div').innerHTML = new Date().toLocaleString()
+            setTimeout(getTime, 1000);
+        }
+
+        getTime()
+
+
+    </script>
+</body>
+
+</html>

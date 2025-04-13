@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const obj = {
+            id: 123,
+            name: 'jack',
+            hobby: ['A', 'B', 'C'],
+            info: {
+                city: 'beijing'
+            }
+        }
+
+        // 通过递归实现深拷贝
+        const obj1 = {}
+        function deepCopy(newObj, obj) {
+            for (const key in obj) {
+                if (obj[key] instanceof Array) {
+                    newObj[key] = []
+                    deepCopy(newObj[key], obj[key])
+
+                } else if (obj[key] instanceof Object) {
+                    newObj[key] = {}
+                    deepCopy(newObj[key], obj[key])
+
+                } else {
+                    newObj[key] = obj[key]
+                }
+            }
+
+        }
+
+        deepCopy(obj1, obj)
+        obj1.hobby[0] = 'AA'
+        obj1.info.city = 'shanghai'
+        console.log('obj:', obj);
+        console.log('obj1:', obj1);
+
+
+    </script>
+</body>
+
+</html>

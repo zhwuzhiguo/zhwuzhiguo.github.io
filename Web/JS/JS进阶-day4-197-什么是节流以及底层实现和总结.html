@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            line-height: 200px;
+            text-align: center;
+            font-size: 40px;
+            color: green;
+
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <script>
+        // 节流
+        // 单位时间内频繁触发事件
+        // 只执行第一次
+        const box = document.querySelector('div')
+        let i = 1
+        function mouseMove() {
+            box.innerHTML = i++
+
+        }
+
+        // 默认没有节流
+        // 数字频繁增加
+        // box.addEventListener('mousemove', mouseMove)
+
+        // 利用 lodash 库实现节流
+        // 500ms 后才执行下一次
+        // box.addEventListener('mousemove', _.throttle(mouseMove, 500))
+
+        // 手写节流函数
+        // 使用定时器实现
+        function throttle(fn, timeout) {
+            let timer = null
+            return function () {
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        fn()
+                        timer = null
+                    }, timeout);
+                }
+            }
+
+        }
+
+        box.addEventListener('mousemove', throttle(mouseMove, 2000))
+
+    </script>
+</body>
+
+</html>

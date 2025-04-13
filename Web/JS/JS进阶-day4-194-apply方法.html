@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 使用 apply() 调用函数
+        // 同时指定被调用函数中的 this 的值
+        // fun.apply(thisArg, [argsArray])
+        // 第二个参数必须是数组
+        // 返回值就是函数的返回值
+        function add(a, b) {
+            console.log(this);
+            console.log(this.name);
+            console.log(this.age);
+            return a + b
+        }
+
+        const obj = {
+            name: 'jakc',
+            age: 20
+        }
+
+        // 调用的函数参数必须是数组
+        console.log(add.apply(obj, [1, 2]))
+        console.log(add(1, 2))
+
+
+        // 使用场景
+        // 求数组最大值
+        console.log('求数组最大值:');
+        const array = [1, 2, 3, 4, 5]
+        console.log(Math.max(...array))
+        console.log(Math.max.apply(Math, array))
+        // this 参数传 null 也可以
+        console.log(Math.max.apply(null, array))
+
+
+    </script>
+</body>
+
+</html>
